@@ -1,5 +1,6 @@
 
 // document / window
+// Second developer: Nikola
 
 let bodyEl;
 let divEl;
