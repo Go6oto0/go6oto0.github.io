@@ -1,0 +1,54 @@
+﻿/*
+    Topbar
+*/
+#topbar-content, #footer-content {
+    padding: 0 10px;
+}
+
+#topbar-content {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+#topbar-score,
+#topbar-flags,
+#topbar-bombs,
+#topbar-time{
+    flex: 0 0 auto;
+}
+
+#topbar-level {
+    flex: 1 0 auto;
+    text-align: center;
+}
+
+/*
+    Footer
+*/
+
+
+#footer-content {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+#footer-inventory, #footer-effects {
+    flex: 0 0 auto;
+}
+
+#footer-health {
+    flex: 0 0 50%;
+}
+
+
+
+/*
+    Minefield
+*/
+.field {
+    width: 64px;
+    height: 64px;
+    background: #999;
+}

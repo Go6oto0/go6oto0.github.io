@@ -1,13 +1,15 @@
-﻿body {
-    min-height: 100vh;
-}
+﻿/*
+    Minesweeper CSS file
+*/
 
-div {
-    background: orange;
-}
+/*
+    Imports
+*/
+@import url("style.general.css");
+@import url("style.layout.css");
+@import url("style.fonts.css");
+@import url("style.components.css");
+@import url("style.shared.css");
+@import url("style.level.css");
 
-#container div {
-    background: blue;
-    height: 50px;
-    margin-bottom: 5px;
-}
+

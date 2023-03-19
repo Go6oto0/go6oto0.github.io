@@ -1,0 +1,58 @@
+﻿/*
+    Label
+*/
+
+
+.label--padding {
+    padding-right:20px;
+}
+
+
+.label__icon{
+    display:inline-block;
+    width:24px;
+    height:24px;
+    background:url('assets/sprite.png');
+    background-repeat:no-repeat;
+    background-position-y:-100px;
+    background-position-x:0;
+    margin-right:5px;
+    position:relative;
+    top:3px;
+}
+
+.label__icon--flag {
+    background-position-x: -100px;
+}
+
+.label__icon--bomb {
+    background-position-x: -200px;
+}
+
+.label__icon--hourglass {
+    background-position-x: -400px;
+}
+
+    .label__text {
+        display: inline-block;
+        font-family: 'Goldman';
+        font-size: 32px;
+    }
+
+.label__text--bold {
+    font-weight:bold;
+}
+
+.label__text--x::before {
+    content: "x";
+    display: inline-block;
+    font-size: 20px;
+    opacity: 0.5;
+    padding-right: 3px;
+}
+
+.label__progress {
+    display: inline-block;
+    height: 24px;
+    background: red;
+}

@@ -5,17 +5,83 @@
 <head>
     <meta charset="utf-8" />
     <title>Minesweeper | Boz Zashev</title>
-    <link rel="stylesheet" href="./style.css?cb=20230307">
-    <script src="./script.js?cb=20230307"></script>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./script.js"></script>
 </head>
 
-<body id="body">
-    <div id="div" style="height:50px">
-        <a id="link" href="#footer">test</a>
+<body>
+    <div id="topbar">
+        <div class="container">
+            <div id="topbar-content">
+                <div id="topbar-score">
+                    <div class="label label--padding">
+                        <div class="label__icon label__icon--coin"></div>
+                        <div class="label__text">00000002</div>
+                    </div>
+                </div>
+                <div id="topbar-flags">
+                    <div class="label label--padding">
+                        <div class="label__icon label__icon--flag"></div>
+                        <div class="label__text label__text--x">25</div>
+                    </div>
+                </div>
+                <div id="topbar-bombs">
+                    <div class="label">
+                        <div class="label__icon label__icon--bomb"></div>
+                        <div class="label__text label__text--x">25</div>
+                    </div>
+                </div>
+                <div id="topbar-level">
+                    <div class="label">
+                        <div class="label__text label__text--bold">Level 1: The Rock</div>
+                    </div>
+                </div>
+                <div id="topbar-time">
+                    <div class="label">
+                        <div class="label__icon label__icon--hourglass"></div>
+                        <div class="label__text">00:01</div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <section id="container">
-        <div></div>
-    </section>
+    <div id="content">
+        <div class="container">
+            <div id="minefield">
+                <div>
+                    Minefield
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        <div class="container">
+            <div id="footer-content">
+                <div id="footer-health">
+                    <div class="label">
+                        <div class="label__icon label__icon--heart"></div>
+                        <div class="label__progress">
+                            <div class="label__fill"></div>
+                            <div class="label__text">252525</div>
+                        </div>
+                    </div>
+                </div>
+                <div id="footer-inventory">
+                    <div class="label label--button">
+                        <div class="label__icon label__icon--radar"></div>
+                        <div class="label__text label__text--x">1</div>
+                    </div>
+                </div>
+                <div id="footer-effects">
+                    <div class="label">
+                        <div class="label__icon label__icon--coin"></div>
+                        <div class="label__aux label__aux--x">2</div>
+                        <div class="label__text">00:01</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
