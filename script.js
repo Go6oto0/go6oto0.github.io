@@ -1,7 +1,8 @@
 
 // document / window
-// Second developer: Nikola
-
+//First developer Viktor
+//Second developer: Nikola
+//third row
 let bodyEl;
 let divEl;
 let linkEl;
