@@ -71,6 +71,8 @@
     height: 35px;
     background: #94A3B8;
     position:relative;
+    overflow:hidden;
+    border-radius:10px;
 }
 
     .label__progress .label__text {
