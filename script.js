@@ -3,6 +3,7 @@
 //First developer Viktor
 //Second developer: Nikola
 //third row
+//forth row
 let bodyEl;
 let divEl;
 let linkEl;
