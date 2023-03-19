@@ -1,6 +1,6 @@
 
 // document / window
-
+//First developer Viktor
 let bodyEl;
 let divEl;
 let linkEl;
