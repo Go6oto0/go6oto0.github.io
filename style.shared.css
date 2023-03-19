@@ -1,15 +1,28 @@
-﻿/*
+﻿.label__progress .label__fill {
+    background: #B91C1C;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 2;
+}/*
     Label
 */
 
 
-.label--padding {
-    padding-right:20px;
-}
 .label {
     display:inline-flex;
     align-items:center;
 }
+
+.label--padding {
+    padding-right: 20px;
+}
+
+.label--block {
+    display: flex;
+}
+
 
 .label__icon{
     display:inline-block;
@@ -53,7 +66,20 @@
 }
 
 .label__progress {
-    display: inline-block;
-    height: 24px;
-    background: red;
+    flex: 0 0 auto;
+    display: block;
+    height: 35px;
+    background: #94A3B8;
+    position:relative;
 }
+
+    .label__progress .label__text {
+        color:white;
+        position: absolute;
+        left: 10px;
+        top: 0;
+        bottom: 0;
+        z-index: 2;
+        line-height:35px;
+    }
+
