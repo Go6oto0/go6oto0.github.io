@@ -39,7 +39,7 @@
                 <div id="topbar-time">
                     <div class="label">
                         <div class="label__icon label__icon--hourglass"></div>
-                        <div class="label__text">00:01</div>
+                        <div class="label__text">00:00</div>
                     </div>
                 </div>
             </div>
@@ -84,9 +84,30 @@
     <script>
         let rows = 14;
         let columns = 22;
+        let minefieldEl, timerEl, startTime;
+
+        function update() {
+            var ss = timerEl.innerHTML.split(":");
+            var dt = new Date();
+            dt.setHours(0);
+            dt.setMinutes(ss[0]);
+            dt.setSeconds(ss[1]);
+
+            var dt2 = new Date(dt.valueOf() + 1000);
+            var temp = dt2.toTimeString().split(" ");
+            var ts = temp[0].split(":");
+
+            timerEl.innerHTML = ts[1] + ":" + ts[2];
+          
+
+            setTimeout(update, 1000);
+        }
 
         function init() {
-            let minefieldEl = document.getElementById("minefield");
+            //Elements Init
+            timerEl = document.querySelector("#topbar-time .label__text");
+            minefieldEl = document.getElementById("minefield");
+            startTime = new Date();
             let minefieldRowStyle = "";
             let minefieldColumnStyle = "";
             let isColumnAdded = false;
@@ -106,6 +127,7 @@
             minefieldEl.style.gridTemplateRows = minefieldRowStyle;
             minefieldEl.style.gridTemplateColumns = minefieldColumnStyle;
 
+            setTimeout(update, 1000);
         }
         window.addEventListener("load", function () {
             init();

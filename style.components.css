@@ -23,16 +23,18 @@
     text-align: center;
 }
 
+#topbar-time .label__text {
+    flex:0 0 auto;
+    width:120px;
+}
 /*
     Footer
 */
-
-
 #footer-content {
     display: flex;
     align-items: center;
     height: 100%;
-    justify-content:space-between;
+    justify-content: space-between;
 }
 
 #footer-aside {
@@ -67,16 +69,44 @@
     gap: 5px;
     padding: 10px;
     background-image: url('assets/rock-bkg.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: calc(100vh - 120px);
+    background-size:cover;
+    min-height: calc(100vh - 120px);
 }
 
 .field {
     width: 64px;
     height: 64px;
-    background: url('assets/sprite.png');
-    background-repeat:no-repeat;
-    background-position-x:0;
-    background-position-y:0;
+    position:relative;
+    cursor:pointer;
 }
+
+    .field::before {
+        background: url('assets/sprite.png');
+        background-repeat: no-repeat;
+        background-position-x: 0;
+        background-position-y: 0;
+        position:absolute;
+        top:0;
+        left:0;
+        bottom:0;
+        right:0;
+        content:"";
+        display:block;
+    }
+
+    .field::after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        content: "";
+        display: block;
+        background:rgba(255,255,255,0.25);
+        display:none;
+        border-radius:3px;
+    }
+
+    .field:hover::after {
+        display: block;
+    }
