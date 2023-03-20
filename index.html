@@ -47,11 +47,7 @@
     </div>
     <div id="content">
         <div class="container">
-            <div id="minefield">
-                <div>
-                    Minefield
-                </div>
-            </div>
+            <div id="minefield"></div>
         </div>
     </div>
     <div id="footer">
@@ -84,6 +80,36 @@
             </div>
         </div>
     </div>
-</body>
 
+    <script>
+        let rows = 14;
+        let columns = 22;
+
+        function init() {
+            let minefieldEl = document.getElementById("minefield");
+            let minefieldRowStyle = "";
+            let minefieldColumnStyle = "";
+            let isColumnAdded = false;
+            for (var i = 0; i < rows; i++) {
+                minefieldRowStyle += "60px ";
+
+                for (var j = 0; j < columns; j++) {
+                    if (!isColumnAdded) {
+                        minefieldColumnStyle += "60px ";
+                    }
+                    var fieldEl = document.createElement("div");
+                    fieldEl.classList.add("field");
+                    minefieldEl.appendChild(fieldEl);
+                }
+                isColumnAdded = true;
+            }
+            minefieldEl.style.gridTemplateRows = minefieldRowStyle;
+            minefieldEl.style.gridTemplateColumns = minefieldColumnStyle;
+
+        }
+        window.addEventListener("load", function () {
+            init();
+        })
+    </script>
+</body>
 </html>

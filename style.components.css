@@ -61,8 +61,22 @@
 /*
     Minefield
 */
+
+#minefield {
+    display: grid;
+    gap: 5px;
+    padding: 10px;
+    background-image: url('assets/rock-bkg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: calc(100vh - 120px);
+}
+
 .field {
     width: 64px;
     height: 64px;
-    background: #999;
+    background: url('assets/sprite.png');
+    background-repeat:no-repeat;
+    background-position-x:0;
+    background-position-y:0;
 }

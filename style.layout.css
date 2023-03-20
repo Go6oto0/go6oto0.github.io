@@ -26,10 +26,9 @@
     top: 0;
 }
 
-#minefield {
+#content {
     box-sizing: border-box;
     min-height: 100vh;
-    content: "";
     padding: 50px 0;
 }
 
