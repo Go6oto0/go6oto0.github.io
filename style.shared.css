@@ -46,12 +46,18 @@
 .label__icon--hourglass {
     background-position-x: -400px;
 }
+.label__icon--radar{
+    background-position-x:-600px;
+}
+.label__icon--heart {
+    background-position-x: -700px;
+}
 
-    .label__text {
-        display: inline-block;
-        font-family: 'Goldman';
-        font-size: 32px;
-    }
+.label__text {
+    display: inline-block;
+    font-family: 'Goldman';
+    font-size: 32px;
+}
 
 .label__text--bold {
     font-weight:bold;
