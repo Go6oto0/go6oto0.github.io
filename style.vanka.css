@@ -7,7 +7,6 @@
     background-position-y: -200px;
     background-position-x: 0;
     position: relative;
-    visibility:hidden;
     z-index:1;
 }
 #number2 {
@@ -19,7 +18,6 @@
     background-position-y: -200px;
     background-position-x: -100px;
     position: relative;
-    visibility: hidden;
     z-index: 1;
 }
 #number3 {
@@ -31,7 +29,6 @@
     background-position-y: -200px;
     background-position-x: -200px;
     position: relative;
-    visibility: hidden;
     z-index: 1;
 }
 #number4 {
@@ -43,7 +40,6 @@
     background-position-y: -200px;
     background-position-x: -300px;
     position: relative;
-    visibility: hidden;
     z-index: 1;
 }
 #number5 {
@@ -55,7 +51,6 @@
     background-position-y: -200px;
     background-position-x: -400px;
     position: relative;
-    visibility: hidden;
     z-index: 1;
 }
 #number6 {
@@ -67,7 +62,6 @@
     background-position-y: -200px;
     background-position-x: -500px;
     position: relative;
-    visibility: hidden;
     z-index: 1;
 }
 #number7 {
@@ -79,7 +73,6 @@
     background-position-y: -200px;
     background-position-x: -600px;
     position: relative;
-    visibility: hidden;
     z-index: 1;
 }
 #number8 {
@@ -91,7 +84,6 @@
     background-position-y: -200px;
     background-position-x: -700px;
     position: relative;
-    visibility: hidden;
     z-index: 1;
 }
 #number1sides {
@@ -103,7 +95,6 @@
     background-position-y: -300px;
     background-position-x: 0;
     position: relative;
-    visibility: hidden;
     z-index: 1;
 }
 #number2sides {
@@ -115,7 +106,6 @@
     background-position-y: -300px;
     background-position-x: -100px;
     position: relative;
-    visibility: hidden;
     z-index: 1;
 }
 #number3sides {
@@ -127,7 +117,6 @@
     background-position-y: -300px;
     background-position-x: -200px;
     position: relative;
-    visibility: hidden;
     z-index: 1;
 }
 #number4sides {
@@ -139,7 +128,6 @@
     background-position-y: -300px;
     background-position-x: -300px;
     position: relative;
-    visibility: hidden;
     z-index: 1;
 }
 #number5sides {
@@ -151,7 +139,6 @@
     background-position-y: -300px;
     background-position-x: -400px;
     position: relative;
-    visibility: hidden;
     z-index: 1;
 }
 #number6sides {
@@ -163,7 +150,6 @@
     background-position-y: -300px;
     background-position-x: -500px;
     position: relative;
-    visibility: hidden;
     z-index: 1;
 }
 #number7sides {
@@ -175,7 +161,6 @@
     background-position-y: -300px;
     background-position-x: -600px;
     position: relative;
-    visibility: hidden;
     z-index: 1;
 }
 #number8sides {
@@ -187,7 +172,6 @@
     background-position-y: -300px;
     background-position-x: -700px;
     position: relative;
-    visibility: hidden;
     z-index: 1;
 }
 
@@ -210,8 +194,8 @@
     background-repeat: no-repeat;
     background-position-y: 0;
     background-position-x: -600px;
-    visibility: hidden;
-    z-index:1;
+    z-index: 1;
+    position: relative;
 }
 .MineCounter-Sides{
 
