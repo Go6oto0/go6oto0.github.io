@@ -88,9 +88,7 @@ function init(level)
         health = 100;
         remainingFlags = 25;
     }
-
-
-
+    setGold(goldCount);
     //Generating Minefield
     let minefieldRowStyle = "";
     let minefieldColumnStyle = "";
@@ -111,9 +109,10 @@ function init(level)
     minefieldEl.style.gridTemplateRows = minefieldRowStyle;
     minefieldEl.style.gridTemplateColumns = minefieldColumnStyle;
 }
-function UpdateGold(value)
+function setGold(value)
 {
-    document.
+    var score = document.querySelector("#topbar-score .label__text");
+    score.innerHTML = value;
 }
 
 
