@@ -1,4 +1,26 @@
-.number {
+#number1 {
+    width: 64px;
+    height: 64px;
+    display: inline-block;
+    background: url('assets/sprite.png');
+    background-repeat: no-repeat;
+    background-position-y: -200px;
+    background-position-x: -100px;
+    position: relative;
+    visibility:hidden;
+}
+#number2 {
+    width: 64px;
+    height: 64px;
+    display: inline-block;
+    background: url('assets/sprite.png');
+    background-repeat: no-repeat;
+    background-position-y: -200px;
+    background-position-x: -100px;
+    position: relative;
+    visibility: hidden;
+}
+#number3 {
     width: 64px;
     height: 64px;
     display: inline-block;
@@ -7,11 +29,150 @@
     background-position-y: 0;
     background-position-x: -100px;
     position: relative;
-    visibility:hidden;
+    visibility: hidden;
 }
-.number__1{
-    background-position-x: -200px;
-    visibility:visible;
+#number4 {
+    width: 64px;
+    height: 64px;
+    display: inline-block;
+    background: url('assets/sprite.png');
+    background-repeat: no-repeat;
+    background-position-y: 0;
+    background-position-x: -100px;
+    position: relative;
+    visibility: hidden;
+}
+#number5 {
+    width: 64px;
+    height: 64px;
+    display: inline-block;
+    background: url('assets/sprite.png');
+    background-repeat: no-repeat;
+    background-position-y: 0;
+    background-position-x: -100px;
+    position: relative;
+    visibility: hidden;
+}
+#number6 {
+    width: 64px;
+    height: 64px;
+    display: inline-block;
+    background: url('assets/sprite.png');
+    background-repeat: no-repeat;
+    background-position-y: 0;
+    background-position-x: -100px;
+    position: relative;
+    visibility: hidden;
+}
+#number7 {
+    width: 64px;
+    height: 64px;
+    display: inline-block;
+    background: url('assets/sprite.png');
+    background-repeat: no-repeat;
+    background-position-y: 0;
+    background-position-x: -100px;
+    position: relative;
+    visibility: hidden;
+}
+#number8 {
+    width: 64px;
+    height: 64px;
+    display: inline-block;
+    background: url('assets/sprite.png');
+    background-repeat: no-repeat;
+    background-position-y: 0;
+    background-position-x: -100px;
+    position: relative;
+    visibility: hidden;
+}
+#number1sides {
+    width: 64px;
+    height: 64px;
+    display: inline-block;
+    background: url('assets/sprite.png');
+    background-repeat: no-repeat;
+    background-position-y: 0;
+    background-position-x: -100px;
+    position: relative;
+    visibility: hidden;
+}
+#number2sides {
+    width: 64px;
+    height: 64px;
+    display: inline-block;
+    background: url('assets/sprite.png');
+    background-repeat: no-repeat;
+    background-position-y: 0;
+    background-position-x: -100px;
+    position: relative;
+    visibility: hidden;
+}
+#number3sides {
+    width: 64px;
+    height: 64px;
+    display: inline-block;
+    background: url('assets/sprite.png');
+    background-repeat: no-repeat;
+    background-position-y: 0;
+    background-position-x: -100px;
+    position: relative;
+    visibility: hidden;
+}
+#number4sides {
+    width: 64px;
+    height: 64px;
+    display: inline-block;
+    background: url('assets/sprite.png');
+    background-repeat: no-repeat;
+    background-position-y: 0;
+    background-position-x: -100px;
+    position: relative;
+    visibility: hidden;
+}
+#number5sides {
+    width: 64px;
+    height: 64px;
+    display: inline-block;
+    background: url('assets/sprite.png');
+    background-repeat: no-repeat;
+    background-position-y: 0;
+    background-position-x: -100px;
+    position: relative;
+    visibility: hidden;
+}
+#number6sides {
+    width: 64px;
+    height: 64px;
+    display: inline-block;
+    background: url('assets/sprite.png');
+    background-repeat: no-repeat;
+    background-position-y: 0;
+    background-position-x: -100px;
+    position: relative;
+    visibility: hidden;
+}
+#number7sides {
+    width: 64px;
+    height: 64px;
+    display: inline-block;
+    background: url('assets/sprite.png');
+    background-repeat: no-repeat;
+    background-position-y: 0;
+    background-position-x: -100px;
+    position: relative;
+    visibility: hidden;
+}
+#number8sides {
+    width: 64px;
+    height: 64px;
+    display: inline-block;
+    background: url('assets/sprite.png');
+    background-repeat: no-repeat;
+    background-position-y: 0;
+    background-position-x: -100px;
+    position: relative;
+    visibility: hidden;
 }
 #mineCounter-Sides{
    /* background: url('assets/sprite.png');
@@ -27,8 +188,6 @@
     background-repeat: no-repeat;
     background-position-y: -100px;
     background-position-x: -100px;
-    align-items:center;
-    align-content:center;
     background-color:white;
 }
 .mine {
