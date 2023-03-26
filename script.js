@@ -1,6 +1,7 @@
 //
 // Minesweeper Script file
 //
+
 var x;
 var y;
 var minesCount;
@@ -14,75 +15,70 @@ var lockGame = false;
 var timerEl, minefieldEl;
 var level = "rock"; // level preset, do not change for demo
 
-
-
-window.addEventListener("load", function () {init(level);})
-function startTimer()
-{
+function startTimer() {
     timerEl = document.querySelector("#topbar-time .label__text");
-    timerEl.innerHTML = `00:00`
-  let [milliseconds, seconds, minutes, hours] = [0, 0, 0, 0];
-  let int = null;
-  if (int !== null) {
-    clearInterval(int);
-  }
-  int = setInterval(displayTimer, 10);
-  function displayTimer() {
-    milliseconds += 10;
-    if (milliseconds == 1000) {
-      milliseconds = 0;
-      seconds++;
-      if (seconds == 60) {
-        seconds = 0;
-        minutes++;
-        if (minutes == 60) {
-          minutes = 0;
-          hours++;
+    timerEl.innerHTML = `00:00`;
+    let [milliseconds, seconds, minutes, hours] = [0, 0, 0, 0];
+    let int = null;
+    if (int !== null) {
+        clearInterval(int);
+    }
+    int = setInterval(displayTimer, 10);
+
+    function displayTimer() {
+        milliseconds += 10;
+        if (milliseconds == 1000) {
+            milliseconds = 0;
+            seconds++;
+            if (seconds == 60) {
+                seconds = 0;
+                minutes++;
+                if (minutes == 60) {
+                    minutes = 0;
+                    hours++;
+                }
+            }
         }
-      }
+        let h = hours < 10 ? `0` + hours : hours;
+        let m = minutes < 10 ? `0` + minutes : minutes;
+        let s = seconds < 10 ? `0` + seconds : seconds;
+        let ms =
+            milliseconds < 10
+                ? `00` + milliseconds
+                : milliseconds < 100
+                    ? `0` + milliseconds
+                    : milliseconds;
+        timerEl.innerHTML = `${m}:${s}`;
     }
-    let h = hours < 10 ? `0` + hours : hours;
-    let m = minutes < 10 ? `0` + minutes : minutes;
-    let s = seconds < 10 ? `0` + seconds : seconds;
-    let ms =
-      milliseconds < 10
-        ? `00` + milliseconds
-        : milliseconds < 100
-        ? `0` + milliseconds
-        : milliseconds;
-    timerEl.innerHTML = `${m}:${s}`;
-  }
-}
-function cell(row, column) {
-  var selector = 'div[data-x="' + row + '"][data-y="' + column + '"]';
-  var cellObj = {};
-  cellObj.content = '<div class="cell" data-x="' + row + '" data-y="' + column + '"></div>';
-  cellObj.isMine = false;
-  cellObj.isRevealed = false;
-  cellObj.isFlagged = false;
-  cellObj.nearMines = 0;
-  cellObj.cellType = "normal"; // "sidesOnly"
-  cellObj.x = row;
-  cellObj.y = column;
-  cellObj.visited = false;
-  cellObj.value = document.querySelector(selector);
-  //cellObj.isInfected = false;
-  //cellObj.hasImunity = false;
-  cellObj.hover = function (isHovered) {
-    if (isHovered) {
-      value.addClass("hover");
-    } else {
-      value.removeClass("hover");
-    }
-  };
 }
 
-function init(level)
-{
+function cell(row, column) {
+    var selector = 'div[data-x="' + row + '"][data-y="' + column + '"]';
+    var cellObj = {};
+    cellObj.content = '<div class="cell" data-x="' + row + '" data-y="' + column + '"></div>';
+    cellObj.isMine = false;
+    cellObj.isRevealed = false;
+    cellObj.isFlagged = false;
+    cellObj.nearMines = 0;
+    cellObj.cellType = "normal"; // "sidesOnly"
+    cellObj.x = row;
+    cellObj.y = column;
+    cellObj.visited = false;
+    cellObj.value = document.querySelector(selector);
+    //cellObj.isInfected = false;
+    //cellObj.hasImunity = false;
+    cellObj.hover = function (isHovered) {
+        if (isHovered) {
+            value.addClass("hover");
+        } else {
+            value.removeClass("hover");
+        }
+    };
+}
+function init(level) {
     startTimer();
     minefieldEl = document.querySelector("#minefield");
-    if (level == "rock")
-    {
+    if (level == "rock") {
         x = 10;
         y = 10;
         minesCount = 30;
@@ -105,9 +101,11 @@ function init(level)
         for (var j = 0; j < y; j++) {
             if (!isColumnAdded) {
                 minefieldColumnStyle += "60px ";
-            } 
+            }
             var cellEl = document.createElement("div");
             cellEl.classList.add("cell");
+            cellEl.setAttribute("data-x", i);
+            cellEl.setAttribute("data-y", j);
             minefieldEl.appendChild(cellEl);
         }
         isColumnAdded = true;
@@ -129,8 +127,27 @@ function setFlags() {
     flags.innerHTML = remainingFlags;
 }
 
+window.addEventListener("load", function () {
 
+    document.querySelector("body").addEventListener("click", function (ev) {
+        let cellEl = ev.target.closest(".cell")
+        if (cellEl) {
+            console.log("left click x is: " + cellEl.dataset.x);
+            console.log("left click y is: " + cellEl.dataset.y);
+        }
+    })
 
+    document.querySelector("body").addEventListener("contextmenu", function (ev) {
+        ev.preventDefault();
+        let cellEl = ev.target.closest(".cell")
+        if (cellEl) {
+            console.log("right click x is: " + cellEl.dataset.x);
+            console.log("right click y is: " + cellEl.dataset.y);
+        }
+    })
+
+    init(level);
+})
 /*
 window.addEventListener("load", (event) => {
     //body.addEventListener("click", () => {
