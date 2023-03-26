@@ -12,7 +12,7 @@ var radarCount = 0;
 var minefield = [];
 var lockGame = false;
 var timerEl, minefieldEl;
-var level = "The Rock";
+var level = "rock";
 
 window.addEventListener("load", function () {init();})
 function init(preset) {
@@ -181,7 +181,7 @@ window.addEventListener("load", (event) => {
     //        else if (el.classList.contains("dungeon-type")) {
     //            el.classList.replace("dungeon-type", "rock-type");
     //        }
-            
+            +
     //    })
     //})
 });
