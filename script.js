@@ -1,7 +1,7 @@
 //
 // Minesweeper Script file
 //
-/*
+
 var x;
 var y;
 var minesCount;
