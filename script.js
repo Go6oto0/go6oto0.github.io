@@ -1,8 +1,64 @@
 //
 // Minesweeper Script file
 //
+var x;
+var y;
+var minesCount;
+var undiscoveredMines;
+var goldCount = 0;
+var remainingFlags;
+var health;
+var radarCount = 0;
+var minefield = [];
+var lockGame = false;
+var timerEl, minefieldEl;
+var level = "rock";
+function init(preset) {
+    startTimer();
+    minefieldEl = document.querySelector("#minefield");
+    if (preset == "rock")
+    {
+        x = 10;
+        y = 10;
+        minesCount = 30;
+        undiscoveredMines = minesCount;
+        health = 100;
+        remainingFlags = 25;
+    }
+}
+function startTimer()
+{
+    timerEl = document.querySelector("#topbar-time .label__text");
+}
+function cell(row, column)
+{
+    var selector = 'div[data-x="' + column + '"][data-y="' + row + '"]';
+    var cellObj = {};
+    cellObj.content = '<div class="cell" data-x="' + column + '" data-y="' + row + '"><span class="nearMines">0</span><span class="mine"></span><span class="flag"></span></div>';
+    cellObj.isMine = false;
+    cellObj.isRevealed = false;
+    cellObj.isFlagged = false;
+    cellObj.nearMines = 0;
+    cellObj.cellType = "normal"; // "sidesOnly"
+    cellObj.x = column;
+    cellObj.y = row;
+    cellObj.visited = false;
+    cellObj.value = document.querySelector(selector);
+    //cellObj.isInfected = false;
+    //cellObj.hasImunity = false;
+    cellObj.hover = function (isHovered)
+    {
+        if (isHovered) {
+            value.addClass("hover");
+        } else {
+            value.removeClass("hover");
+        }
+    };
+}
 
 
+
+/*
 window.addEventListener("load", (event) => {
     //body.addEventListener("click", () => {
     //    var allTileEl = document.querySelectorAll(".cell-tile");
@@ -24,3 +80,4 @@ window.addEventListener("load", (event) => {
     //})
 });
 
+*/
