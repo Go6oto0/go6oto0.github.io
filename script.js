@@ -90,10 +90,14 @@ function init(level)
         health = 100;
         remainingFlags = 25;
     }
+<<<<<<< HEAD
     setFlags();
     setBombs();
 
 
+=======
+    setGold(goldCount);
+>>>>>>> 61fa2f4c80f566484aaf0c034d6265aa292b48e7
     //Generating Minefield
     let minefieldRowStyle = "";
     let minefieldColumnStyle = "";
@@ -114,11 +118,10 @@ function init(level)
     minefieldEl.style.gridTemplateRows = minefieldRowStyle;
     minefieldEl.style.gridTemplateColumns = minefieldColumnStyle;
 }
-function UpdateGold(value)
-{
-    
+function setGold(value) {
+    var score = document.querySelector("#topbar-score .label__text");
+    score.innerHTML = value;
 }
-
 function setBombs() {
     let bombs = document.querySelector(`#topbar-bombs .label__text label__text--x`);
     bombs.innerHTML = minesCount;
