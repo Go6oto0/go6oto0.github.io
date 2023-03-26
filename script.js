@@ -19,6 +19,7 @@ function init(preset)
 {
   startTimer();
   minefieldEl = document.querySelector("#minefield");
+
   if (preset == "rock") {
     x = 10;
     y = 10;
@@ -27,7 +28,6 @@ function init(preset)
     health = 100;
     remainingFlags = 25;
     }
-
 
     //Generating Minefield
     let minefieldRowStyle = "";
