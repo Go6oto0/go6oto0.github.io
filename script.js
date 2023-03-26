@@ -12,9 +12,9 @@ var radarCount = 0;
 var minefield = [];
 var lockGame = false;
 var timerEl, minefieldEl;
-var level = "The Rock";
+var level = "rock";
 
-window.addEventListener("load", function () {init();})
+window.addEventListener("load", function () {init(level);})
 function init(preset) {
   startTimer();
   minefieldEl = document.querySelector("#minefield");
@@ -29,7 +29,6 @@ function init(preset) {
 }
 function startTimer() {
     timerEl = document.querySelector("#topbar-time .label__text");
-    timerEl.innerHTML = `00:00`
   let [milliseconds, seconds, minutes, hours] = [0, 0, 0, 0];
   let int = null;
   if (int !== null) {
@@ -133,10 +132,7 @@ function init(level)
     minefieldEl.style.gridTemplateColumns = minefieldColumnStyle;
    /// startTimer();
 }
-function startTimer()
-{
-    timerEl = document.querySelector("#topbar-time .label__text");
-}
+
 function cell(row, column)
 {
     var selector = 'div[data-x="' + column + '"][data-y="' + row + '"]';
