@@ -15,42 +15,10 @@ var timerEl, minefieldEl;
 var level = "rock"; // level preset, do not change for demo
 
 window.addEventListener("load", function () {init(level);})
-function init(preset) {
-  startTimer();
-  minefieldEl = document.querySelector("#minefield");
-  if (preset == "rock") {
-    x = 10;
-    y = 10;
-    minesCount = 30;
-    undiscoveredMines = minesCount;
-    health = 100;
-    remainingFlags = 25;
-    }
-
-    //Generating Minefield
-    let minefieldRowStyle = "";
-    let minefieldColumnStyle = "";
-    let isColumnAdded = false;
-    console.log("starting generation");
-    for (var i = 0; i < x; i++) {
-        minefieldRowStyle += "60px ";
-        for (var j = 0; j < y; j++) {
-            if (!isColumnAdded) {
-                minefieldColumnStyle += "60px ";
-                minefieldRowStyle += "60px ";
-            }
-            var cellEl = document.createElement("div")
-            cellEl.classList.add("cell");
-            minefieldEl.appendChild(cellEl)
-        }
-        isColumnAdded = true;
-    }
-    minefieldEl.style.gridTemplateRows = minefieldRowStyle;
-    minefieldEl.style.gridTemplateColumns = minefieldColumnStyle;
-}
 function startTimer()
 {
     timerEl = document.querySelector("#topbar-time .label__text");
+    timerEl.innerHTML = `00:00`
   let [milliseconds, seconds, minutes, hours] = [0, 0, 0, 0];
   let int = null;
   if (int !== null) {
@@ -106,12 +74,10 @@ function cell(row, column) {
     }
   };
 }
-window.addEventListener("load", function () {
-    console.log("Starting");
-    init(level);
-})
+
 function init(level)
 {
+    startTimer();
     minefieldEl = document.querySelector("#minefield");
     if (level == "rock")
     {
@@ -135,19 +101,15 @@ function init(level)
         for (var j = 0; j < y; j++) {
             if (!isColumnAdded) {
                 minefieldColumnStyle += "60px ";
-            }
-            var rowEl = document.createElement("div");
-            rowEl.classList.add("row");
-            var cellEl = document.createElement("div")
+            } 
+            var cellEl = document.createElement("div");
             cellEl.classList.add("cell");
-            rowEl.appendChild(cellEl)
-            minefieldEl.appendChild(rowEl);
+            minefieldEl.appendChild(cellEl);
         }
         isColumnAdded = true;
     }
     minefieldEl.style.gridTemplateRows = minefieldRowStyle;
     minefieldEl.style.gridTemplateColumns = minefieldColumnStyle;
-   /// startTimer();
 }
 
 function cell(row, column)
