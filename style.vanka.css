@@ -199,7 +199,8 @@
     background-repeat: no-repeat;
     background-position-y: 0;
     background-position-x: -500px;
-    visibility: hidden;
+    z-index: 1;
+    position: relative;
 }
 .mine {
     width: 64px;
@@ -210,6 +211,7 @@
     background-position-y: 0;
     background-position-x: -600px;
     visibility: hidden;
+    z-index:1;
 }
 .MineCounter-Sides{
 
