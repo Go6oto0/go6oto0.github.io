@@ -5,9 +5,10 @@
     background: url('assets/sprite.png');
     background-repeat: no-repeat;
     background-position-y: -200px;
-    background-position-x: -100px;
+    background-position-x: 0;
     position: relative;
     visibility:hidden;
+    z-index:1;
 }
 #number2 {
     width: 64px;
@@ -19,6 +20,7 @@
     background-position-x: -100px;
     position: relative;
     visibility: hidden;
+    z-index: 1;
 }
 #number3 {
     width: 64px;
@@ -26,10 +28,11 @@
     display: inline-block;
     background: url('assets/sprite.png');
     background-repeat: no-repeat;
-    background-position-y: 0;
-    background-position-x: -100px;
+    background-position-y: -200px;
+    background-position-x: -200px;
     position: relative;
     visibility: hidden;
+    z-index: 1;
 }
 #number4 {
     width: 64px;
@@ -37,10 +40,11 @@
     display: inline-block;
     background: url('assets/sprite.png');
     background-repeat: no-repeat;
-    background-position-y: 0;
-    background-position-x: -100px;
+    background-position-y: -200px;
+    background-position-x: -300px;
     position: relative;
     visibility: hidden;
+    z-index: 1;
 }
 #number5 {
     width: 64px;
@@ -48,10 +52,11 @@
     display: inline-block;
     background: url('assets/sprite.png');
     background-repeat: no-repeat;
-    background-position-y: 0;
-    background-position-x: -100px;
+    background-position-y: -200px;
+    background-position-x: -400px;
     position: relative;
     visibility: hidden;
+    z-index: 1;
 }
 #number6 {
     width: 64px;
@@ -59,10 +64,11 @@
     display: inline-block;
     background: url('assets/sprite.png');
     background-repeat: no-repeat;
-    background-position-y: 0;
-    background-position-x: -100px;
+    background-position-y: -200px;
+    background-position-x: -500px;
     position: relative;
     visibility: hidden;
+    z-index: 1;
 }
 #number7 {
     width: 64px;
@@ -70,10 +76,11 @@
     display: inline-block;
     background: url('assets/sprite.png');
     background-repeat: no-repeat;
-    background-position-y: 0;
-    background-position-x: -100px;
+    background-position-y: -200px;
+    background-position-x: -600px;
     position: relative;
     visibility: hidden;
+    z-index: 1;
 }
 #number8 {
     width: 64px;
@@ -81,10 +88,11 @@
     display: inline-block;
     background: url('assets/sprite.png');
     background-repeat: no-repeat;
-    background-position-y: 0;
-    background-position-x: -100px;
+    background-position-y: -200px;
+    background-position-x: -700px;
     position: relative;
     visibility: hidden;
+    z-index: 1;
 }
 #number1sides {
     width: 64px;
@@ -92,10 +100,11 @@
     display: inline-block;
     background: url('assets/sprite.png');
     background-repeat: no-repeat;
-    background-position-y: 0;
-    background-position-x: -100px;
+    background-position-y: -300px;
+    background-position-x: 0;
     position: relative;
     visibility: hidden;
+    z-index: 1;
 }
 #number2sides {
     width: 64px;
@@ -103,10 +112,11 @@
     display: inline-block;
     background: url('assets/sprite.png');
     background-repeat: no-repeat;
-    background-position-y: 0;
+    background-position-y: -300px;
     background-position-x: -100px;
     position: relative;
     visibility: hidden;
+    z-index: 1;
 }
 #number3sides {
     width: 64px;
@@ -114,10 +124,11 @@
     display: inline-block;
     background: url('assets/sprite.png');
     background-repeat: no-repeat;
-    background-position-y: 0;
-    background-position-x: -100px;
+    background-position-y: -300px;
+    background-position-x: -200px;
     position: relative;
     visibility: hidden;
+    z-index: 1;
 }
 #number4sides {
     width: 64px;
@@ -125,10 +136,11 @@
     display: inline-block;
     background: url('assets/sprite.png');
     background-repeat: no-repeat;
-    background-position-y: 0;
-    background-position-x: -100px;
+    background-position-y: -300px;
+    background-position-x: -300px;
     position: relative;
     visibility: hidden;
+    z-index: 1;
 }
 #number5sides {
     width: 64px;
@@ -136,10 +148,11 @@
     display: inline-block;
     background: url('assets/sprite.png');
     background-repeat: no-repeat;
-    background-position-y: 0;
-    background-position-x: -100px;
+    background-position-y: -300px;
+    background-position-x: -400px;
     position: relative;
     visibility: hidden;
+    z-index: 1;
 }
 #number6sides {
     width: 64px;
@@ -147,10 +160,11 @@
     display: inline-block;
     background: url('assets/sprite.png');
     background-repeat: no-repeat;
-    background-position-y: 0;
-    background-position-x: -100px;
+    background-position-y: -300px;
+    background-position-x: -500px;
     position: relative;
     visibility: hidden;
+    z-index: 1;
 }
 #number7sides {
     width: 64px;
@@ -158,10 +172,11 @@
     display: inline-block;
     background: url('assets/sprite.png');
     background-repeat: no-repeat;
-    background-position-y: 0;
-    background-position-x: -100px;
+    background-position-y: -300px;
+    background-position-x: -600px;
     position: relative;
     visibility: hidden;
+    z-index: 1;
 }
 #number8sides {
     width: 64px;
@@ -169,35 +184,31 @@
     display: inline-block;
     background: url('assets/sprite.png');
     background-repeat: no-repeat;
-    background-position-y: 0;
-    background-position-x: -100px;
+    background-position-y: -300px;
+    background-position-x: -700px;
     position: relative;
     visibility: hidden;
+    z-index: 1;
 }
-#mineCounter-Sides{
-   /* background: url('assets/sprite.png');
+
+.flag {
+    width: 64px;
+    height: 64px;
+    display: inline-block;
+    background: url('assets/sprite.png');
     background-repeat: no-repeat;
     background-position-y: 0;
-    background-position-x: -100px;*/
-}
-.flag {
-    width: 24px;
-    height: 24px;
-    display: inline-block;
-    background: url('assets/sprite.png');
-    background-repeat: no-repeat;
-    background-position-y: -100px;
-    background-position-x: -100px;
-    background-color:white;
+    background-position-x: -500px;
+    visibility: hidden;
 }
 .mine {
-    width: 24px;
-    height: 24px;
+    width: 64px;
+    height: 64px;
     display: inline-block;
     background: url('assets/sprite.png');
     background-repeat: no-repeat;
-    background-position-y: -100px;
-    background-position-x: -100px;
+    background-position-y: 0;
+    background-position-x: -600px;
     visibility: hidden;
 }
 .MineCounter-Sides{
