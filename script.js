@@ -84,21 +84,16 @@ function startTimer()
   }
 }
 function cell(row, column) {
-  var selector = 'div[data-x="' + column + '"][data-y="' + row + '"]';
+  var selector = 'div[data-x="' + row + '"][data-y="' + column + '"]';
   var cellObj = {};
-  cellObj.content =
-    '<div class="cell" data-x="' +
-    column +
-    '" data-y="' +
-    row +
-    '"><span class="nearMines">0</span><span class="mine"></span><span class="flag"></span></div>';
+  cellObj.content = '<div class="cell" data-x="' + row + '" data-y="' + column + '"></div>';
   cellObj.isMine = false;
   cellObj.isRevealed = false;
   cellObj.isFlagged = false;
   cellObj.nearMines = 0;
   cellObj.cellType = "normal"; // "sidesOnly"
-  cellObj.x = column;
-  cellObj.y = row;
+  cellObj.x = row;
+  cellObj.y = column;
   cellObj.visited = false;
   cellObj.value = document.querySelector(selector);
   //cellObj.isInfected = false;
