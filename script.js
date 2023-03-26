@@ -13,10 +13,14 @@ var minefield = [];
 var lockGame = false;
 var timerEl, minefieldEl;
 var level = "rock";
-function init(preset) {
-    startTimer();
+window.addEventListener("load", function () {
+    console.log("Starting");
+    init(level);
+})
+function init(level)
+{
     minefieldEl = document.querySelector("#minefield");
-    if (preset == "rock")
+    if (level == "rock")
     {
         x = 10;
         y = 10;
@@ -25,6 +29,32 @@ function init(preset) {
         health = 100;
         remainingFlags = 25;
     }
+
+
+
+    //Generating Minefield
+    let minefieldRowStyle = "";
+    let minefieldColumnStyle = "";
+    let isColumnAdded = false;
+    for (var i = 0; i < x; i++) {
+        minefieldRowStyle += "60px ";
+
+        for (var j = 0; j < y; j++) {
+            if (!isColumnAdded) {
+                minefieldColumnStyle += "60px ";
+            }
+            var rowEl = document.createElement("div");
+            rowEl.classList.add("row");
+            var cellEl = document.createElement("div")
+            cellEl.classList.add("cell");
+            rowEl.appendChild(cellEl)
+            minefieldEl.appendChild(rowEl);
+        }
+        isColumnAdded = true;
+    }
+    minefieldEl.style.gridTemplateRows = minefieldRowStyle;
+    minefieldEl.style.gridTemplateColumns = minefieldColumnStyle;
+   /// startTimer();
 }
 function startTimer()
 {
@@ -34,7 +64,7 @@ function cell(row, column)
 {
     var selector = 'div[data-x="' + column + '"][data-y="' + row + '"]';
     var cellObj = {};
-    cellObj.content = '<div class="cell" data-x="' + column + '" data-y="' + row + '"><span class="nearMines">0</span><span class="mine"></span><span class="flag"></span></div>';
+    cellObj.content = '<div class="cell" data-x="' + column + '" data-y="' + row + '"> </div>';
     cellObj.isMine = false;
     cellObj.isRevealed = false;
     cellObj.isFlagged = false;
