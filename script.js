@@ -12,7 +12,7 @@ var radarCount = 0;
 var minefield = [];
 var lockGame = false;
 var timerEl, minefieldEl;
-var level = "rock";
+var level = "The Rock";
 
 window.addEventListener("load", function () {init();})
 function init(preset) {
@@ -28,7 +28,8 @@ function init(preset) {
   }
 }
 function startTimer() {
-  timerEl = document.querySelector("#topbar-time .label__text");
+    timerEl = document.querySelector("#topbar-time .label__text");
+    timerEl.innerHTML = `00 : 00`
   let [milliseconds, seconds, minutes, hours] = [0, 0, 0, 0];
   let int = null;
   if (int !== null) {
