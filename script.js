@@ -90,14 +90,10 @@ function init(level)
         health = 100;
         remainingFlags = 25;
     }
-<<<<<<< HEAD
+
     setFlags();
     setBombs();
-
-
-=======
     setGold(goldCount);
->>>>>>> 61fa2f4c80f566484aaf0c034d6265aa292b48e7
     //Generating Minefield
     let minefieldRowStyle = "";
     let minefieldColumnStyle = "";
