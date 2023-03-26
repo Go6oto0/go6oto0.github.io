@@ -1,6 +1,25 @@
 /*revealed + chest + hover+*/
 .revealed{
-    background-color:red;
+    background: url('assets/sprite.png');
+    background-repeat: no-repeat;
+    background-position-x: -400px;
+    background-position-y: 0;
+    
     
    
+}
+.chest {
+    background: url('assets/sprite.png');
+    background-repeat: no-repeat;
+    background-position-x: -480px;
+    background-position-y: -80px;
+    z-index: 1;
+}
+
+.radar {
+    background-image: url('assets/sprite.png'), url('assets/sprite.png');
+    background-position-x: -400px, -600px;
+    background-position-y: 0px, -100px;
+    z-index: 1,2;
+    background-repeat: no-repeat, no-repeat;
 }
