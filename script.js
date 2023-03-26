@@ -111,31 +111,9 @@ function init(level)
     minefieldEl.style.gridTemplateRows = minefieldRowStyle;
     minefieldEl.style.gridTemplateColumns = minefieldColumnStyle;
 }
-
-function cell(row, column)
+function UpdateGold(value)
 {
-    var selector = 'div[data-x="' + row + '"][data-y="' + column + '"]';
-    var cellObj = {};
-    cellObj.content ='<div class="cell" data-x="' +row + '" data-y="' + column +'"></div>';
-    cellObj.isMine = false;
-    cellObj.isRevealed = false;
-    cellObj.isFlagged = false;
-    cellObj.nearMines = 0;
-    cellObj.cellType = "normal"; // "sidesOnly"
-    cellObj.x = row;
-    cellObj.y = column;
-    cellObj.visited = false;
-    cellObj.value = document.querySelector(selector);
-    //cellObj.isInfected = false;
-    //cellObj.hasImunity = false;
-    cellObj.hover = function (isHovered)
-    {
-        if (isHovered) {
-            value.addClass("hover");
-        } else {
-            value.removeClass("hover");
-        }
-    };
+    document.
 }
 
 
