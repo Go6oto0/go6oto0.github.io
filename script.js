@@ -29,7 +29,7 @@ function init(preset) {
 }
 function startTimer() {
     timerEl = document.querySelector("#topbar-time .label__text");
-    timerEl.innerHTML = `00 : 00`
+    timerEl.innerHTML = `00:00`
   let [milliseconds, seconds, minutes, hours] = [0, 0, 0, 0];
   let int = null;
   if (int !== null) {
@@ -89,6 +89,7 @@ function cell(row, column) {
       value.removeClass("hover");
     }
   };
+}
 window.addEventListener("load", function () {
     console.log("Starting");
     init(level);
@@ -161,6 +162,7 @@ function cell(row, column)
         }
     };
 }
+
 
 /*
 window.addEventListener("load", (event) => {
