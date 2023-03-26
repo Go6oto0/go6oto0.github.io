@@ -48,7 +48,7 @@ function startTimer()
         : milliseconds < 100
         ? `0` + milliseconds
         : milliseconds;
-    timerEl.innerHTML = `${m} : ${s}`;
+    timerEl.innerHTML = `${m}:${s}`;
   }
 }
 function cell(row, column) {
