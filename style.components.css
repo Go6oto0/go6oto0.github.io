@@ -73,14 +73,14 @@
     /*min-height: calc(100vh - 120px);*/
 }
 
-.field {
+.cell {
     width: 64px;
     height: 64px;
     position:relative;
     cursor:pointer;
 }
 
-    .field::before {
+    .cell::before {
         background: url('assets/sprite.png');
         background-repeat: no-repeat;
         background-position-x: 0;
@@ -94,7 +94,7 @@
         display:block;
     }
 
-    .field::after {
+    .cell::after {
         position: absolute;
         top: 0;
         left: 0;
@@ -107,6 +107,6 @@
         border-radius:3px;
     }
 
-    .field:hover::after {
+    .cell:hover::after {
         display: block;
     }

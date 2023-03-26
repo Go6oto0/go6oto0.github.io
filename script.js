@@ -13,6 +13,81 @@ var minefield = [];
 var lockGame = false;
 var timerEl, minefieldEl;
 var level = "rock";
+
+window.addEventListener("load", function () {init();})
+function init(preset) {
+  startTimer();
+  minefieldEl = document.querySelector("#minefield");
+  if (preset == "rock") {
+    x = 10;
+    y = 10;
+    minesCount = 30;
+    undiscoveredMines = minesCount;
+    health = 100;
+    remainingFlags = 25;
+  }
+}
+function startTimer() {
+  timerEl = document.querySelector("#topbar-time .label__text");
+  let [milliseconds, seconds, minutes, hours] = [0, 0, 0, 0];
+  let int = null;
+  if (int !== null) {
+    clearInterval(int);
+  }
+  int = setInterval(displayTimer, 10);
+  function displayTimer() {
+    milliseconds += 10;
+    if (milliseconds == 1000) {
+      milliseconds = 0;
+      seconds++;
+      if (seconds == 60) {
+        seconds = 0;
+        minutes++;
+        if (minutes == 60) {
+          minutes = 0;
+          hours++;
+        }
+      }
+    }
+    let h = hours < 10 ? `0` + hours : hours;
+    let m = minutes < 10 ? `0` + minutes : minutes;
+    let s = seconds < 10 ? `0` + seconds : seconds;
+    let ms =
+      milliseconds < 10
+        ? `00` + milliseconds
+        : milliseconds < 100
+        ? `0` + milliseconds
+        : milliseconds;
+    timerEl.innerHTML = `${m} : ${s}`;
+  }
+}
+function cell(row, column) {
+  var selector = 'div[data-x="' + column + '"][data-y="' + row + '"]';
+  var cellObj = {};
+  cellObj.content =
+    '<div class="cell" data-x="' +
+    column +
+    '" data-y="' +
+    row +
+    '"><span class="nearMines">0</span><span class="mine"></span><span class="flag"></span></div>';
+  cellObj.isMine = false;
+  cellObj.isRevealed = false;
+  cellObj.isFlagged = false;
+  cellObj.nearMines = 0;
+  cellObj.cellType = "normal"; // "sidesOnly"
+  cellObj.x = column;
+  cellObj.y = row;
+  cellObj.visited = false;
+  cellObj.value = document.querySelector(selector);
+  //cellObj.isInfected = false;
+  //cellObj.hasImunity = false;
+  cellObj.hover = function (isHovered) {
+    if (isHovered) {
+      value.addClass("hover");
+    } else {
+      value.removeClass("hover");
+    }
+  };
 window.addEventListener("load", function () {
     console.log("Starting");
     init(level);
@@ -85,8 +160,6 @@ function cell(row, column)
         }
     };
 }
-
-
 
 /*
 window.addEventListener("load", (event) => {

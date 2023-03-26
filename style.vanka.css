@@ -1,0 +1,46 @@
+.number {
+    width: 64px;
+    height: 64px;
+    display: inline-block;
+    background: url('assets/sprite.png');
+    background-repeat: no-repeat;
+    background-position-y: 0;
+    background-position-x: -100px;
+    position: relative;
+    visibility:hidden;
+}
+.number__1{
+    background-position-x: -200px;
+    visibility:visible;
+}
+#mineCounter-Sides{
+   /* background: url('assets/sprite.png');
+    background-repeat: no-repeat;
+    background-position-y: 0;
+    background-position-x: -100px;*/
+}
+.flag {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    background: url('assets/sprite.png');
+    background-repeat: no-repeat;
+    background-position-y: -100px;
+    background-position-x: -100px;
+    align-items:center;
+    align-content:center;
+    background-color:white;
+}
+.mine {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    background: url('assets/sprite.png');
+    background-repeat: no-repeat;
+    background-position-y: -100px;
+    background-position-x: -100px;
+    visibility: hidden;
+}
+.MineCounter-Sides{
+
+}
