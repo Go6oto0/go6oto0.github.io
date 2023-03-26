@@ -82,26 +82,25 @@
     </div>
 
     <script>
-        let rows = 25;
-        let columns = 50;
-        let minefieldEl, timerEl, startTime;
+        // let rows = 25;
+        // let columns = 50;
+        // let minefieldEl, timerEl, startTime;
 
-        function update() {
-            var ss = timerEl.innerHTML.split(":");
-            var dt = new Date();
-            dt.setHours(0);
-            dt.setMinutes(ss[0]);
-            dt.setSeconds(ss[1]);
+        // function update() {
+        //     var ss = timerEl.innerHTML.split(":");
+        //     var dt = new Date();
+        //     dt.setHours(0);
+        //     dt.setMinutes(ss[0]);
+        //     dt.setSeconds(ss[1]);
 
-            var dt2 = new Date(dt.valueOf() + 1000);
-            var temp = dt2.toTimeString().split(" ");
-            var ts = temp[0].split(":");
+        //     var dt2 = new Date(dt.valueOf() + 1000);
+        //     var temp = dt2.toTimeString().split(" ");
+        //     var ts = temp[0].split(":");
 
-            timerEl.innerHTML = ts[1] + ":" + ts[2];
-          
+        //     timerEl.innerHTML = ts[1] + ":" + ts[2];
 
-            setTimeout(update, 1000);
-        }
+        //     setTimeout(update, 1000);
+        // }
 
         // function init() {
         //     //Elements Init
