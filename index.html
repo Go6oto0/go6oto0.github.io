@@ -80,7 +80,7 @@
             </div>
         </div>
     </div>
-
+    <!--
     <script>
         // let rows = 25;
         // let columns = 50;
@@ -96,6 +96,8 @@
         //     var dt2 = new Date(dt.valueOf() + 1000);
         //     var temp = dt2.toTimeString().split(" ");
         //     var ts = temp[0].split(":");
+
+            timerEl.innerHTML = ts[1] + ":" + ts[2];
 
         //     timerEl.innerHTML = ts[1] + ":" + ts[2];
 
@@ -125,10 +127,23 @@
         //     }
         //     minefieldEl.style.gridTemplateRows = minefieldRowStyle;
         //     minefieldEl.style.gridTemplateColumns = minefieldColumnStyle;
+        function init()
+        {
+            //Elements Init
+            timerEl = document.querySelector("#topbar-time .label__text");
+            minefieldEl = document.getElementById("minefield");
+            startTime = new Date();
+            let minefieldRowStyle = "";
+            let minefieldColumnStyle = "";
+            let isColumnAdded = false;
+            for (var i = 0; i < rows; i++) {
+                minefieldRowStyle += "60px ";
 
         //     setTimeout(update, 1000);
         // }
         
     </script>
+    -->
+
 </body>
 </html>

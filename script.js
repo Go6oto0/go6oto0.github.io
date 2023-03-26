@@ -89,6 +89,77 @@ function cell(row, column) {
       value.removeClass("hover");
     }
   };
+window.addEventListener("load", function () {
+    console.log("Starting");
+    init(level);
+})
+function init(level)
+{
+    minefieldEl = document.querySelector("#minefield");
+    if (level == "rock")
+    {
+        x = 10;
+        y = 10;
+        minesCount = 30;
+        undiscoveredMines = minesCount;
+        health = 100;
+        remainingFlags = 25;
+    }
+
+
+
+    //Generating Minefield
+    let minefieldRowStyle = "";
+    let minefieldColumnStyle = "";
+    let isColumnAdded = false;
+    for (var i = 0; i < x; i++) {
+        minefieldRowStyle += "60px ";
+
+        for (var j = 0; j < y; j++) {
+            if (!isColumnAdded) {
+                minefieldColumnStyle += "60px ";
+            }
+            var rowEl = document.createElement("div");
+            rowEl.classList.add("row");
+            var cellEl = document.createElement("div")
+            cellEl.classList.add("cell");
+            rowEl.appendChild(cellEl)
+            minefieldEl.appendChild(rowEl);
+        }
+        isColumnAdded = true;
+    }
+    minefieldEl.style.gridTemplateRows = minefieldRowStyle;
+    minefieldEl.style.gridTemplateColumns = minefieldColumnStyle;
+   /// startTimer();
+}
+function startTimer()
+{
+    timerEl = document.querySelector("#topbar-time .label__text");
+}
+function cell(row, column)
+{
+    var selector = 'div[data-x="' + column + '"][data-y="' + row + '"]';
+    var cellObj = {};
+    cellObj.content = '<div class="cell" data-x="' + column + '" data-y="' + row + '"> </div>';
+    cellObj.isMine = false;
+    cellObj.isRevealed = false;
+    cellObj.isFlagged = false;
+    cellObj.nearMines = 0;
+    cellObj.cellType = "normal"; // "sidesOnly"
+    cellObj.x = column;
+    cellObj.y = row;
+    cellObj.visited = false;
+    cellObj.value = document.querySelector(selector);
+    //cellObj.isInfected = false;
+    //cellObj.hasImunity = false;
+    cellObj.hover = function (isHovered)
+    {
+        if (isHovered) {
+            value.addClass("hover");
+        } else {
+            value.removeClass("hover");
+        }
+    };
 }
 
 /*
