@@ -14,6 +14,8 @@ var lockGame = false;
 var timerEl, minefieldEl;
 var level = "rock"; // level preset, do not change for demo
 
+
+
 window.addEventListener("load", function () {init(level);})
 function startTimer()
 {
@@ -88,7 +90,8 @@ function init(level)
         health = 100;
         remainingFlags = 25;
     }
-
+    setFlags();
+    setBombs();
 
 
     //Generating Minefield
@@ -113,7 +116,16 @@ function init(level)
 }
 function UpdateGold(value)
 {
-    document.
+    
+}
+
+function setBombs() {
+    let bombs = document.querySelector(`#topbar-bombs .label__text label__text--x`);
+    bombs.innerHTML = minesCount;
+}
+function setFlags() {
+    let flags = document.querySelector(`#topbar-flags .label__text label__text--x`);
+    flags.innerHTML = remainingFlags;
 }
 
 
