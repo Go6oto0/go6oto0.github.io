@@ -12,7 +12,7 @@ var radarCount = 0;
 var minefield = [];
 var lockGame = false;
 var timerEl, minefieldEl;
-var level = "rock";
+var level = "rock"; // level preset, do not change for demo
 
 window.addEventListener("load", function () {init(level);})
 function init(preset) {
@@ -25,9 +25,31 @@ function init(preset) {
     undiscoveredMines = minesCount;
     health = 100;
     remainingFlags = 25;
-  }
+    }
+
+    //Generating Minefield
+    let minefieldRowStyle = "";
+    let minefieldColumnStyle = "";
+    let isColumnAdded = false;
+    console.log("starting generation");
+    for (var i = 0; i < x; i++) {
+        minefieldRowStyle += "60px ";
+        for (var j = 0; j < y; j++) {
+            if (!isColumnAdded) {
+                minefieldColumnStyle += "60px ";
+                minefieldRowStyle += "60px ";
+            }
+            var cellEl = document.createElement("div")
+            cellEl.classList.add("cell");
+            minefieldEl.appendChild(cellEl)
+        }
+        isColumnAdded = true;
+    }
+    minefieldEl.style.gridTemplateRows = minefieldRowStyle;
+    minefieldEl.style.gridTemplateColumns = minefieldColumnStyle;
 }
-function startTimer() {
+function startTimer()
+{
     timerEl = document.querySelector("#topbar-time .label__text");
   let [milliseconds, seconds, minutes, hours] = [0, 0, 0, 0];
   let int = null;
@@ -135,16 +157,16 @@ function init(level)
 
 function cell(row, column)
 {
-    var selector = 'div[data-x="' + column + '"][data-y="' + row + '"]';
+    var selector = 'div[data-x="' + row + '"][data-y="' + column + '"]';
     var cellObj = {};
-    cellObj.content = '<div class="cell" data-x="' + column + '" data-y="' + row + '"> </div>';
+    cellObj.content ='<div class="cell" data-x="' +row + '" data-y="' + column +'"></div>';
     cellObj.isMine = false;
     cellObj.isRevealed = false;
     cellObj.isFlagged = false;
     cellObj.nearMines = 0;
     cellObj.cellType = "normal"; // "sidesOnly"
-    cellObj.x = column;
-    cellObj.y = row;
+    cellObj.x = row;
+    cellObj.y = column;
     cellObj.visited = false;
     cellObj.value = document.querySelector(selector);
     //cellObj.isInfected = false;
