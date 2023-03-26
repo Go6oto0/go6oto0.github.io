@@ -1,13 +1,35 @@
 //
 // Minesweeper Script file
 //
-var x = 10;
-var y = 10;
-var minesCount = 30;
-var undiscoveredMines = minesCount;
+var x;
+var y;
+var minesCount;
+var undiscoveredMines;
+var goldCount = 0;
+var remainingFlags;
+var health;
+var radarCount = 0;
 var minefield = [];
 var lockGame = false;
-
+var timerEl, minefieldEl;
+var level = "rock";
+function init(preset) {
+    startTimer();
+    minefieldEl = document.querySelector("#minefield");
+    if (preset == "rock")
+    {
+        x = 10;
+        y = 10;
+        minesCount = 30;
+        undiscoveredMines = minesCount;
+        health = 100;
+        remainingFlags = 25;
+    }
+}
+function startTimer()
+{
+    timerEl = document.querySelector("#topbar-time .label__text");
+}
 function cell(row, column)
 {
     var selector = 'div[data-x="' + column + '"][data-y="' + row + '"]';
