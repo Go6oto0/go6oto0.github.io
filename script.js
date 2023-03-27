@@ -89,7 +89,7 @@ function init(level) {
 
     setFlags();
     setBombs();
-    setGold(goldCount);
+    setGold();
 
 
     let minefieldRowStyle = "";
@@ -114,17 +114,17 @@ function init(level) {
     minefieldEl.style.gridTemplateColumns = minefieldColumnStyle;
 }
 
-function setGold(value) {
+function setGold() {
     var score = document.querySelector("#topbar-score .label__text");
-    score.innerHTML = value;
+    score.innerHTML = goldCount.toString().padStart(9,'0');
 }
 function setBombs() {
     let bombs = document.querySelector(`#topbar-bombs .label__text.label__text--x`);
-    bombs.innerHTML = minesCount;
+    bombs.innerHTML = minesCount.toString().padStart(2, '0');
 }
 function setFlags() {
     let flags = document.querySelector(`#topbar-flags .label__text.label__text--x`);
-    flags.innerHTML = remainingFlags;
+    flags.innerHTML = remainingFlags.toString().padStart(2, '0');
 }
 
 window.addEventListener("load", function () {
