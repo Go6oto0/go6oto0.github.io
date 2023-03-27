@@ -1,37 +1,93 @@
-/*revealed + chest + hover+*/
+/*revealed + chest+ numbers*/
+
+
+
+/*гошо ще сложи празна клетка като фон на елементите във спраита и ще изглежда добре*/
 .cell.revealed::before {
     background-position-x: -400px;
     background-position-y: 0;
 }
-
 .cell.revealed.chest::before {
-    background: url('assets/sprite.png'),url('assets/sprite.png');/*това се маха и се слагат кординати на празна клетка с елемента вътре(чакаме гошо)*/
-    background-repeat: no-repeat;
-    background-position-x: -480px,-400px;
-    background-position-y: -80px,0;
+    background-position-x: -500px;
+    background-position-y: -100px;
 }
 .cell.revealed.radar::before {
-    background: url('assets/sprite.png'),url('assets/sprite.png'); 
-    background-repeat: no-repeat;
-    background-position-x: -580px,-400px;
-    background-position-y: -80px,0;
+    background-position-x: -600px;
+    background-position-y: -100px;
 }
 .cell.revealed.hearth::before {
-    background: url('assets/sprite.png'),url('assets/sprite.png');
-    background-repeat: no-repeat;
-    background-position-x: -680px,-400px;
-    background-position-y: -80px,0;
+    background-position-x: -700px;
+    background-position-y: -100px;
 }
 .cell.revealed.time::before {
-    background: url('assets/sprite.png'),url('assets/sprite.png');
-    background-repeat: no-repeat;
-    background-position-x: -380px,-400px;
-    background-position-y: -80px,0;
+    background-position-x: -400px;
+    background-position-y: -100px;
 }
 .cell.revealed.points::before {
-    background: url('assets/sprite.png'),url('assets/sprite.png');
-    background-repeat: no-repeat;
-    background-position-x: 20px,-400px;
-    background-position-y: -80px,0;
+    background-position-x: 0px;
+    background-position-y: -100px;
 }
-
+.cell.revealed.number1::before {
+    background-position-y: -200px;
+    background-position-x: 0;
+}
+.cell.revealed.number2::before {
+    background-position-y: -200px;
+    background-position-x: -100px;
+}
+.cell.revealed.number3::before {
+    background-position-y: -200px;
+    background-position-x: -200px;
+}
+.cell.revealed.number4::before {
+    background-position-y: -200px;
+    background-position-x: -300px;
+}
+.cell.revealed.number5::before {
+    background-position-y: -200px;
+    background-position-x: -400px;
+}
+.cell.revealed.number6::before {
+    background-position-y: -200px;
+    background-position-x: -500px;
+}
+.cell.revealed.number7::before {
+    background-position-y: -200px;
+    background-position-x: -600px;
+}
+.cell.revealed.number8::before {
+    background-position-y: -200px;
+    background-position-x: -700px;
+}
+.cell.revealed.number1sides::before {
+    background-position-y: -300px;
+    background-position-x: 0;
+}
+.cell.revealed.number2sides::before {
+    background-position-y: -300px;
+    background-position-x: -100px;
+}
+.cell.revealed.number3sides::before {
+    background-position-y: -300px;
+    background-position-x: -200px;
+}
+.cell.revealed.number4sides::before {
+    background-position-y: -300px;
+    background-position-x: -300px;
+}
+.cell.revealed.number5sides::before {
+    background-position-y: -300px;
+    background-position-x: -400px;
+}
+.cell.revealed.number6sides::before {
+    background-position-y: -300px;
+    background-position-x: -500px;
+}
+.cell.revealed.number7sides::before {
+    background-position-y: -300px;
+    background-position-x: -600px;
+}
+.cell.revealed.number8sides::before {
+    background-position-y: -300px;
+    background-position-x: -700px;
+}
