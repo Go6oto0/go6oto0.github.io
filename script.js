@@ -116,6 +116,7 @@ function setGold(value)
 }
 
 
+
 /*
 window.addEventListener("load", (event) => {
     //body.addEventListener("click", () => {
