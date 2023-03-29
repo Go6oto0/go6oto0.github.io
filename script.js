@@ -116,3 +116,17 @@ window.addEventListener("load", function () {
     }*/
 })
 
+function addBombs() {
+    let bombsToAdd = undiscoveredMines;
+    while (bombsToAdd > 0) {
+        let row = Math.floor(Math.random() * x);
+        let col = Math.floor(Math.random() * y);
+        let currentBomb = minefield[row][col];
+        if (!currentBomb.isMine) {
+            currentBomb.isMine = true;
+            bombsToAdd--;
+        } else {
+            console.log(`This cell is a mine`);
+        }
+    }
+}
