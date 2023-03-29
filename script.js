@@ -131,7 +131,7 @@ function addBombs() {
 }
 
 function addChest() {
-    let chestToAdd = undiscoveredMines;
+    let chestsToAdd = chestCount;
     while (bombsToAdd > 0) {
         let row = Math.floor(Math.random() * (x - 1));
         let col = Math.floor(Math.random() * (y - 1));
