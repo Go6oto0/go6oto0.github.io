@@ -3,6 +3,7 @@
 
 
 /*гошо ще сложи празна клетка като фон на елементите във спраита и ще изглежда добре*/
+
 .cell.revealed::before {
     background-position-x: -400px;
     background-position-y: 0;
@@ -90,4 +91,16 @@
 .cell.revealed.number8sides::before {
     background-position-y: -300px;
     background-position-x: -700px;
+}
+.cell.flag::before {
+    background-position-y: -100px;
+    background-position-x: -100px;
+}
+.cell.blackmine::before{
+    background-position-x:-200px;
+    background-position-y:-100px;
+}
+.cell.redmine::before {
+    background-position-x: -300px;
+    background-position-y: -100px;
 }

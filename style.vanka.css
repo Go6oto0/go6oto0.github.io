@@ -1,3 +1,4 @@
+/*
 .number1 {
     width: 64px;
     height: 64px;
@@ -186,6 +187,7 @@
     z-index: 1;
     position: relative;
 }
+
 .mine {
     width: 64px;
     height: 64px;
@@ -197,6 +199,6 @@
     z-index: 1;
     position: relative;
 }
-.MineCounter-Sides{
 
-}
+.MineCounter-Sides {
+}*/
