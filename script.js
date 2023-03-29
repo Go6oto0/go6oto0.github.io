@@ -11,11 +11,26 @@ var goldCount = 0;
 var remainingFlags;
 var health;
 var maxHealth = 100;
-var inventory = { radarCount: 0 };
+var inventory = { radarCount: 0};
 var minefield = [[],[]];
 var lockGame = false;
 var timerEl, minefieldEl;
 var level = "rock"; // level preset, do not change for demo
+
+function revealedCheck() {
+    console.log(`Revealed:`)
+    for (let i = 0; i < x; i++) {
+        let tempArr = minefield[i];
+        let resultArr = [];
+        tempArr.forEach((x) => resultArr.push(x.isRevealed ? 1 : 0))
+        console.log(resultArr.join(` `));
+    }
+}
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
+}
 
 
 function init(level) {
@@ -23,11 +38,11 @@ function init(level) {
     if (level == "rock") {
         x = 10;
         y = 10;
-        chestCount = 3;
+        chestCount = 5;
         minesCount = 30;
         undiscoveredMines = minesCount;
         health = 100;
-        remainingFlags = 25;
+        remainingFlags = 30;
     }
     setUICounters();
     let minefieldRowStyle = "";
@@ -50,12 +65,45 @@ function init(level) {
         }
         isColumnAdded = true;
     }
+
+
     addBombs();
+    console.log(`Bombs:`)
     for (let i = 0; i < x; i++) {
-        for (let j = 0; j < y; j++) {
-            console.log(minefield[i][j].isMine);
-        }
+        let tempArr = minefield[i];
+        let resultArr = [];
+        tempArr.forEach((x)=> resultArr.push(x.isMine))
+        console.log(resultArr.join(` `));
     }
+
+    countAdjacentMines();
+    console.log(`Adjacent mines:`)
+    for (let i = 0; i < x; i++) {
+        let tempArr = minefield[i];
+        let resultArr = [];
+        tempArr.forEach((x) => resultArr.push(x.nearMines))
+        console.log(resultArr.join(` `));
+    }
+
+    countAdjacentMinesSidesOnly()
+    console.log(`Adjacent mines (sides only):`)
+    for (let i = 0; i < x; i++) {
+        let tempArr = minefield[i];
+        let resultArr = [];
+        tempArr.forEach((x) => resultArr.push(x.nearMinesSides))
+        console.log(resultArr.join(` `));
+    }
+
+    addChest();
+    console.log(`Chests:`)
+    for (let i = 0; i < x; i++) {
+        let tempArr = minefield[i];
+        let resultArr = [];
+        tempArr.forEach((x) => resultArr.push(x.isChest ? 1 : 0))
+        console.log(resultArr.join(` `));
+    }
+    
+    
     minefieldEl.style.gridTemplateRows = minefieldRowStyle;
     minefieldEl.style.gridTemplateColumns = minefieldColumnStyle;
 }
@@ -64,9 +112,11 @@ function cell(row, column) {
     var cellObj = {};
     cellObj.content = '<div class="cell" data-x="' + row + '" data-y="' + column + '"></div>';
     cellObj.isMine = 0; // normal - 0; bomb - 1; special bomb - 2
+    cellObj.isChest = 0; // normal - 0; gold - 1; radar - 2 ...
     cellObj.isRevealed = false;
     cellObj.isFlagged = false;
     cellObj.nearMines = 0;
+    cellObj.nearMinesSides = 0;
     cellObj.cellType = "normal"; // "sidesOnly"
     cellObj.x = row;
     cellObj.y = column;
@@ -92,6 +142,12 @@ window.addEventListener("load", function () {
     document.querySelector("body").addEventListener("click", function (ev) {
         let cellEl = ev.target.closest(".cell")
         if (cellEl) {
+            var x = cellEl.dataset.x, y = cellEl.dataset.y;
+            let current = minefield[x][y];
+            if (current.isRevealed == false && current.isFlagged == false) {
+                cellTypeCheck(current);
+            }
+            revealedCheck();
             console.log("left click x is: " + cellEl.dataset.x);
             console.log("left click y is: " + cellEl.dataset.y);
         }
@@ -105,11 +161,16 @@ window.addEventListener("load", function () {
             if (minefield[x][y].isFlagged == 0) {
                 minefield[x][y].isFlagged = 1;
                 minefield[x][y].El.classList.add("flag");
+                remainingFlags--;
+                setFlags();
             }
             else {
                 minefield[x][y].isFlagged = 0;
                 minefield[x][y].El.classList.remove("flag");
+                remainingFlags++;
+                setFlags();
             }
+            
             console.log("right click x is: " + cellEl.dataset.x);
             console.log("right click y is: " + cellEl.dataset.y);
         }
@@ -127,8 +188,8 @@ window.addEventListener("load", function () {
 function addBombs() {
     let bombsToAdd = undiscoveredMines;
     while (bombsToAdd > 0) {
-        let row = Math.floor(Math.random() * (x-1));
-        let col = Math.floor(Math.random() * (y-1));
+        let row = Math.floor(Math.random() * (x));
+        let col = Math.floor(Math.random() * (y));
         let currentBomb = minefield[row][col];
         if (currentBomb.isMine === 0) {
             let bombType = Math.floor(Math.random() * 2) + 1;
@@ -142,16 +203,115 @@ function addBombs() {
 
 function addChest() {
     let chestsToAdd = chestCount;
-    while (bombsToAdd > 0) {
-        let row = Math.floor(Math.random() * (x - 1));
-        let col = Math.floor(Math.random() * (y - 1));
-        let currentBomb = minefield[row][col];
-        if (currentBomb.isMine === 0) {
-            let bombType = Math.floor(Math.random() * 2) + 1;
-            currentBomb.isMine = bombType;
-            bombsToAdd--;
+    while (chestsToAdd > 0) {
+        let row = Math.floor(Math.random() * (x));
+        let col = Math.floor(Math.random() * (y));
+        let currentChest = minefield[row][col];
+        if (currentChest.isChest == 0) {
+            if (currentChest.isMine === 0) {
+                let chestType = Math.floor(Math.random() * 2) + 1;
+                currentChest.isChest = chestType;
+                chestsToAdd--;
+            }
         } else {
-            console.log(`This cell is a mine`);
+            console.log(`This cell is a chest`);
         }
+    }
+}
+
+function countAdjacentMines() {
+    for (let i = 0; i < x; i++) {
+        for (let j = 0; j < y; j++) {
+            var minesCount = 0;
+            let current = minefield[i][j];
+            if (current.isMine == false) {
+                for (let row = i - 1; row <= i + 1; row++) {
+                    for (let col = j - 1; col <= j + 1; col++) {
+                        // check if the adjacent cell is within the grid bounds
+                        if (row >= 0 && row < y && col >= 0 && col < x) {
+                            // check if the adjacent cell contains a mine
+                            if (minefield[row][col].isMine) {
+                                minesCount++;
+                            }
+                        }
+                    }
+                }
+                current.nearMines = minesCount;
+            }
+        }
+    }
+}
+
+function countAdjacentMinesSidesOnly() {
+    for (let i = 0; i < x; i++) {
+        for (let j = 0; j < y; j++) {
+            var minesCount = 0;
+            let current = minefield[i][j];
+            if (current.isMine == false) {
+                for (let row = i - 1; row <= i + 1; row++) {
+                    for (let col = j - 1; col <= j + 1; col++) {
+
+                        if ((row == i - 1 && col == j) || (row == i + 1 && col == j) || (row == i && col == j + 1) || (row == i && col == j - 1)) {
+                            if (row >= 0 && row < y && col >= 0 && col < x) {
+
+                                if (minefield[row][col].isMine) {
+                                    minesCount++;
+                                }
+                            }
+                        }
+                    }
+                }
+                current.nearMinesSides = minesCount;
+            }
+        }
+    }
+}
+
+function revealAll() {
+    minefield.forEach((x) => x.forEach((y) => y.isRevealed = true));
+}
+
+function gameOver() {
+    //TO DO
+}
+
+function winGame() {
+    //TO DO
+}
+
+function cellTypeCheck(current) {
+    if (current.isMine) {
+        if (current.bombType === 1) {
+            minefield[x][y].El.classList.add("blackmine");
+        }
+        minesCount--;
+        setBombs();
+        let bombType = current.isMine;
+        if (bombType === 1) {
+            health -= 35;
+        } else if (bombType === 2) {
+            health -= 50;
+        }
+        current.isMine = false;
+        if (health <= 0) {
+            health = 0;
+            revealAll();
+            console.log(`Game over!`)
+            stopTimer();
+        }
+        setHealth();
+    } else {
+        current.isRevealed = true;
+        if (current.isChest) {
+            if (current.isChest === 1) {
+                goldCount += Math.round(getRandomInt(10000, 100000)/1000)*1000;
+                setGold();
+            } else {
+                inventory.radarCount++;
+                setRadars();
+            }
+        }
+
+        //To do
     }
 }
