@@ -11,7 +11,7 @@ var remainingFlags;
 var health;
 var maxHealth = 100;
 var inventory = { radarCount: 0 };
-var minefield = [];
+var minefield = [[],[]];
 var lockGame = false;
 var timerEl, minefieldEl;
 var level = "rock"; // level preset, do not change for demo
@@ -33,7 +33,7 @@ function init(level) {
     let isColumnAdded = false;
     for (var i = 0; i < x; i++) {
         minefieldRowStyle += "60px ";
-
+        minefield.push([]);
         for (var j = 0; j < y; j++) {
             if (!isColumnAdded) {
                 minefieldColumnStyle += "60px ";
@@ -42,6 +42,7 @@ function init(level) {
             cellEl.classList.add("cell");
             cellEl.setAttribute("data-x", i);
             cellEl.setAttribute("data-y", j);
+            minefield[i][j] = cell(i, j);
             minefieldEl.appendChild(cellEl);
         }
         isColumnAdded = true;
@@ -71,6 +72,8 @@ function cell(row, column) {
             El.removeClass("hover");
         }
     };
+
+    return cellObj;
 }
 
 
@@ -95,6 +98,12 @@ window.addEventListener("load", function () {
     })
 
     init(level);
+    /*for (var i = 0; i < minefield.length; i++) {
+        var ell = minefield[i];
+        for (var j = 0; j < ell.length; j++) {
+            console.log("minefield[" + i + "][" + j + "] = " + ell[j]);
+        }
+    }*/
 })
 
 function addBombs() {
