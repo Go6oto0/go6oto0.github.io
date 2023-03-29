@@ -5,6 +5,7 @@
 var x;
 var y;
 var minesCount;
+var chestCount;
 var undiscoveredMines;
 var goldCount = 0;
 var remainingFlags;
@@ -22,6 +23,7 @@ function init(level) {
     if (level == "rock") {
         x = 10;
         y = 10;
+        chestCount = 3;
         minesCount = 30;
         undiscoveredMines = minesCount;
         health = 100;
@@ -42,10 +44,16 @@ function init(level) {
             cellEl.classList.add("cell");
             cellEl.setAttribute("data-x", i);
             cellEl.setAttribute("data-y", j);
-            minefield[i][j] = cell(i, j);
             minefieldEl.appendChild(cellEl);
+            minefield[i][j] = cell(i, j);
         }
         isColumnAdded = true;
+    }
+    addBombs();
+    for (let i = 0; i < x; i++) {
+        for (let j = 0; j < y; j++) {
+            console.log(minefield[i][j].isMine);
+        }
     }
     minefieldEl.style.gridTemplateRows = minefieldRowStyle;
     minefieldEl.style.gridTemplateColumns = minefieldColumnStyle;
@@ -54,7 +62,7 @@ function cell(row, column) {
     var selector = 'div[data-x="' + row + '"][data-y="' + column + '"]';
     var cellObj = {};
     cellObj.content = '<div class="cell" data-x="' + row + '" data-y="' + column + '"></div>';
-    cellObj.isMine = false;
+    cellObj.isMine = 0; // normal - 0; bomb - 1; special bomb - 2
     cellObj.isRevealed = false;
     cellObj.isFlagged = false;
     cellObj.nearMines = 0;
@@ -109,11 +117,28 @@ window.addEventListener("load", function () {
 function addBombs() {
     let bombsToAdd = undiscoveredMines;
     while (bombsToAdd > 0) {
-        let row = Math.floor(Math.random() * x);
-        let col = Math.floor(Math.random() * y);
+        let row = Math.floor(Math.random() * (x-1));
+        let col = Math.floor(Math.random() * (y-1));
         let currentBomb = minefield[row][col];
-        if (!currentBomb.isMine) {
-            currentBomb.isMine = true;
+        if (currentBomb.isMine === 0) {
+            let bombType = Math.floor(Math.random() * 2) + 1;
+            currentBomb.isMine = bombType;
+            bombsToAdd--;
+        } else {
+            console.log(`This cell is a mine`);
+        }
+    }
+}
+
+function addChest() {
+    let chestToAdd = undiscoveredMines;
+    while (bombsToAdd > 0) {
+        let row = Math.floor(Math.random() * (x - 1));
+        let col = Math.floor(Math.random() * (y - 1));
+        let currentBomb = minefield[row][col];
+        if (currentBomb.isMine === 0) {
+            let bombType = Math.floor(Math.random() * 2) + 1;
+            currentBomb.isMine = bombType;
             bombsToAdd--;
         } else {
             console.log(`This cell is a mine`);
