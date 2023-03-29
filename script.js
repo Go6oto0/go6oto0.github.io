@@ -42,8 +42,9 @@ function init(level) {
             cellEl.classList.add("cell");
             cellEl.setAttribute("data-x", i);
             cellEl.setAttribute("data-y", j);
-            minefield[i][j] = cell(i, j);
             minefieldEl.appendChild(cellEl);
+            minefield[i][j] = cell(i, j);
+            
         }
         isColumnAdded = true;
     }
@@ -92,6 +93,15 @@ window.addEventListener("load", function () {
         ev.preventDefault();
         let cellEl = ev.target.closest(".cell")
         if (cellEl) {
+            var x = cellEl.dataset.x, y = cellEl.dataset.y;
+            if (minefield[x][y].isFlagged == 0) {
+                minefield[x][y].isFlagged = 1;
+                minefield[x][y].El.classList.add("flag");
+            }
+            else {
+                minefield[x][y].isFlagged = 0;
+                minefield[x][y].El.classList.remove("flag");
+            }
             console.log("right click x is: " + cellEl.dataset.x);
             console.log("right click y is: " + cellEl.dataset.y);
         }
