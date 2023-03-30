@@ -6,15 +6,32 @@
 }
 
 #topbar-content {
+    position:relative;
     display: flex;
     align-items: center;
     height: 100%;
+}
+#topbar-content-left,
+#topbar-content-right {
+    flex: 0 0 500px;
+    display: flex;
+    position: absolute;
+}
+
+#topbar-content-center {
+    flex:1 1 auto;
+    display:flex;
+    justify-content:center;
+}
+
+#topbar-content-right {
+    right:0;
 }
 
 #topbar-score,
 #topbar-flags,
 #topbar-bombs,
-#topbar-time{
+#topbar-time {
     flex: 0 0 auto;
 }
 
@@ -64,13 +81,18 @@
     Minefield
 */
 
+#minefield-wrapper {
+    background-image: url('assets/rock-bkg.png');
+    background-size: cover;
+    min-height: calc(100vh - 120px);
+    padding: 10px;
+    display:flex;
+    justify-content:center;
+}
+
 #minefield {
     display: grid;
     gap: 5px;
-    padding: 10px;
-    background-image: url('assets/rock-bkg.jpg');
-    background-size:cover;
-    /*min-height: calc(100vh - 120px);*/
 }
 
 .cell {

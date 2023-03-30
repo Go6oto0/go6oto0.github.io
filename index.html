@@ -14,33 +14,39 @@
     <div id="topbar">
         <div class="container">
             <div id="topbar-content">
-                <div id="topbar-score">
-                    <div class="label label--padding">
-                        <div class="label__icon label__icon--coin"></div>
-                        <div class="label__text">00000002</div>
+                <div id="topbar-content-left">
+                    <div id="topbar-score">
+                        <div class="label label--padding">
+                            <div class="label__icon label__icon--coin"></div>
+                            <div class="label__text">00000002</div>
+                        </div>
+                    </div>
+                    <div id="topbar-flags">
+                        <div class="label label--padding">
+                            <div class="label__icon label__icon--flag"></div>
+                            <div class="label__text label__text--x">25</div>
+                        </div>
+                    </div>
+                    <div id="topbar-bombs">
+                        <div class="label">
+                            <div class="label__icon label__icon--bomb"></div>
+                            <div class="label__text label__text--x">25</div>
+                        </div>
                     </div>
                 </div>
-                <div id="topbar-flags">
-                    <div class="label label--padding">
-                        <div class="label__icon label__icon--flag"></div>
-                        <div class="label__text label__text--x">25</div>
+                <div id="topbar-content-center">
+                    <div id="topbar-level">
+                        <div class="label">
+                            <div class="label__text label__text--bold">Level 1: The Rock</div>
+                        </div>
                     </div>
                 </div>
-                <div id="topbar-bombs">
-                    <div class="label">
-                        <div class="label__icon label__icon--bomb"></div>
-                        <div class="label__text label__text--x">25</div>
-                    </div>
-                </div>
-                <div id="topbar-level">
-                    <div class="label">
-                        <div class="label__text label__text--bold">Level 1: The Rock</div>
-                    </div>
-                </div>
-                <div id="topbar-time">
-                    <div class="label">
-                        <div class="label__icon label__icon--hourglass"></div>
-                        <div class="label__text">00:00</div>
+                <div id="topbar-content-right">
+                    <div id="topbar-time">
+                        <div class="label">
+                            <div class="label__icon label__icon--hourglass"></div>
+                            <div class="label__text">00:00</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -48,7 +54,9 @@
     </div>
     <div id="content">
         <div class="container">
-            <div id="minefield"></div>
+            <div id="minefield-wrapper">
+                <div id="minefield"></div>
+            </div>
         </div>
     </div>
     <div id="footer">
@@ -142,7 +150,7 @@
 
         //     setTimeout(update, 1000);
         // }
-        
+
     </script>
     -->
 
