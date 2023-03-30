@@ -161,6 +161,19 @@ function closeFullscreen() {
     isFullScreen = false;
 }
 
+function enbledBackgroundMovement() {
+    var movementStrength = 25;
+    var height = movementStrength / window.innerHeight;
+    var width = movementStrength / window.innerWidth;
+    var wrapperEl = document.getElementById("minefield-wrapper");
+    wrapperEl.addEventListener("mousemove", function (e) {
+        var pageX = e.pageX - (window.innerWidth / 2);
+        var pageY = e.pageY - (window.innerHeight / 2);
+        var newvalueX = width * pageX * -1 - 25;
+        var newvalueY = height * pageY * -1 - 50;
+        wrapperEl.style.backgroundPosition = "calc(50% - " + newvalueX + "px) " + "calc(50% - " + newvalueY + "px)";
+    });
+}
 
 window.addEventListener("load", function () {
 
@@ -230,6 +243,8 @@ window.addEventListener("load", function () {
             closeFullscreen();
         }
     })
+
+    enbledBackgroundMovement();
 
     /*for (var i = 0; i < minefield.length; i++) {
         var ell = minefield[i];

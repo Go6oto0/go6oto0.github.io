@@ -117,7 +117,7 @@
 
 #minefield-wrapper {
     background-image: url('assets/rock-bkg.png');
-    background-position: top center;
+    background-position: center center;
     min-height: calc(100vh - 120px);
     padding: 10px;
     display: flex;
