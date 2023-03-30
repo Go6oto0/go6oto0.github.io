@@ -17,6 +17,7 @@ var lockGame = false;
 var isFullScreen = false;
 var timerEl, minefieldEl,fullscreenLinkEl;
 var level = "rock"; // level preset, do not change for demo
+var fireflyCount = 20;
 
 function revealedCheck() {
     console.log(`Revealed:`)
@@ -32,7 +33,6 @@ function getRandomInt(min, max) {
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
 }
-
 
 function init(level) {
     minefieldEl = document.querySelector("#minefield");
@@ -175,6 +175,14 @@ function enbledBackgroundMovement() {
     });
 }
 
+function insertFireflies() {
+    for (var i = 0; i < fireflyCount; i++) {
+        var fireflyEl = document.createElement("div");
+        fireflyEl.classList.add("firefly");
+        document.body.appendChild(fireflyEl);
+    }
+}
+
 window.addEventListener("load", function () {
 
     // Init
@@ -244,8 +252,10 @@ window.addEventListener("load", function () {
         }
     })
 
+    // Effects
+    ///////////////////////////
     enbledBackgroundMovement();
-
+    insertFireflies();
     /*for (var i = 0; i < minefield.length; i++) {
         var ell = minefield[i];
         for (var j = 0; j < ell.length; j++) {

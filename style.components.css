@@ -1,6 +1,9 @@
 ﻿/*
     Topbar
 */
+#topbar {
+    z-index:5;
+}
 #topbar-content, #footer-content {
     padding: 0 10px;
 }
@@ -81,6 +84,9 @@
 /*
     Footer
 */
+#footer {
+    z-index: 5;
+}
 #footer-content {
     display: flex;
     align-items: center;
@@ -127,6 +133,7 @@
 #minefield {
     display: grid;
     gap: 5px;
+    z-index: 5;
 }
 
 .cell {
