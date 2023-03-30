@@ -14,7 +14,8 @@ var maxHealth = 100;
 var inventory = { radarCount: 0};
 var minefield = [[],[]];
 var lockGame = false;
-var timerEl, minefieldEl;
+var isFullScreen = false;
+var timerEl, minefieldEl,fullscreenLinkEl;
 var level = "rock"; // level preset, do not change for demo
 
 function revealedCheck() {
@@ -135,10 +136,42 @@ function cell(row, column) {
     return cellObj;
 }
 
+function openFullscreen() {
+    let elem = document.documentElement;
+    if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+    } else if (elem.webkitRequestFullscreen) { /* Safari */
+        elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) { /* IE11 */
+        elem.msRequestFullscreen();
+    }
+    fullscreenLinkEl.classList.add("on");
+    isFullScreen = true;
+}
+
+function closeFullscreen() {
+    if (document.exitFullscreen) {
+        document.exitFullscreen();
+    } else if (document.webkitExitFullscreen) { /* Safari */
+        document.webkitExitFullscreen();
+    } else if (document.msExitFullscreen) { /* IE11 */
+        document.msExitFullscreen();
+    }
+    fullscreenLinkEl.classList.remove("on");
+    isFullScreen = false;
+}
 
 
 window.addEventListener("load", function () {
 
+    // Init
+    ///////////////////////
+    fullscreenLinkEl = document.getElementById("topbar-fullscreen");
+    init(level); //First so if global variable is used in the listeners, than it will be initialized
+
+
+    // Listeners
+    ///////////////////////
     document.querySelector("body").addEventListener("click", function (ev) {
         let cellEl = ev.target.closest(".cell")
         if (cellEl) {
@@ -176,7 +209,28 @@ window.addEventListener("load", function () {
         }
     })
 
-    init(level);
+    fullscreenLinkEl.addEventListener("click", function (ev) {
+        ev.preventDefault();
+        ev.stopPropagation();
+        if (!isFullScreen) {
+            openFullscreen();
+        }
+        else {
+            closeFullscreen();
+        }
+    })
+
+    document.getElementById("topbar").addEventListener("dblclick", function (ev) {
+        ev.preventDefault();
+        ev.stopPropagation();
+        if (!isFullScreen) {
+            openFullscreen();
+        }
+        else {
+            closeFullscreen();
+        }
+    })
+
     /*for (var i = 0; i < minefield.length; i++) {
         var ell = minefield[i];
         for (var j = 0; j < ell.length; j++) {

@@ -24,8 +24,12 @@
     justify-content:center;
 }
 
+#topbar-content-left {
+    left: 10px;
+}
+
 #topbar-content-right {
-    right:0;
+    right:10px;
 }
 
 #topbar-score,
@@ -44,6 +48,36 @@
     flex:0 0 auto;
     width:120px;
 }
+
+#topbar-fullscreen {
+    cursor:pointer;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+    #topbar-fullscreen svg {
+        fill:#94A3B8;
+        width:24px;
+        height:24px;
+    }
+
+    #topbar-fullscreen:hover svg {
+        fill: #fff;
+    }
+
+    #topbar-fullscreen .icon-fit {
+        display: none;
+    }
+
+#topbar-fullscreen.on .icon-full {
+    display: none;
+}
+
+#topbar-fullscreen.on .icon-fit {
+    display: inline-block;
+}
+
 /*
     Footer
 */
