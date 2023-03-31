@@ -1,0 +1,124 @@
+.cell.revealed::before {
+    background-position-x: 0px;
+    background-position-y: -400px;
+}
+
+.cell.revealed.chest::before {
+    background-position-x: -700px;
+    background-position-y: 0px;
+}
+
+.cell.revealed.chest.radar::before {
+    background-position-x: -300px;
+    background-position-y: -400px;
+}
+
+.cell.revealed.chest.hearth::before {
+    background-position-x: -400px;
+    background-position-y: -400px;
+}
+
+.cell.revealed.chest.time::before {
+    background-position-x: -200px;
+    background-position-y: -400px;
+}
+
+.cell.revealed.chest.points::before {
+    background-position-x: -100px;
+    background-position-y: -400px;
+}
+
+.cell.revealed.number1::before {
+    background-position-y: -200px;
+    background-position-x: 0;
+}
+
+.cell.revealed.number2::before {
+    background-position-y: -200px;
+    background-position-x: -100px;
+}
+
+.cell.revealed.number3::before {
+    background-position-y: -200px;
+    background-position-x: -200px;
+}
+
+.cell.revealed.number4::before {
+    background-position-y: -200px;
+    background-position-x: -300px;
+}
+
+.cell.revealed.number5::before {
+    background-position-y: -200px;
+    background-position-x: -400px;
+}
+
+.cell.revealed.number6::before {
+    background-position-y: -200px;
+    background-position-x: -500px;
+}
+
+.cell.revealed.number7::before {
+    background-position-y: -200px;
+    background-position-x: -600px;
+}
+
+.cell.revealed.number8::before {
+    background-position-y: -200px;
+    background-position-x: -700px;
+}
+
+.cell.revealed.number1sides::before {
+    background-position-y: -300px;
+    background-position-x: 0;
+}
+
+.cell.revealed.number2sides::before {
+    background-position-y: -300px;
+    background-position-x: -100px;
+}
+
+.cell.revealed.number3sides::before {
+    background-position-y: -300px;
+    background-position-x: -200px;
+}
+
+.cell.revealed.number4sides::before {
+    background-position-y: -300px;
+    background-position-x: -300px;
+}
+
+.cell.revealed.number5sides::before {
+    background-position-y: -300px;
+    background-position-x: -400px;
+}
+
+.cell.revealed.number6sides::before {
+    background-position-y: -300px;
+    background-position-x: -500px;
+}
+
+.cell.revealed.number7sides::before {
+    background-position-y: -300px;
+    background-position-x: -600px;
+}
+
+.cell.revealed.number8sides::before {
+    background-position-y: -300px;
+    background-position-x: -700px;
+}
+
+.cell.flag::before {
+    background-position-y: 0px;
+    background-position-x: -500px;
+}
+
+.cell.blackmine::before {
+    background-position-x: -600px;
+    background-position-y: 0px;
+}
+
+.cell.redmine::before {
+    background-position-x: -400px;
+    background-position-y: 0px;
+}
