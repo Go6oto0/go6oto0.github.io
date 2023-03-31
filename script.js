@@ -11,11 +11,11 @@ var goldCount = 0;
 var remainingFlags;
 var health;
 var maxHealth = 100;
-var inventory = { radarCount: 0};
-var minefield = [[],[]];
+var inventory = { radarCount: 0 };
+var minefield = [[], []];
 var lockGame = false;
 var isFullScreen = false;
-var timerEl, minefieldEl,fullscreenLinkEl;
+var timerEl, minefieldEl, fullscreenLinkEl;
 var level = "rock"; // level preset, do not change for demo
 var fireflyCount = 15; //max 15
 
@@ -62,7 +62,7 @@ function init(level) {
             cellEl.setAttribute("data-y", j);
             minefieldEl.appendChild(cellEl);
             minefield[i][j] = cell(i, j);
-            
+
         }
         isColumnAdded = true;
     }
@@ -73,7 +73,7 @@ function init(level) {
     for (let i = 0; i < x; i++) {
         let tempArr = minefield[i];
         let resultArr = [];
-        tempArr.forEach((x)=> resultArr.push(x.isMine))
+        tempArr.forEach((x) => resultArr.push(x.isMine))
         console.log(resultArr.join(` `));
     }
 
@@ -103,8 +103,8 @@ function init(level) {
         tempArr.forEach((x) => resultArr.push(x.isChest ? 1 : 0))
         console.log(resultArr.join(` `));
     }
-    
-    
+
+
     minefieldEl.style.gridTemplateRows = minefieldRowStyle;
     minefieldEl.style.gridTemplateColumns = minefieldColumnStyle;
 }
@@ -224,7 +224,7 @@ window.addEventListener("load", function () {
                 remainingFlags++;
                 setFlags();
             }
-            
+
             console.log("right click x is: " + cellEl.dataset.x);
             console.log("right click y is: " + cellEl.dataset.y);
         }
@@ -256,6 +256,16 @@ window.addEventListener("load", function () {
     ///////////////////////////
     enbledBackgroundMovement();
     insertFireflies();
+
+    //place cells on board
+    setTimeout(() => {
+        document.getElementById("minefield").querySelectorAll(".cell").forEach(function (item, index) {
+            // stagger transition with transitionDelay
+            console.log(index);
+            item.style.transitionDelay = (index * 25) + 'ms';
+            item.classList.toggle('is-moved');
+        });
+    }, 100);
     /*for (var i = 0; i < minefield.length; i++) {
         var ell = minefield[i];
         for (var j = 0; j < ell.length; j++) {
@@ -383,7 +393,7 @@ function cellTypeCheck(current) {
         current.isRevealed = true;
         if (current.isChest) {
             if (current.isChest === 1) {
-                goldCount += Math.round(getRandomInt(10000, 100000)/1000)*1000;
+                goldCount += Math.round(getRandomInt(10000, 100000) / 1000) * 1000;
                 setGold();
             } else {
                 inventory.radarCount++;
