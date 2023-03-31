@@ -17,7 +17,7 @@ var lockGame = false;
 var isFullScreen = false;
 var timerEl, minefieldEl,fullscreenLinkEl;
 var level = "rock"; // level preset, do not change for demo
-var fireflyCount = 20;
+var fireflyCount = 15; //max 15
 
 function revealedCheck() {
     console.log(`Revealed:`)
