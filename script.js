@@ -38,7 +38,7 @@ function init(level) {
     minefieldEl = document.querySelector("#minefield");
     if (level == "rock") {
         x = 10;
-        y = 10;
+        y = 15;
         chestCount = 5;
         minesCount = 30;
         undiscoveredMines = minesCount;
@@ -46,6 +46,7 @@ function init(level) {
         remainingFlags = 30;
     }
     setUICounters();
+    disableInspect(); //Disabling inspect
     let minefieldRowStyle = "";
     let minefieldColumnStyle = "";
     let isColumnAdded = false;
@@ -307,7 +308,7 @@ function countAdjacentMines() {
                 for (let row = i - 1; row <= i + 1; row++) {
                     for (let col = j - 1; col <= j + 1; col++) {
                         // check if the adjacent cell is within the grid bounds
-                        if (row >= 0 && row < y && col >= 0 && col < x) {
+                        if (row >= 0 && row < x && col >= 0 && col < y) {
                             // check if the adjacent cell contains a mine
                             if (minefield[row][col].isMine) {
                                 minesCount++;
@@ -331,7 +332,7 @@ function countAdjacentMinesSidesOnly() {
                     for (let col = j - 1; col <= j + 1; col++) {
 
                         if ((row == i - 1 && col == j) || (row == i + 1 && col == j) || (row == i && col == j + 1) || (row == i && col == j - 1)) {
-                            if (row >= 0 && row < y && col >= 0 && col < x) {
+                            if (row >= 0 && row < x && col >= 0 && col < y) {
 
                                 if (minefield[row][col].isMine) {
                                     minesCount++;
@@ -392,5 +393,31 @@ function cellTypeCheck(current) {
         }
 
         //To do
+    }
+}
+
+function disableInspect() {
+    console.log(`disable inspect`)
+    document.onkeydown = function (e) {
+
+        // disable F12 key
+        if (e.keyCode == 123) {
+            return false;
+        }
+
+        // disable I key
+        if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {
+            return false;
+        }
+
+        // disable J key
+        if (e.ctrlKey && e.shiftKey && e.keyCode == 74) {
+            return false;
+        }
+
+        // disable U key
+        if (e.ctrlKey && e.keyCode == 85) {
+            return false;
+        }
     }
 }

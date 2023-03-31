@@ -131,6 +131,7 @@
 }
 
 #minefield {
+    padding-top: 8vh;
     display: grid;
     gap: 5px;
     z-index: 5;
@@ -175,6 +176,7 @@
 
     .cell:hover::after {
         display: block;
+        
     }
     .cell span {
     position: absolute;
