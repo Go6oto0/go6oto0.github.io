@@ -51,12 +51,18 @@
     flex:0 0 auto;
     width:120px;
 }
+#topbar-flags .label__text--x, #topbar-bombs .label__text--x {
+    width: 65px;
+}
 
+#topbar-score .label__text {
+    width: 220px;
+}
 #topbar-fullscreen {
-    cursor:pointer;
-    display:flex;
-    justify-content:center;
-    align-items:center;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
     #topbar-fullscreen svg {
@@ -114,9 +120,15 @@
 #footer-health {
     flex: 0 0 50%;
 }
-
-
-
+#footer-inventory .label__text--x{
+    width:45px;
+}
+#footer-effects .label__aux--x{
+    width:25px;
+}
+#footer-effects .label__text {
+    width: 100px;
+}
 /*
     Minefield
 */
@@ -176,10 +188,3 @@
     .cell:hover::after {
         display: block;
     }
-    .cell span {
-    position: absolute;
-    top:0;
-    bottom: 0;
-    left:0;
-    right:0;
-}
