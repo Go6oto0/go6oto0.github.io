@@ -37,7 +37,7 @@ function getRandomInt(min, max) {
 function init(level) {
     minefieldEl = document.querySelector("#minefield");
     if (level == "rock") {
-        x = 20;
+        x = 10;
         y = 10;
         chestCount = 5;
         minesCount = 30;
@@ -104,7 +104,6 @@ function init(level) {
         console.log(resultArr.join(` `));
     }
 
-    debugger;
     minefieldEl.style.gridTemplateRows = minefieldRowStyle;
     minefieldEl.style.gridTemplateColumns = minefieldColumnStyle;
 }

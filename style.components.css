@@ -186,12 +186,12 @@
         bottom: 0;
         right: 0;
         content: "";
-        display: block;
-        background:rgba(255,255,255,0.25);
-        display:none;
+        background:transparent;
+        display:block;
         border-radius:3px;
+        transition:background ease 0.75s;
     }
 
     .cell:hover::after {
-        display: block;
+        background: rgba(255,255,255,0.15);
     }
