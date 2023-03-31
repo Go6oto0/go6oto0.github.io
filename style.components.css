@@ -153,9 +153,9 @@
     height: 64px;
     position: relative;
     cursor: pointer;
-    transform: translateX(-10000px);
+/*    transform: translateX(-10000px);
     transition: transform 0.4s;
-    visibility:hidden;
+    visibility:hidden;*/
 }
 
     .cell.is-moved {

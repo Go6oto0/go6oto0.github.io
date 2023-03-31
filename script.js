@@ -37,7 +37,7 @@ function getRandomInt(min, max) {
 function init(level) {
     minefieldEl = document.querySelector("#minefield");
     if (level == "rock") {
-        x = 10;
+        x = 20;
         y = 10;
         chestCount = 5;
         minesCount = 30;
@@ -104,7 +104,7 @@ function init(level) {
         console.log(resultArr.join(` `));
     }
 
-
+    debugger;
     minefieldEl.style.gridTemplateRows = minefieldRowStyle;
     minefieldEl.style.gridTemplateColumns = minefieldColumnStyle;
 }
@@ -183,6 +183,15 @@ function insertFireflies() {
     }
 }
 
+function animateMinefieldInit() {
+    document.getElementById("minefield").querySelectorAll(".cell").forEach(function (item, index) {
+        // stagger transition with transitionDelay
+        console.log(index);
+        item.style.transitionDelay = (index * 25) + 'ms';
+        item.classList.toggle('is-moved');
+    });
+}
+
 window.addEventListener("load", function () {
 
     // Init
@@ -258,14 +267,10 @@ window.addEventListener("load", function () {
     insertFireflies();
 
     //place cells on board
-    setTimeout(() => {
-        document.getElementById("minefield").querySelectorAll(".cell").forEach(function (item, index) {
-            // stagger transition with transitionDelay
-            console.log(index);
-            item.style.transitionDelay = (index * 25) + 'ms';
-            item.classList.toggle('is-moved');
-        });
-    }, 100);
+    //setTimeout(() => { animateMinefieldInit();}, 100);
+
+
+
     /*for (var i = 0; i < minefield.length; i++) {
         var ell = minefield[i];
         for (var j = 0; j < ell.length; j++) {
