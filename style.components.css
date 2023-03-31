@@ -2,7 +2,7 @@
     Topbar
 */
 #topbar {
-    z-index:5;
+    z-index:6;
 }
 #topbar-content, #footer-content {
     padding: 0 10px;
@@ -51,12 +51,18 @@
     flex:0 0 auto;
     width:120px;
 }
+#topbar-flags .label__text--x, #topbar-bombs .label__text--x {
+    width: 65px;
+}
 
+#topbar-score .label__text {
+    width: 220px;
+}
 #topbar-fullscreen {
-    cursor:pointer;
-    display:flex;
-    justify-content:center;
-    align-items:center;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
     #topbar-fullscreen svg {
@@ -85,7 +91,7 @@
     Footer
 */
 #footer {
-    z-index: 5;
+    z-index: 6;
 }
 #footer-content {
     display: flex;
@@ -114,9 +120,15 @@
 #footer-health {
     flex: 0 0 50%;
 }
-
-
-
+#footer-inventory .label__text--x{
+    width:45px;
+}
+#footer-effects .label__aux--x{
+    width:25px;
+}
+#footer-effects .label__text {
+    width: 100px;
+}
 /*
     Minefield
 */
@@ -140,23 +152,33 @@
 .cell {
     width: 64px;
     height: 64px;
-    position:relative;
-    cursor:pointer;
+    position: relative;
+    cursor: pointer;
 }
+
+#minefield.animated .cell {
+    transform: translateX(-10000px);
+    transition: transform 0.4s;
+    visibility: hidden;
+}
+
+    #minefield.animated .cell.is-moved {
+        transform: translateX(0);
+        visibility: visible;
+    }
 
     .cell::before {
         background: url('assets/sprite.png');
         background-repeat: no-repeat;
         background-position-x: 0;
         background-position-y: 0;
-        position:absolute;
-        top:0;
-        left:0;
-        bottom:0;
-        right:0;
-        content:"";
-        display:block;
-        
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        content: "";
+        display: block;
     }
     
     
@@ -168,20 +190,12 @@
         bottom: 0;
         right: 0;
         content: "";
-        display: block;
-        background:rgba(255,255,255,0.25);
-        display:none;
+        background:transparent;
+        display:block;
         border-radius:3px;
+        transition:background ease 0.75s;
     }
 
     .cell:hover::after {
-        display: block;
-        
+        background: rgba(255,255,255,0.15);
     }
-    .cell span {
-    position: absolute;
-    top:0;
-    bottom: 0;
-    left:0;
-    right:0;
-}

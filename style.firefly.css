@@ -1,4 +1,9 @@
- .firefly {
+:root {
+    --firefly-base-color: #33363b;
+    --firefly-highlight-color: #ab9380;
+}
+
+.firefly {
     position: fixed;
     left: 50%;
     top: 50%;
@@ -20,15 +25,15 @@
     }
 
     .firefly::before {
-        background: red;
+        background: var(--firefly-base-color);
         opacity: 0.5;
         animation: drift ease alternate infinite;
     }
 
     .firefly::after {
-        background: white;
+        background: var(--firefly-highlight-color);
         opacity: 0;
-        box-shadow: 0 0 0vw 0vw red;
+        box-shadow: 0 0 0vw 0vw var(--firefly-base-color);
         animation: drift ease alternate infinite, flash ease infinite;
     }
 
