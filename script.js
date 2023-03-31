@@ -266,7 +266,7 @@ window.addEventListener("load", function () {
     insertFireflies();
 
     //place cells on board
-    //setTimeout(() => { animateMinefieldInit();}, 100);
+    setTimeout(() => { animateMinefieldInit();}, 1);
 
 
 
