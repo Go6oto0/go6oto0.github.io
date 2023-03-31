@@ -183,9 +183,8 @@ function insertFireflies() {
 }
 
 function animateMinefieldInit() {
-    document.getElementById("minefield").querySelectorAll(".cell").forEach(function (item, index) {
+    minefieldEl.querySelectorAll(".cell").forEach(function (item, index) {
         // stagger transition with transitionDelay
-        console.log(index);
         item.style.transitionDelay = (index * 25) + 'ms';
         item.classList.toggle('is-moved');
     });

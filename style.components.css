@@ -153,12 +153,15 @@
     height: 64px;
     position: relative;
     cursor: pointer;
-    transform: translateX(-10000px);
-    transition: transform 0.4s;
-    visibility:hidden;
 }
 
-    .cell.is-moved {
+#minefield.animated .cell {
+    transform: translateX(-10000px);
+    transition: transform 0.4s;
+    visibility: hidden;
+}
+
+    #minefield.animated .cell.is-moved {
         transform: translateX(0);
         visibility: visible;
     }
