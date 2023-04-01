@@ -6,6 +6,8 @@
     <meta charset="utf-8" />
     <title>Minesweeper</title>
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="./script.js"></script>
     <script src="./UISetterFunctions.js"></script>
 </head>
@@ -46,6 +48,13 @@
                         <div class="label">
                             <div class="label__icon label__icon--hourglass"></div>
                             <div class="label__text">00:00</div>
+                        </div>
+                    </div>
+                    <div id="topbar-audio">
+                        <audio id="player" src="./assets/8-bit-dream-land-142093.mp3">
+                        </audio>
+                        <div>
+                            <i class="fa-solid fa-volume-xmark" onclick="document.getElementById('player').play()"></i>
                         </div>
                     </div>
                     <div id="topbar-fullscreen" title="toggle fullscreen mode">
