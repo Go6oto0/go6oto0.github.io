@@ -46,7 +46,7 @@ function init(level) {
         remainingFlags = 30;
     }
     setUICounters();
-    disableInspect(); //Disabling inspect
+    /*disableInspect();*/ //Disabling inspect
     let minefieldRowStyle = "";
     let minefieldColumnStyle = "";
     let isColumnAdded = false;
@@ -68,43 +68,8 @@ function init(level) {
         isColumnAdded = true;
     }
 
-
-    addBombs();
-    console.log(`Bombs:`)
-    for (let i = 0; i < x; i++) {
-        let tempArr = minefield[i];
-        let resultArr = [];
-        tempArr.forEach((x) => resultArr.push(x.isMine))
-        console.log(resultArr.join(` `));
-    }
-
-    countAdjacentMines();
-    console.log(`Adjacent mines:`)
-    for (let i = 0; i < x; i++) {
-        let tempArr = minefield[i];
-        let resultArr = [];
-        tempArr.forEach((x) => resultArr.push(x.nearMines))
-        console.log(resultArr.join(` `));
-    }
-
-    countAdjacentMinesSidesOnly()
-    console.log(`Adjacent mines (sides only):`)
-    for (let i = 0; i < x; i++) {
-        let tempArr = minefield[i];
-        let resultArr = [];
-        tempArr.forEach((x) => resultArr.push(x.nearMinesSides))
-        console.log(resultArr.join(` `));
-    }
-
-    addChest();
-    console.log(`Chests:`)
-    for (let i = 0; i < x; i++) {
-        let tempArr = minefield[i];
-        let resultArr = [];
-        tempArr.forEach((x) => resultArr.push(x.isChest ? 1 : 0))
-        console.log(resultArr.join(` `));
-    }
-
+    minefieldSetup();
+    
     minefieldEl.style.gridTemplateRows = minefieldRowStyle;
     minefieldEl.style.gridTemplateColumns = minefieldColumnStyle;
 }
@@ -113,7 +78,7 @@ function cell(row, column) {
     var cellObj = {};
     cellObj.content = '<div class="cell" data-x="' + row + '" data-y="' + column + '"></div>';
     cellObj.isMine = 0; // normal - 0; bomb - 1; special bomb - 2
-    cellObj.isChest = 0; // normal - 0; gold - 1; radar - 2 ...
+    cellObj.isChest = 0; // normal - 0; gold - 1; radar - 2; health - 3; time - 4...
     cellObj.isRevealed = false;
     cellObj.isFlagged = false;
     cellObj.nearMines = 0;
@@ -302,7 +267,7 @@ function addChest() {
         let currentChest = minefield[row][col];
         if (currentChest.isChest == 0) {
             if (currentChest.isMine === 0) {
-                let chestType = Math.floor(Math.random() * 2) + 1;
+                let chestType = Math.floor(Math.random() * 4) + 1;
                 currentChest.isChest = chestType;
                 chestsToAdd--;
             }
@@ -374,8 +339,9 @@ function winGame() {
 
 function cellTypeCheck(current) {
     if (current.isMine) {
+
         if (current.bombType === 1) {
-            minefield[x][y].El.classList.add("blackmine");
+            minefield[x][y].El.classList.add("revealed").add("blackmine");
         }
         minesCount--;
         setBombs();
@@ -393,15 +359,22 @@ function cellTypeCheck(current) {
             stopTimer();
         }
         setHealth();
+
     } else {
+
         current.isRevealed = true;
         if (current.isChest) {
             if (current.isChest === 1) {
                 goldCount += Math.round(getRandomInt(10000, 100000) / 1000) * 1000;
                 setGold();
-            } else {
+            } else if (current.isChest === 2) {
                 inventory.radarCount++;
                 setRadars();
+            } else if (current.isChest === 3) {
+                health += 25;
+                setHealth();
+            } else if (current.isChest === 4) {
+
             }
         }
 
@@ -433,4 +406,43 @@ function disableInspect() {
             return false;
         }
     }
+}
+
+function minefieldSetup() {
+    addBombs();
+    console.log(`Bombs:`)
+    for (let i = 0; i < x; i++) {
+        let tempArr = minefield[i];
+        let resultArr = [];
+        tempArr.forEach((x) => resultArr.push(x.isMine))
+        console.log(resultArr.join(` `));
+    }
+
+    countAdjacentMines();
+    console.log(`Adjacent mines:`)
+    for (let i = 0; i < x; i++) {
+        let tempArr = minefield[i];
+        let resultArr = [];
+        tempArr.forEach((x) => resultArr.push(x.nearMines))
+        console.log(resultArr.join(` `));
+    }
+
+    countAdjacentMinesSidesOnly()
+    console.log(`Adjacent mines (sides only):`)
+    for (let i = 0; i < x; i++) {
+        let tempArr = minefield[i];
+        let resultArr = [];
+        tempArr.forEach((x) => resultArr.push(x.nearMinesSides))
+        console.log(resultArr.join(` `));
+    }
+
+    addChest();
+    console.log(`Chests:`)
+    for (let i = 0; i < x; i++) {
+        let tempArr = minefield[i];
+        let resultArr = [];
+        tempArr.forEach((x) => resultArr.push(x.isChest ? 1 : 0))
+        console.log(resultArr.join(` `));
+    }
+
 }
