@@ -320,39 +320,15 @@ function countAdjacentMinesSidesOnly() {
 function normalOrSidesOnly() {
     for (let row = 0; row < x; row++) {
         for (let col = 0; col < y; col++) {
+            let chanceSides = getRandomWithFrequency(40)// 40 percent to return 1, otherwise 2
             let current = minefield[row][col];
-            let cellType = getRandomWithFrequency(66);
-            let faultySidesOnlyCell = getRandomWithFrequency(60) === 1 ? false : true;
-            
-            if (current.nearMines !== current.nearMinesSides || cellType === 1) {
-                current.cellType = `normal`;
-                if (current.nearMines === 1) {
-                    current.El.classList.add("number1");
-                } else if (current.nearMines === 2) {
-                    current.El.classList.add("number2");
-                } else if (current.nearMines === 3) {
-                    current.El.classList.add("number3");
-                } else if (current.nearMines === 4) {
-                    current.El.classList.add("number4");
-                } else if (current.nearMines === 5) {
-                    current.El.classList.add("number5");
-                } else if (current.nearMines === 6) {
-                    current.El.classList.add("number6");
-                } else if (current.nearMines === 7) {
-                    current.El.classList.add("number7");
-                } else if (current.nearMines === 8) {
-                    current.El.classList.add("number8");
-                }
-            } else if (current.nearMines === current.nearMinesSides || faultySidesOnlyCell && cellType === 2){
-                current.cellType = `sidesOnly`;
-                if (current.nearMinesSides === 1) {
-                    current.El.classList.add("number1sides");
-                } else if (current.nearMinesSides === 2) {
-                    current.El.classList.add("number2sides");
-                } else if (current.nearMinesSides === 3) {
-                    current.El.classList.add("number3sides");
-                } else if (current.nearMinesSides === 4) {
-                    current.El.classList.add("number4sides");
+            if (current.nearMinesSides == 0) {
+                setnormalcounter(current);
+            }
+            else {
+                if (chanceSides == 1) setsidescounter(current);
+                else {
+                    setnormalcounter(current);
                 }
             }
         }
@@ -515,6 +491,38 @@ function getRandomWithFrequency(frequncy) {
         return 1;
     } else {
         return 2;
+    }
+}
+function setnormalcounter(current) {
+    current.cellType = `normal`;
+    if (current.nearMines === 1) {
+        current.El.classList.add("number1");
+    } else if (current.nearMines === 2) {
+        current.El.classList.add("number2");
+    } else if (current.nearMines === 3) {
+        current.El.classList.add("number3");
+    } else if (current.nearMines === 4) {
+        current.El.classList.add("number4");
+    } else if (current.nearMines === 5) {
+        current.El.classList.add("number5");
+    } else if (current.nearMines === 6) {
+        current.El.classList.add("number6");
+    } else if (current.nearMines === 7) {
+        current.El.classList.add("number7");
+    } else if (current.nearMines === 8){
+        current.El.classList.add("number8");
+    }
+}
+function setsidescounter(current) {
+    current.cellType = `sidesOnly`;
+    if (current.nearMinesSides === 1) {
+        current.El.classList.add("number1sides");
+    } else if (current.nearMinesSides === 2) {
+        current.El.classList.add("number2sides");
+    } else if (current.nearMinesSides === 3) {
+        current.El.classList.add("number3sides");
+    } else if (current.nearMinesSides === 4) {
+        current.El.classList.add("number4sides");
     }
 }
 
