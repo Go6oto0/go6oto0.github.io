@@ -22,13 +22,13 @@ var fireflyCount = 15; //max 15
 function init(level) {
     minefieldEl = document.querySelector("#minefield");
     if (level == "rock") {
-        x = 10;
-        y = 15;
+        x = 11;
+        y = 20;
         chestCount = 5;
-        minesCount = 40;
+        minesCount = 50;
         undiscoveredMines = minesCount;
         health = 100;
-        remainingFlags = 30;
+        remainingFlags = 50;
     }
     setUICounters();
     /*disableInspect();*/ //Disabling inspect
