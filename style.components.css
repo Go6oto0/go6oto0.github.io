@@ -201,3 +201,109 @@
     .cell:hover::after {
         background: rgba(255,255,255,0.15);
     }
+    /*win/lose*/
+
+#lose {
+    display: inline-block;
+    position: absolute;
+    z-index: 6;
+    background: url('assets/lose-background.png');
+    width: 838.14px;
+    height: 365.46px;
+    top: 230px;
+    right: 500px;
+    text-align: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+#win {
+    display: inline-block;
+    background: url('assets/win-background.png');
+    position: absolute;
+    z-index: 6;
+    width: 915px;
+    height: 415px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    top: 220px;
+    text-align: center;
+    right: 465px;
+}
+
+#lose #text {
+    position: absolute;
+    font-size: 96px;
+    font-family: 'Goldman';
+    color: white;
+    font-weight: 400;
+    height: 110px;
+    width: 838.14px;
+    text-align: center;
+    top: 134px;
+    right: 0px;
+}
+
+#win #text {
+    position: absolute;
+    font-size: 96px;
+    font-family: 'Goldman';
+    color: white;
+    font-weight: 400;
+    height: 110px;
+    width: 838.14px;
+    text-align: center;
+    top: 134px;
+    right: 0px;
+}
+
+#lose #message {
+    position: absolute;
+    font-size: 24px;
+    font-family: 'Goldman';
+    color: white;
+    font-weight: 400;
+    top: 340px;
+    right: 350px;
+}
+
+
+#win #message {
+    position: absolute;
+    font-size: 24px;
+    font-family: 'Goldman';
+    color: white;
+    font-weight: 400;
+    top: 340px;
+    right: 100px;
+}
+
+#win #showScore--score {
+    position: absolute;
+    font-size: 24px;
+    font-family: 'Goldman';
+    color: white;
+    font-weight: 400;
+    top: 340px;
+    right: 350px;
+    width: 880px;
+    height: 115px;
+}
+
+#win #showScore {
+    position: absolute;
+    font-size: 24px;
+    font-family: 'Goldman';
+    color: white;
+    font-weight: 400;
+    top: 340px;
+    right: 220px;
+    width: 880px;
+    height: 115px;
+}
+/* make something display none.*/
+.d-none {
+    display: none;
+    visibility: hidden;
+}
+
