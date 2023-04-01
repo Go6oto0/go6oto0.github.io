@@ -167,19 +167,21 @@
         visibility: visible;
     }
 
-    .cell::before {
-        background: url('assets/sprite.png');
-        background-repeat: no-repeat;
-        background-position-x: 0;
-        background-position-y: 0;
-        position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        content: "";
-        display: block;
-    }
+.cell::before {
+    background: url('assets/sprite.png');
+    background-repeat: no-repeat;
+    background-position-x: 0;
+    background-position-y: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    content: "";
+    display: block;
+    animation: CellAnimation 2.5s infinite;
+    animation-timing-function: steps(1, end);
+}
     
     
 
