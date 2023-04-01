@@ -22,13 +22,13 @@ var fireflyCount = 15; //max 15
 function init(level) {
     minefieldEl = document.querySelector("#minefield");
     if (level == "rock") {
-        x = 10;
-        y = 15;
+        x = 11;
+        y = 20;
         chestCount = 5;
-        minesCount = 30;
+        minesCount = 50;
         undiscoveredMines = minesCount;
         health = 100;
-        remainingFlags = 30;
+        remainingFlags = 50;
     }
     setUICounters();
     /*disableInspect();*/ //Disabling inspect
@@ -370,8 +370,25 @@ function gameOver() {
 function winGame() {
     //TO DO
 }
-
+function RevealNearby(xi, yi) {
+    if (0 > xi || xi >= x || 0 > yi || yi >= y) return;
+    current = minefield[xi][yi];
+    if (current.isRevealed == true) return;
+    current.El.classList.add("revealed");
+    current.isRevealed = true;
+    if (current.nearMines == 0) { // empty cell or chest cell
+        RevealNearby(xi - 1, yi);
+        RevealNearby(xi + 1, yi);
+        RevealNearby(xi, yi - 1);
+        RevealNearby(xi, yi + 1);
+    }
+    return; // if a numbered cell, the recursion stops
+}
 function cellTypeCheck(current) {
+    if (current.isMine == 0 && current.nearMines == 0) {
+        console.log("Recursion starts");
+        RevealNearby(current.x, current.y);
+    }
     current.El.classList.add("revealed");
     current.isRevealed = true;
     if (current.isMine > 0) {
