@@ -113,12 +113,12 @@
     background-position-x: -500px;
 }
 
-.cell.blackmine::before {
+.cell.revealed.blackmine::before {
     background-position-x: -600px;
     background-position-y: 0px;
 }
 
-.cell.redmine::before {
+.cell.revealed.redmine::before {
     background-position-x: -400px;
     background-position-y: 0px;
 }

@@ -54,6 +54,7 @@ function init(level) {
     }
 
     minefieldSetup();
+    normalOrSidesOnly();
     
     minefieldEl.style.gridTemplateRows = minefieldRowStyle;
     minefieldEl.style.gridTemplateColumns = minefieldColumnStyle;
@@ -237,6 +238,11 @@ function addBombs() {
         if (currentBomb.isMine === 0) {
             let bombType = Math.floor(Math.random() * 2) + 1;
             currentBomb.isMine = bombType;
+            if (bombType === 1) {
+                currentBomb.El.classList.add("blackmine");
+            } else {
+                currentBomb.El.classList.add("redmine");
+            }
             bombsToAdd--;
         } else {
             console.log(`This cell is a mine`);
@@ -251,9 +257,10 @@ function addChest() {
         let col = Math.floor(Math.random() * (y));
         let currentChest = minefield[row][col];
         if (currentChest.isChest == 0) {
-            if (currentChest.isMine === 0) {
+            if (currentChest.isMine === 0 && currentChest.nearMines === 0) {
                 let chestType = Math.floor(Math.random() * 4) + 1;
                 currentChest.isChest = chestType;
+                currentChest.El.classList.add("chest");
                 chestsToAdd--;
             }
         } else {
@@ -310,6 +317,45 @@ function countAdjacentMinesSidesOnly() {
     }
 }
 
+function normalOrSidesOnly() {
+    for (let row = 0; row < x; row++) {
+        for (let col = 0; col < y; col++) {
+            let current = minefield[row][col];
+            if (current.nearMines!==current.nearMinesSides) {
+                current.cellType = `normal`;
+                if (current.nearMines === 1) {
+                    current.El.classList.add("number1");
+                } else if (current.nearMines === 2) {
+                    current.El.classList.add("number2");
+                } else if (current.nearMines === 3) {
+                    current.El.classList.add("number3");
+                } else if (current.nearMines === 4) {
+                    current.El.classList.add("number4");
+                } else if (current.nearMines === 5) {
+                    current.El.classList.add("number5");
+                } else if (current.nearMines === 6) {
+                    current.El.classList.add("number6");
+                } else if (current.nearMines === 7) {
+                    current.El.classList.add("number7");
+                } else if (current.nearMines === 8) {
+                    current.El.classList.add("number8");
+                }
+            } else {
+                current.cellType = `sidesOnly`;
+                if (current.nearMinesSides === 1) {
+                    current.El.classList.add("number1sides");
+                } else if (current.nearMinesSides === 2) {
+                    current.El.classList.add("number2sides");
+                } else if (current.nearMinesSides === 3) {
+                    current.El.classList.add("number3sides");
+                } else if (current.nearMinesSides === 4) {
+                    current.El.classList.add("number4sides");
+                }
+            }
+        }
+    }
+}
+
 function revealAll() {
     minefield.forEach((x) => x.forEach((y) => y.isRevealed = true));
 }
@@ -326,13 +372,6 @@ function cellTypeCheck(current) {
     current.El.classList.add("revealed");
     current.isRevealed = true;
     if (current.isMine > 0) {
-        if (current.isMine == 1) {
-            current.El.classList.add("blackmine");
-            console.log(`bomb`);
-        } else if (current.isMine == 2) {
-            current.El.classList.add("redmine");
-            console.log(`bomb`);
-        }
         minesCount--;
         setBombs();
         let bombType = current.isMine;
@@ -365,7 +404,7 @@ function cellTypeCheck(current) {
         }
 
         //To do
-    }
+    } 
 }
 
 function disableInspect() {
