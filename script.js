@@ -357,7 +357,7 @@ function normalOrSidesOnly() {
 }
 
 function revealAll() {
-    minefield.forEach((x) => x.forEach((y) => y.isRevealed = true));
+    minefield.forEach((x) => x.forEach((y) => { y.isRevealed = true; cellTypeCheck(y); }));
 }
 
 function gameOver() {
