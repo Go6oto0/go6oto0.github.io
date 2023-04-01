@@ -321,7 +321,10 @@ function normalOrSidesOnly() {
     for (let row = 0; row < x; row++) {
         for (let col = 0; col < y; col++) {
             let current = minefield[row][col];
-            if (current.nearMines!==current.nearMinesSides) {
+            let cellType = getRandomWithFrequency(66);
+            let faultySidesOnlyCell = getRandomWithFrequency(60) === 1 ? false : true;
+            
+            if (current.nearMines !== current.nearMinesSides || cellType === 1) {
                 current.cellType = `normal`;
                 if (current.nearMines === 1) {
                     current.El.classList.add("number1");
@@ -340,7 +343,7 @@ function normalOrSidesOnly() {
                 } else if (current.nearMines === 8) {
                     current.El.classList.add("number8");
                 }
-            } else {
+            } else if (current.nearMines === current.nearMinesSides || faultySidesOnlyCell && cellType === 2){
                 current.cellType = `sidesOnly`;
                 if (current.nearMinesSides === 1) {
                     current.El.classList.add("number1sides");
@@ -487,3 +490,14 @@ function getRandomInt(min, max) {
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
 }
+
+function getRandomWithFrequency(frequncy) {
+    let random = getRandomInt(0, 100);
+    frequncy = 100 - frequncy;
+    if (random > frequncy) {
+        return 1;
+    } else {
+        return 2;
+    }
+}
+
