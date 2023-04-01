@@ -16,6 +16,7 @@ var Module = (function () {
 
 let timeInSeconds;
 let timerIsStopped = false;
+let specialEffect = false;
 
 function startTimer() {
     console.log(`Timer started!`)
@@ -30,6 +31,10 @@ function startTimer() {
     function displayTimer() {
         if (timerIsStopped) {
             clearInterval(int);
+        }
+        if (specialEffect) {
+            seconds = timeInSeconds % 60;
+            minutes = Math.floor(timeInSeconds / 60);
         }
         milliseconds += 10;
         if (milliseconds == 1000) {
