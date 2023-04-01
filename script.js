@@ -159,6 +159,8 @@ window.addEventListener("load", function () {
             let current = minefield[x][y];
             if (current.isRevealed == false && current.isFlagged == false) {
                 cellTypeCheck(current);
+            } else if (current.isChest && current.isRevealed) {
+                cellTypeCheck(current);
             }
             revealedCheck();
             console.log("left click x is: " + cellEl.dataset.x);
@@ -385,18 +387,21 @@ function cellTypeCheck(current) {
         }
         setHealth();
 
-    } else if (current.isChest === 1){
+    } else if (current.isChest === 1) {
         if (current.isChest === 1) {
             goldCount += Math.round(getRandomInt(10000, 100000) / 1000) * 1000;
+            current.El.classList.add(`points`);
             setGold();
         } else if (current.isChest === 2) {
+            current.El.classList.add(`radar`);
             inventory.radarCount++;
             setRadars();
         } else if (current.isChest === 3) {
+            current.El.classList.add(`hearth`);
             health += 25;
             setHealth();
         } else if (current.isChest === 4) {
-
+            current.El.classList.add(`time`);
         }
 
         //To do
@@ -487,7 +492,7 @@ function getRandomInt(min, max) {
 function getRandomWithFrequency(frequncy) {
     let random = getRandomInt(0, 100);
     frequncy = 100 - frequncy;
-    if (random > frequncy) {
+    if (random >= frequncy) {
         return 1;
     } else {
         return 2;
