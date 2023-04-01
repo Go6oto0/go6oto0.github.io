@@ -19,21 +19,6 @@ var timerEl, minefieldEl, fullscreenLinkEl;
 var level = "rock"; // level preset, do not change for demo
 var fireflyCount = 15; //max 15
 
-function revealedCheck() {
-    console.log(`Revealed:`)
-    for (let i = 0; i < x; i++) {
-        let tempArr = minefield[i];
-        let resultArr = [];
-        tempArr.forEach((x) => resultArr.push(x.isRevealed ? 1 : 0))
-        console.log(resultArr.join(` `));
-    }
-}
-function getRandomInt(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
-}
-
 function init(level) {
     minefieldEl = document.querySelector("#minefield");
     if (level == "rock") {
@@ -338,10 +323,15 @@ function winGame() {
 }
 
 function cellTypeCheck(current) {
-    if (current.isMine) {
-
-        if (current.bombType === 1) {
-            minefield[x][y].El.classList.add("revealed").add("blackmine");
+    current.El.classList.add("revealed");
+    current.isRevealed = true;
+    if (current.isMine > 0) {
+        if (current.isMine == 1) {
+            current.El.classList.add("blackmine");
+            console.log(`bomb`);
+        } else if (current.isMine == 2) {
+            current.El.classList.add("redmine");
+            console.log(`bomb`);
         }
         minesCount--;
         setBombs();
@@ -351,7 +341,7 @@ function cellTypeCheck(current) {
         } else if (bombType === 2) {
             health -= 50;
         }
-        current.isMine = false;
+        current.isMine = 0;
         if (health <= 0) {
             health = 0;
             revealAll();
@@ -360,22 +350,18 @@ function cellTypeCheck(current) {
         }
         setHealth();
 
-    } else {
+    } else if (current.isChest === 1){
+        if (current.isChest === 1) {
+            goldCount += Math.round(getRandomInt(10000, 100000) / 1000) * 1000;
+            setGold();
+        } else if (current.isChest === 2) {
+            inventory.radarCount++;
+            setRadars();
+        } else if (current.isChest === 3) {
+            health += 25;
+            setHealth();
+        } else if (current.isChest === 4) {
 
-        current.isRevealed = true;
-        if (current.isChest) {
-            if (current.isChest === 1) {
-                goldCount += Math.round(getRandomInt(10000, 100000) / 1000) * 1000;
-                setGold();
-            } else if (current.isChest === 2) {
-                inventory.radarCount++;
-                setRadars();
-            } else if (current.isChest === 3) {
-                health += 25;
-                setHealth();
-            } else if (current.isChest === 4) {
-
-            }
         }
 
         //To do
@@ -445,4 +431,20 @@ function minefieldSetup() {
         console.log(resultArr.join(` `));
     }
 
+}
+
+function revealedCheck() {
+    console.log(`Revealed:`)
+    for (let i = 0; i < x; i++) {
+        let tempArr = minefield[i];
+        let resultArr = [];
+        tempArr.forEach((x) => resultArr.push(x.isRevealed ? 1 : 0))
+        console.log(resultArr.join(` `));
+    }
+}
+
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
 }
