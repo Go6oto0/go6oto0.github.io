@@ -1,0 +1,26 @@
+﻿@keyframes CellAnimation {
+    0% {
+        background-position-x: 0;
+        background-position-y: 0;
+    }
+
+    25% {
+        background-position-x: -500px;
+        background-position-y: -400px;
+    }
+
+    50% {
+        background-position-x: -600px;
+        background-position-y: -400px;
+    }
+
+    75% {
+        background-position-x: -700px;
+        background-position-y: -400px;
+    }
+
+    100% {
+        background-position-x: 0;
+        background-position-y: 0;
+    }
+}
