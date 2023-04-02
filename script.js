@@ -175,22 +175,24 @@ window.addEventListener("load", function () {
         let cellEl = ev.target.closest(".cell")
         if (cellEl && lockGame == false) {
             var x = cellEl.dataset.x, y = cellEl.dataset.y;
-            if (minefield[x][y].isFlagged == 0) {
-                minefield[x][y].isFlagged = 1;
-                minefield[x][y].El.classList.add("flag");
-                minefield[x][y].El.classList.add("cell-flag-animation");
-                minefield[x][y].El.classList.remove("cell-animation");
-                remainingFlags--;
-                setFlags();
-            }
-            else {
-                minefield[x][y].isFlagged = 0;
-                minefield[x][y].El.classList.remove("flag");
-                minefield[x][y].El.classList.add("cell-animation");
-                minefield[x][y].El.classList.remove("cell-flag-animation");
+            if (minefield[x][y].isRevealed != true) {
+                if (minefield[x][y].isFlagged == 0) {
+                    minefield[x][y].isFlagged = 1;
+                    minefield[x][y].El.classList.add("flag");
+                    minefield[x][y].El.classList.add("cell-flag-animation");
+                    minefield[x][y].El.classList.remove("cell-animation");
+                    remainingFlags--;
+                    setFlags();
+                }
+                else {
+                    minefield[x][y].isFlagged = 0;
+                    minefield[x][y].El.classList.remove("flag");
+                    minefield[x][y].El.classList.add("cell-animation");
+                    minefield[x][y].El.classList.remove("cell-flag-animation");
 
-                remainingFlags++;
-                setFlags();
+                    remainingFlags++;
+                    setFlags();
+                }
             }
 
             console.log("right click x is: " + cellEl.dataset.x);
