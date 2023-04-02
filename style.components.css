@@ -309,23 +309,42 @@
 #start {
     z-index: 7;
     justify-content: center;
-    background-image: url('assets/start_screen.jpg');
+    background-image: url('assets/startMenuBackground.jpg');
     background-repeat: no-repeat;
     display: flex;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     background-position: center center;
     position: absolute;
+    overflow: hidden;
+    
 }
 
-    #start #text {
+    #start #name {
         font-family: 'Goldman';
         color: white;
         text-align: center;
-        font-size: 120px;
+        font-size: 100px;
         position: absolute;
-        top: 40vh;
-        background-color: grey;
-        border: 5px solid black;
+        top: 2vh;
+        width:650px;
+        font:bold;
+        
+    }
+    #start #difficulty {
+        font-family: 'Goldman';
+        color: white;
+        text-align: center;
+        font-size: 80px;
+        position: absolute;
+        top: 45vh;
+    }
+    #start #difficulties {
+        font-family: 'Goldman';
+        color: white;
+        text-align: center;
+        font-size: 40px;
+        position: absolute;
+        top: 60vh;
     }
 
