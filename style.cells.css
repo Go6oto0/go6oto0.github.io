@@ -13,7 +13,7 @@
     background-position-y: -400px;
 }
 
-.cell.revealed.chest.hearth::before {
+.cell.revealed.chest.health::before {
     background-position-x: -400px;
     background-position-y: -400px;
 }

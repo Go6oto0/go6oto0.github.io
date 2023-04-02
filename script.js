@@ -241,7 +241,7 @@ function cellTypeCheck(current) {
             inventory.radarCount++;
             setRadars();
         } else if (current.isChest === 3) {
-            current.El.classList.add(`hearth`);
+            current.El.classList.add(`health`);
             health += 25;
             if (health > 100) {
                 health = 100;
