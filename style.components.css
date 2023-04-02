@@ -226,9 +226,9 @@
     height: 415px;
     background-size: 100%;
     background-repeat: no-repeat;
-    top: 220px;
+    top: 230px;
     text-align: center;
-    right: 465px;
+    right: 500px;
 }
 
 #lose #text {
@@ -306,4 +306,26 @@
     display: none;
     visibility: hidden;
 }
+#start {
+    z-index: 7;
+    justify-content: center;
+    background-image: url('assets/start_screen.jpg');
+    background-repeat: no-repeat;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background-position: center center;
+    position: absolute;
+}
+
+    #start #text {
+        font-family: 'Goldman';
+        color: white;
+        text-align: center;
+        font-size: 120px;
+        position: absolute;
+        top: 40vh;
+        background-color: grey;
+        border: 5px solid black;
+    }
 

@@ -202,20 +202,7 @@
 
 .MineCounter-Sides {
 }*/
-.start {
-    z-index: 7;
-    justify-content: center;
-    background-image: url('assets/start_screen.jpg');
-    background-repeat: no-repeat;
-    display: flex;
-    width: 100vw;
-    height: 100vh;
-    background-position: center center;
-    position: absolute;
-}
-.start.hidden{
-    visibility:hidden;
-}
+
 
 
     
