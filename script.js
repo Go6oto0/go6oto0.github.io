@@ -119,20 +119,22 @@ window.addEventListener("load", function () {
         ev.preventDefault();
         let cellEl = ev.target.closest(".cell");
         if (cellEl && lockGame == false) {
-            var x = cellEl.dataset.x, y = cellEl.dataset.y;
-            if (minefield[x][y].isFlagged == 0) {
-                minefield[x][y].isFlagged = 1;
-                minefield[x][y].El.classList.add("flag");
-                remainingFlags--;
-                setFlags();
-            }
-            else {
-                minefield[x][y].isFlagged = 0;
-                minefield[x][y].El.classList.remove("flag");
-                remainingFlags++;
-                setFlags();
-            }
 
+            var x = cellEl.dataset.x, y = cellEl.dataset.y;
+            if (minefield[x][y].isRevealed != true) {
+                if (minefield[x][y].isFlagged == 0) {
+                    minefield[x][y].isFlagged = 1;
+                    minefield[x][y].El.classList.add("flag");
+                    remainingFlags--;
+                    setFlags();
+                }
+                else {
+                    minefield[x][y].isFlagged = 0;
+                    minefield[x][y].El.classList.remove("flag");
+                    remainingFlags++;
+                    setFlags();
+                }
+            }
             console.log("right click x is: " + cellEl.dataset.x);
             console.log("right click y is: " + cellEl.dataset.y);
         }
