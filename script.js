@@ -203,6 +203,7 @@ function RevealNearby(xi, yi) {
     if (0 > xi || xi >= x || 0 > yi || yi >= y) return;
     current = minefield[xi][yi];
     if (current.isRevealed == true) return;
+    current.El.classList.remove("cell-animation");
     current.El.classList.add("revealed");
     current.isRevealed = true;
     if (current.nearMines == 0) { // empty cell or chest cell
