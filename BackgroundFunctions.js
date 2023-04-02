@@ -46,9 +46,10 @@ function insertFireflies() {
 }
 
 function animateMinefieldInit() {
+    let delay = 0;
     minefieldEl.querySelectorAll(".cell").forEach(function (item, index) {
         // stagger transition with transitionDelay
-        item.style.transitionDelay = (index * 25) + 'ms';
+        item.style.transitionDelay = (index * delay) + 'ms';
         item.classList.toggle('is-moved');
     });
 }
