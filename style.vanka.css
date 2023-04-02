@@ -216,6 +216,16 @@
 .start.hidden{
     visibility:hidden;
 }
+    .start #text {
+        font-family: 'Goldman';
+        color: white;
+        text-align: center;
+        font-size: 120px;
+        position: absolute;
+        top:40vh;
+        background-color:grey;
+        border:5px solid black;
+    }
 
 
     
