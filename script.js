@@ -173,7 +173,6 @@ window.addEventListener("load", function () {
     ///////////////////////////
     enbledBackgroundMovement();
     insertFireflies();
-
     //place cells on board
     setTimeout(() => { animateMinefieldInit();}, 1);
 

@@ -156,13 +156,14 @@
     cursor: pointer;
 }
 
+
 .cell-flag-animation::before {
-    animation: CellFlagAnimation 2.5s infinite;
+    animation: CellFlagAnimation 10s infinite;
     animation-timing-function: steps(1, end);
 }
 
 .cell-animation::before {
-    animation: CellAnimation 2.5s infinite;
+    animation: CellAnimation 10s infinite;
     animation-timing-function: steps(1, end);
 }
 
@@ -210,7 +211,7 @@
     /*win/lose*/
 
 #lose {
-    display: inline-block;
+    display: none;
     position: absolute;
     z-index: 6;
     background: url('assets/lose-background.png');
@@ -224,7 +225,7 @@
 }
 
 #win {
-    display: inline-block;
+    display: none;
     background: url('assets/win-background.png');
     position: absolute;
     z-index: 6;
@@ -308,16 +309,17 @@
     height: 115px;
 }
 /* make something display none.*/
-.d-none {
-    display: none;
-    visibility: hidden;
+
+.show-as-flex {
+    display: flex !important;
 }
+
 #start {
     z-index: 7;
     justify-content: center;
     background-image: url('assets/startMenuBackground.jpg');
     background-repeat: no-repeat;
-    display: flex;
+    display: none;
     min-width: 1980px;
     min-height: 1080px;
     background-position: center center;
