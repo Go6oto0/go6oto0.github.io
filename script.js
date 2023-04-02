@@ -73,6 +73,7 @@ function cell(row, column) {
     cellObj.x = row;
     cellObj.y = column;
     cellObj.visited = false;
+    cellObj.locked = false;
     cellObj.El = document.querySelector(selector);
     //cellObj.isInfected = false;
     //cellObj.hasImunity = false;
@@ -171,7 +172,7 @@ window.addEventListener("load", function () {
 
     document.querySelector("body").addEventListener("contextmenu", function (ev) {
         ev.preventDefault();
-        let cellEl = ev.target.closest(".cell")
+        let cellEl = ev.target.closest(".cell");
         if (cellEl && lockGame == false) {
             var x = cellEl.dataset.x, y = cellEl.dataset.y;
             if (minefield[x][y].isFlagged == 0) {
@@ -394,7 +395,8 @@ function cellTypeCheck(current) {
         }
         setHealth();
 
-    } else if (current.isChest && current.visited) {
+    } else if (current.isChest && current.visited && current.locked == false) {
+        current.locked = true;
         if (current.isChest === 1) {
             goldCount += Math.round(getRandomInt(10000, 100000) / 1000) * 1000;
             current.El.classList.add(`points`);
