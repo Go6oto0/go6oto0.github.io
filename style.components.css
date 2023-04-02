@@ -156,6 +156,16 @@
     cursor: pointer;
 }
 
+.cell-flag-animation::before {
+    animation: CellFlagAnimation 2.5s infinite;
+    animation-timing-function: steps(1, end);
+}
+
+.cell-animation::before {
+    animation: CellAnimation 2.5s infinite;
+    animation-timing-function: steps(1, end);
+}
+
 #minefield.animated .cell {
     transform: translateX(-10000px);
     transition: transform 0.4s;
@@ -170,8 +180,6 @@
 .cell::before {
     background: url('assets/sprite.png');
     background-repeat: no-repeat;
-    background-position-x: 0;
-    background-position-y: 0;
     position: absolute;
     top: 0;
     left: 0;
@@ -179,8 +187,6 @@
     right: 0;
     content: "";
     display: block;
-    animation: CellAnimation 2.5s infinite;
-    animation-timing-function: steps(1, end);
 }
     
     

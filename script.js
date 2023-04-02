@@ -44,6 +44,7 @@ function init(level) {
             }
             var cellEl = document.createElement("div");
             cellEl.classList.add("cell");
+            cellEl.classList.add("cell-animation");
             cellEl.setAttribute("data-x", i);
             cellEl.setAttribute("data-y", j);
             minefieldEl.appendChild(cellEl);
@@ -177,12 +178,17 @@ window.addEventListener("load", function () {
             if (minefield[x][y].isFlagged == 0) {
                 minefield[x][y].isFlagged = 1;
                 minefield[x][y].El.classList.add("flag");
+                minefield[x][y].El.classList.add("cell-flag-animation");
+                minefield[x][y].El.classList.remove("cell-animation");
                 remainingFlags--;
                 setFlags();
             }
             else {
                 minefield[x][y].isFlagged = 0;
                 minefield[x][y].El.classList.remove("flag");
+                minefield[x][y].El.classList.add("cell-animation");
+                minefield[x][y].El.classList.remove("cell-flag-animation");
+
                 remainingFlags++;
                 setFlags();
             }
@@ -376,6 +382,7 @@ function cellTypeCheck(current) {
         console.log("Recursion starts");
         RevealNearby(current.x, current.y);
     }
+    current.El.classList.remove("cell-animation");
     current.El.classList.add("revealed");
     current.isRevealed = true;
     if (current.isMine > 0) {
