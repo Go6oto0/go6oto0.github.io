@@ -10,9 +10,15 @@
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="./script.js"></script>
     <script src="./UISetterFunctions.js"></script>
+    <script src="./BackgroundFunctions.js"></script>
 </head>
 
 <body>
+    <div id="start d-none">
+        <div id="name">Epic Minesweeper</div>
+        <div id="difficulty">Choose Difficulty</div>
+        <div id="difficulties">Normal</div>
+    </div>
     <div id="topbar">
         <div class="container">
             <div id="topbar-content">
@@ -69,13 +75,13 @@
     </div>
     <div id="content">
         <div class="container">
-           
+
             <div id="minefield-wrapper">
-                <div id="lose d-none">
+                <div id="lose" class="d-none">
                     <span id="text">You Lose!</span>
                     <div id="message">Play again?</div>
                 </div>
-                <div id="win d-none">
+                <div id="win" class="d-none">
                     <span id="text">You Win!</span>
                     <div id="message">Play again?</div>
                     <div id="showScore--score">Score:</div>
@@ -87,12 +93,12 @@
             </div>
             <!--
 
-     <div id="win">
-        <span id="text">You Win!</span>
-        <div id="message">Play again.</div>
-    </div>
-    <div id="lose"></div>
-                -->
+             <div id="win">
+                <span id="text">You Win!</span>
+                <div id="message">Play again.</div>
+            </div>
+            <div id="lose"></div>
+                        -->
 
         </div>
     </div>

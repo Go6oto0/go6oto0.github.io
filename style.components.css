@@ -232,9 +232,9 @@
     height: 415px;
     background-size: 100%;
     background-repeat: no-repeat;
-    top: 220px;
+    top: 230px;
     text-align: center;
-    right: 465px;
+    right: 500px;
 }
 
 #lose #text {
@@ -312,4 +312,43 @@
     display: none;
     visibility: hidden;
 }
+#start {
+    z-index: 7;
+    justify-content: center;
+    background-image: url('assets/startMenuBackground.jpg');
+    background-repeat: no-repeat;
+    display: flex;
+    min-width: 1980px;
+    min-height: 1080px;
+    background-position: center center;
+    position: absolute;
+    
+}
+
+    #start #name {
+        font-family: 'Goldman';
+        color: white;
+        text-align: center;
+        font-size: 100px;
+        position: absolute;
+        top: 2vh;
+        width:650px;
+        font:bold;
+    }
+    #start #difficulty {
+        font-family: 'Goldman';
+        color: white;
+        text-align: center;
+        font-size: 80px;
+        position: absolute;
+        top: 45vh;
+    }
+    #start #difficulties {
+        font-family: 'Goldman';
+        color: white;
+        text-align: center;
+        font-size: 40px;
+        position: absolute;
+        top: 60vh;
+    }
 
