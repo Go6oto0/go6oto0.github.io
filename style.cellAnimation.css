@@ -1,4 +1,5 @@
-﻿@keyframes CellAnimation {
+﻿/*
+    @keyframes CellAnimation {
     0% {
         background-position-x: 0;
         background-position-y: 0;
@@ -24,3 +25,5 @@
         background-position-y: 0;
     }
 }
+
+*/

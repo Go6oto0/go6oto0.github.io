@@ -24,11 +24,11 @@ function init(level) {
     if (level == "rock") {
         x = 11;
         y = 20;
-        chestCount = 5;
-        minesCount = 50;
+        chestCount = 100;
+        minesCount = 40;
         undiscoveredMines = minesCount;
         health = 100;
-        remainingFlags = 50;
+        remainingFlags = 40;
     }
     setUICounters();
     /*disableInspect();*/ //Disabling inspect
@@ -154,12 +154,13 @@ window.addEventListener("load", function () {
     ///////////////////////
     document.querySelector("body").addEventListener("click", function (ev) {
         let cellEl = ev.target.closest(".cell")
-        if (cellEl) {
+        if (cellEl && lockGame == false) {
             var x = cellEl.dataset.x, y = cellEl.dataset.y;
             let current = minefield[x][y];
             if (current.isRevealed == false && current.isFlagged == false) {
                 cellTypeCheck(current);
-            } else if (current.isChest && current.isRevealed) {
+            } else if (current.isRevealed && current.isChest) {
+                current.visited = true;
                 cellTypeCheck(current);
             }
             revealedCheck();
@@ -171,7 +172,7 @@ window.addEventListener("load", function () {
     document.querySelector("body").addEventListener("contextmenu", function (ev) {
         ev.preventDefault();
         let cellEl = ev.target.closest(".cell")
-        if (cellEl) {
+        if (cellEl && lockGame == false) {
             var x = cellEl.dataset.x, y = cellEl.dataset.y;
             if (minefield[x][y].isFlagged == 0) {
                 minefield[x][y].isFlagged = 1;
@@ -253,6 +254,9 @@ function addBombs() {
 }
 
 function addChest() {
+    if (countEmptyCells() < chestCount) {
+        chestCount = countEmptyCells();
+    }
     let chestsToAdd = chestCount;
     while (chestsToAdd > 0) {
         let row = Math.floor(Math.random() * (x));
@@ -342,6 +346,10 @@ function revealAll() {
 }
 
 function gameOver() {
+    revealAll();
+    console.log(`Game over!`)
+    stopTimer();
+    lockGame = true;
     //TO DO
 }
 
@@ -355,6 +363,7 @@ function RevealNearby(xi, yi) {
     current.El.classList.add("revealed");
     current.isRevealed = true;
     if (current.nearMines == 0) { // empty cell or chest cell
+        
         RevealNearby(xi - 1, yi);
         RevealNearby(xi + 1, yi);
         RevealNearby(xi, yi - 1);
@@ -381,13 +390,11 @@ function cellTypeCheck(current) {
         current.isMine = 0;
         if (health <= 0) {
             health = 0;
-            revealAll();
-            console.log(`Game over!`)
-            stopTimer();
+            gameOver();
         }
         setHealth();
 
-    } else if (current.isChest === 1) {
+    } else if (current.isChest && current.visited) {
         if (current.isChest === 1) {
             goldCount += Math.round(getRandomInt(10000, 100000) / 1000) * 1000;
             current.El.classList.add(`points`);
@@ -399,13 +406,22 @@ function cellTypeCheck(current) {
         } else if (current.isChest === 3) {
             current.El.classList.add(`hearth`);
             health += 25;
+            if (health > 100) {
+                health = 100;
+            }
             setHealth();
         } else if (current.isChest === 4) {
             current.El.classList.add(`time`);
+            if (timeInSeconds - 20 < 0) {
+                timeInSeconds = 0;
+            } else {
+                timeInSeconds -= 20;
+            }
+            specialEffect = true;
         }
 
         //To do
-    } 
+    }
 }
 
 function disableInspect() {
@@ -498,6 +514,7 @@ function getRandomWithFrequency(frequncy) {
         return 2;
     }
 }
+
 function setnormalcounter(current) {
     current.cellType = `normal`;
     if (current.nearMines === 1) {
@@ -518,6 +535,7 @@ function setnormalcounter(current) {
         current.El.classList.add("number8");
     }
 }
+
 function setsidescounter(current) {
     current.cellType = `sidesOnly`;
     if (current.nearMinesSides === 1) {
@@ -531,3 +549,12 @@ function setsidescounter(current) {
     }
 }
 
+function countEmptyCells() {
+    let count = 0;
+    minefield.forEach((x) => x.forEach((y) => {
+        if (y.nearMines == 0 && y.isMine == false) {
+            count++;
+        }
+    }));
+    return count;
+}
