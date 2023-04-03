@@ -14,11 +14,6 @@
 </head>
 
 <body>
-    <div id="start d-none">
-        <div id="name">Epic Minesweeper</div>
-        <div id="difficulty">Choose Difficulty</div>
-        <div id="difficulties">Normal</div>
-    </div>
     <div id="topbar">
         <div class="container">
             <div id="topbar-content">
@@ -77,19 +72,7 @@
         <div class="container">
 
             <div id="minefield-wrapper">
-                <div id="lose" class="d-none">
-                    <span id="text">You Lose!</span>
-                    <div id="message">Play again?</div>
-                </div>
-                <div id="win" class="d-none">
-                    <span id="text">You Win!</span>
-                    <div id="message">Play again?</div>
-                    <div id="showScore--score">Score:</div>
-                    <div id="showScore">000000000</div>
-                </div>
-                <div id="minefield" class="animated">
-
-                </div>
+                <div id="minefield" class="animated"></div>
             </div>
             <!--
 
@@ -131,6 +114,22 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <div id="start">
+        <div id="name">Epic Minesweeper</div>
+        <div id="difficulty">Choose Difficulty</div>
+        <div id="difficulties">Normal</div>
+    </div>
+    <div id="lose">
+        <span id="text">You Lose!</span>
+        <div id="message">Play again?</div>
+    </div>
+    <div id="win">
+        <span id="text">You Win!</span>
+        <div id="message">Play again?</div>
+        <div id="showScore--score">Score:</div>
+        <div id="showScore">000000000</div>
     </div>
     <!--
     <script>

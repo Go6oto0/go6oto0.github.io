@@ -1,13 +1,17 @@
 ﻿@font-face {
-    font-family: 'Goldman';
-    src: url('assets/Goldman/Goldman-Regular.ttf') format('truetype');
+    font-family: 'Arcade';
+    src: url('assets/arcade/ARCADE.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'Goldman';
-    src: url('assets/Goldman/Goldman-Bold.ttf') format('truetype');
-    font-weight: bold;
+    font-family: 'VT323';
+    src: url('assets/VT323/VT323-Regular.ttf') format('truetype');
+    font-weight: normal;
     font-style: normal;
 }
+
+
+
+

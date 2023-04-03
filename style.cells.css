@@ -2,7 +2,6 @@
     background-position-x: 0px;
     background-position-y: -400px;
 }
-
 .cell.revealed.chest::before {
     background-position-x: -700px;
     background-position-y: 0px;
@@ -121,4 +120,79 @@
 .cell.revealed.redmine::before {
     background-position-x: -400px;
     background-position-y: 0px;
+}
+/*radar reveal*/
+.cell.transparent::before {
+    background-position-x: -400px;
+    background-position-y: -700px;
+}
+
+.cell.transparent.chest::before {
+    background-position-x: -700px;
+    background-position-y: -700px;
+  
+}
+.cell.transparent.number1::before {
+    background-position-x: 0;
+    background-position-y: -600px;
+
+}
+.cell.transparent.number2::before {
+    background-position-x: -100px;
+    background-position-y: -600px;
+}
+.cell.transparent.number3::before {
+    background-position-x: -200px;
+    background-position-y: -600px;
+}
+.cell.transparent.number4::before {
+    background-position-x: -300px;
+    background-position-y: -600px;
+}
+.cell.transparent.number5::before {
+    background-position-x: -400px;
+    background-position-y: -600px;
+}
+.cell.transparent.number6::before {
+    background-position-x: -500px;
+    background-position-y: -600px;
+}
+.cell.transparent.number7::before {
+    background-position-x: -600px;
+    background-position-y: -600px;
+}
+.cell.transparent.number8::before {
+    background-position-x: -700px;
+    background-position-y: -600px;
+}
+.cell.transparent.number1sides::before {
+    background-position-x: 0;
+    background-position-y: -700px;
+}
+.cell.transparent.number2sides::before {
+    background-position-x: -100px;
+    background-position-y: -700px;
+}
+.cell.transparent.number3sides::before {
+    background-position-x: -200px;
+    background-position-y: -700px;
+}
+.cell.transparent.number4sides::before {
+    background-position-x: -300px;
+    background-position-y: -700px;
+}
+.cell.transparent.blackmine::before {
+    background-position-x: -500px;
+    background-position-y: -700px;
+}
+
+.cell.transparent.redmine::before {
+    background-position-x: -600px;
+    background-position-y: -700px;
+}
+.fade::before {
+    animation: fadeAnimation 3s normal;
+    animation-timing-function: steps(50);
+    animation-fill-mode: forwards;
+ 
 }
