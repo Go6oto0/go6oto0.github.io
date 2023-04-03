@@ -63,8 +63,7 @@
 
 .label__text {
     display: inline-block;
-    font-family: 'Goldman';
-    font-size: 32px;
+    font-size: 44px;
 }
 
 .label__text--bold {
@@ -101,7 +100,6 @@
 
 .label__aux {
     display: inline-block;
-    font-family: 'Goldman';
     font-size: 18px;
     margin-left:-3px;
     margin-right:5px;

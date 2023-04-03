@@ -56,7 +56,7 @@
 }
 
 #topbar-score .label__text {
-    width: 220px;
+    width: 160px;
 }
 #topbar-fullscreen {
     cursor: pointer;
@@ -140,10 +140,11 @@
     padding: 10px;
     display: flex;
     justify-content: center;
+    align-items:center;
 }
 
 #minefield {
-    padding-top: 8vh;
+    margin-top:-20px;
     display: grid;
     gap: 5px;
     z-index: 5;
@@ -154,6 +155,7 @@
     height: 64px;
     position: relative;
     cursor: pointer;
+    cursor: url('./assets/custom-cursor.svg') 16 16, auto;
 }
 
 
@@ -241,7 +243,6 @@
 #lose #text {
     position: absolute;
     font-size: 96px;
-    font-family: 'Goldman';
     color: white;
     font-weight: 400;
     height: 110px;
@@ -254,7 +255,6 @@
 #win #text {
     position: absolute;
     font-size: 96px;
-    font-family: 'Goldman';
     color: white;
     font-weight: 400;
     height: 110px;
@@ -267,7 +267,6 @@
 #lose #message {
     position: absolute;
     font-size: 24px;
-    font-family: 'Goldman';
     color: white;
     font-weight: 400;
     top: 340px;
@@ -278,7 +277,6 @@
 #win #message {
     position: absolute;
     font-size: 24px;
-    font-family: 'Goldman';
     color: white;
     font-weight: 400;
     top: 340px;
@@ -288,7 +286,6 @@
 #win #showScore--score {
     position: absolute;
     font-size: 24px;
-    font-family: 'Goldman';
     color: white;
     font-weight: 400;
     top: 340px;
@@ -300,7 +297,6 @@
 #win #showScore {
     position: absolute;
     font-size: 24px;
-    font-family: 'Goldman';
     color: white;
     font-weight: 400;
     top: 340px;
@@ -328,7 +324,6 @@
 }
 
     #start #name {
-        font-family: 'Goldman';
         color: white;
         text-align: center;
         font-size: 100px;
@@ -338,7 +333,6 @@
         font:bold;
     }
     #start #difficulty {
-        font-family: 'Goldman';
         color: white;
         text-align: center;
         font-size: 80px;
@@ -346,7 +340,6 @@
         top: 45vh;
     }
     #start #difficulties {
-        font-family: 'Goldman';
         color: white;
         text-align: center;
         font-size: 40px;
