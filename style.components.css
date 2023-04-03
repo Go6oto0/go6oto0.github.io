@@ -155,7 +155,7 @@
     height: 64px;
     position: relative;
     cursor: pointer;
-    cursor: url('./assets/custom-cursor.svg') 16 16, auto;
+    cursor: url('./assets/custom-cursor-sm.png') 0 0, auto;
 }
 
 
