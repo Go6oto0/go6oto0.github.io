@@ -24,7 +24,7 @@ function init(level) {
     if (level == "rock") {
         x = 11;
         y = 20;
-        chestCount = 100;
+        chestCount = 10;
         minesCount = 40;
         undiscoveredMines = minesCount;
         health = 100;
