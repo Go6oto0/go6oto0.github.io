@@ -24,7 +24,11 @@ function init(level) {
     if (level == "rock") {
         x = 11;
         y = 20;
+<<<<<<< Updated upstream
         chestCount = 10;
+=======
+        chestCount = 12;
+>>>>>>> Stashed changes
         minesCount = 40;
         undiscoveredMines = minesCount;
         health = 100;
@@ -117,6 +121,8 @@ window.addEventListener("load", function () {
     })
 
     document.querySelector("body").addEventListener("contextmenu", function (ev) {
+        if (ev.ctrlKey)
+            return;
         ev.preventDefault();
         let cellEl = ev.target.closest(".cell");
         if (cellEl && lockGame == false) {
