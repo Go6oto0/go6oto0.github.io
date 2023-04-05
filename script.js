@@ -24,11 +24,7 @@ function init(level) {
     if (level == "rock") {
         x = 11;
         y = 20;
-<<<<<<< Updated upstream
-        chestCount = 10;
-=======
         chestCount = 12;
->>>>>>> Stashed changes
         minesCount = 40;
         undiscoveredMines = minesCount;
         health = 100;
@@ -60,7 +56,7 @@ function init(level) {
 
     minefieldSetup();
     normalOrSidesOnly();
-    
+
     minefieldEl.style.gridTemplateRows = minefieldRowStyle;
     minefieldEl.style.gridTemplateColumns = minefieldColumnStyle;
 }
@@ -180,7 +176,7 @@ window.addEventListener("load", function () {
     enbledBackgroundMovement();
     insertFireflies();
     //place cells on board
-    setTimeout(() => { animateMinefieldInit();}, 1);
+    setTimeout(() => { animateMinefieldInit(); }, 1);
 
 
 
@@ -212,7 +208,7 @@ function RevealNearby(xi, yi) {
     current.El.classList.add("revealed");
     current.isRevealed = true;
     if (current.nearMines == 0) { // empty cell or chest cell
-        
+
         RevealNearby(xi - 1, yi);
         RevealNearby(xi + 1, yi);
         RevealNearby(xi, yi - 1);
