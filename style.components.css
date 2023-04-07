@@ -316,11 +316,11 @@
     background-image: url('assets/startMenuBackground.jpg');
     background-repeat: no-repeat;
     display: none;
-    min-width: 1980px;
-    min-height: 1080px;
+    width: 1980px;
+    height: 1080px;
     background-position: center center;
     position: absolute;
-    
+    top: 0px;
 }
 
     #start #name {
