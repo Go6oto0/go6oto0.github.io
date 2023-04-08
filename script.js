@@ -36,11 +36,11 @@ function init(level) {
     let minefieldColumnStyle = "";
     let isColumnAdded = false;
     for (var i = 0; i < x; i++) {
-        minefieldRowStyle += "60px ";
+        minefieldRowStyle += "64px ";
         minefield.push([]);
         for (var j = 0; j < y; j++) {
             if (!isColumnAdded) {
-                minefieldColumnStyle += "60px ";
+                minefieldColumnStyle += "64px ";
             }
             var cellEl = document.createElement("div");
             cellEl.classList.add("cell");
