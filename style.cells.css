@@ -1,4 +1,178 @@
-.cell.revealed::before {
+/* new cells*/
+.cell {
+    width: 64px;
+    height: 64px;
+    position: relative;
+    cursor: pointer;
+    cursor: url('./assets/custom-cursor-sm.png') 0 0, auto;
+}
+
+    .cell > div {
+        background: url('assets/sprite.png');
+        background-repeat: no-repeat;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        content: "";
+        display: block;
+    }
+
+    /*Flag*/
+    .cell .flag {
+        z-index: 10;
+        visibility: hidden;
+    }
+
+    .cell.flagged .flag {
+        visibility: visible;
+        background-position-y: -400px;
+        background-position-x: -100px;
+    }
+
+    .cell.fade.flagged .flag {
+        display: none;
+    }
+
+    /*Tile*/
+    .cell .tile {
+        z-index: 9;
+    }
+
+    .cell.fade .tile {
+        opacity: 0.5;
+    }
+
+    .cell.revealed .tile {
+        visibility: hidden;
+    }
+
+    .cell .tile.animated {
+        animation: CellAnimation 2s infinite;
+        animation-timing-function: steps(1, end);
+    }
+
+    /*Chest*/
+    .cell .chest {
+        z-index: 8;
+        background-position-x: -500px;
+        background-position-y: -400px;
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity 2s linear, visibility 2s linear;
+    }
+
+    .cell.unopened .chest {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    /*Content*/
+    .cell .content {
+        z-index: 7;
+        background-position-x: 0;
+        background-position-y: -100px;
+    }
+
+        .cell .content.blackmine {
+            background-position-x: -200px;
+            background-position-y: -400px;
+        }
+
+        .cell .content.health {
+            background-position-x: -400px;
+            background-position-y: 700px;
+        }
+
+        .cell .content.number1 {
+            background-position-x: 0;
+            background-position-y: -200px;
+        }
+
+        .cell .content.number1sides {
+            background-position-x: 0px;
+            background-position-y: -300px;
+        }
+
+        .cell .content.number2 {
+            background-position-x: -100px;
+            background-position-y: -200px;
+        }
+
+        .cell .content.number2sides {
+            background-position-x: -100px;
+            background-position-y: -300px;
+        }
+
+        .cell .content.number3 {
+            background-position-x: -200px;
+            background-position-y: -200px;
+        }
+
+        .cell .content.number3sides {
+            background-position-x: -200px;
+            background-position-y: -300px;
+        }
+
+        .cell .content.number4 {
+            background-position-x: -300px;
+            background-position-y: -200px;
+        }
+
+        .cell .content.number4sides {
+            background-position-x: -300px;
+            background-position-y: -300px;
+        }
+
+        .cell .content.number5 {
+            background-position-x: -400px;
+            background-position-y: -200px;
+        }
+
+        .cell .content.number6 {
+            background-position-x: -500px;
+            background-position-y: -200px;
+        }
+
+        .cell .content.number7 {
+            background-position-x: -600px;
+            background-position-y: -200px;
+        }
+
+        .cell .content.number8 {
+            background-position-x: -700px;
+            background-position-y: -200px;
+        }
+
+        .cell .content.points {
+            background-position-x: 0px;
+            background-position-y: -400px;
+        }
+
+        .cell .content.radar {
+            background-position-x: -600px;
+            background-position-y: -400px;
+        }
+
+        .cell .content.redmine {
+            background-position-x: -300px;
+            background-position-y: -400px;
+        }
+
+        .cell .content.time {
+            background-position-x: -400px;
+            background-position-y: -400px;
+        }
+
+
+    /*Background*/
+    .cell .background {
+        z-index: 6;
+        background-position-x: 0;
+        background-position-y: -100px;
+    }
+/*.cell.revealed::before {
     background-position-x: 0px;
     background-position-y: -400px;
 }
@@ -120,9 +294,9 @@
 .cell.revealed.redmine::before {
     background-position-x: -400px;
     background-position-y: 0px;
-}
-/*radar reveal*/
-.cell.transparent::before {
+}*/
+/*   radar reveal
+    .cell.transparent::before {
     background-position-x: -400px;
     background-position-y: -700px;
 }
@@ -196,3 +370,6 @@
     animation-fill-mode: forwards;
  
 }
+*/
+
+

@@ -91,6 +91,8 @@
     /*Content*/
     .cell2 .content {
         z-index: 7;
+        background-position-x: 0;
+        background-position-y: -100px;
     }
 
         .cell2 .content.blackmine {
@@ -98,95 +100,95 @@
             background-position-y: -400px;
         }
 
-        .cell2 .content.health {
-            background-position-x: 0px;
-            background-position-y: -200px;
-        }
+.cell2 .content.health {
+    background-position-x: -700px;
+    background-position-y: -400px;
+}
 
-        .cell2 .content.number1 {
-            background-position-x: 0;
-            background-position-y: -200px;
-        }
+.cell2 .content.number1 {
+    background-position-x: 0;
+    background-position-y: -200px;
+}
 
-        .cell2 .content.number1sides {
-            background-position-x: 0px;
-            background-position-y: -300px;
-        }
+.cell2 .content.number1sides {
+    background-position-x: 0px;
+    background-position-y: -300px;
+}
 
-        .cell2 .content.number2 {
-            background-position-x: -100px;
-            background-position-y: -200px;
-        }
+.cell2 .content.number2 {
+    background-position-x: -100px;
+    background-position-y: -200px;
+}
 
-        .cell2 .content.number2sides {
-            background-position-x: -100px;
-            background-position-y: -300px;
-        }
+.cell2 .content.number2sides {
+    background-position-x: -100px;
+    background-position-y: -300px;
+}
 
-        .cell2 .content.number3 {
-            background-position-x: -200px;
-            background-position-y: -200px;
-        }
+.cell2 .content.number3 {
+    background-position-x: -200px;
+    background-position-y: -200px;
+}
 
-        .cell2 .content.number3sides {
-            background-position-x: -200px;
-            background-position-y: -300px;
-        }
+.cell2 .content.number3sides {
+    background-position-x: -200px;
+    background-position-y: -300px;
+}
 
-        .cell2 .content.number4 {
-            background-position-x: -300px;
-            background-position-y: -200px;
-        }
+.cell2 .content.number4 {
+    background-position-x: -300px;
+    background-position-y: -200px;
+}
 
-        .cell2 .content.number4sides {
-            background-position-x: -300px;
-            background-position-y: -300px;
-        }
+.cell2 .content.number4sides {
+    background-position-x: -300px;
+    background-position-y: -300px;
+}
 
-        .cell2 .content.number5 {
-            background-position-x: -400px;
-            background-position-y: -200px;
-        }
+.cell2 .content.number5 {
+    background-position-x: -400px;
+    background-position-y: -200px;
+}
 
-        .cell2 .content.number6 {
-            background-position-x: -500px;
-            background-position-y: -200px;
-        }
+.cell2 .content.number6 {
+    background-position-x: -500px;
+    background-position-y: -200px;
+}
 
-        .cell2 .content.number7 {
-            background-position-x: -600px;
-            background-position-y: -200px;
-        }
+.cell2 .content.number7 {
+    background-position-x: -600px;
+    background-position-y: -200px;
+}
 
-        .cell2 .content.number8 {
-            background-position-x: -700px;
-            background-position-y: -200px;
-        }
+.cell2 .content.number8 {
+    background-position-x: -700px;
+    background-position-y: -200px;
+}
 
-        .cell2 .content.points {
-            background-position-x: 0px;
-            background-position-y: -400px;
-        }
+.cell2 .content.points {
+    background-position-x: 0px;
+    background-position-y: -400px;
+}
 
-        .cell2 .content.radar {
-            background-position-x: -600px;
-            background-position-y: -400px;
-        }
+.cell2 .content.radar {
+    background-position-x: -600px;
+    background-position-y: -400px;
+}
 
-        .cell2 .content.redmine {
-            background-position-x: -300px;
-            background-position-y: -400px;
-        }
+.cell2 .content.redmine {
+    background-position-x: -300px;
+    background-position-y: -400px;
+}
 
-        .cell2 .content.time {
-            background-position-x: -400px;
-            background-position-y: -400px;
-        }
-      
+.cell2 .content.time {
+    background-position-x: -400px;
+    background-position-y: -400px;
+}
 
-    /*Background*/
-    .cell2 .background {
-        z-index: 6;
-        background-position-x: 0;
-        background-position-y: -100px;
-    }
+
+/*Background*/
+.cell2 .background {
+    z-index: 6;
+    background-position-x: 0;
+    background-position-y: -100px;
+}
