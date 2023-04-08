@@ -44,9 +44,25 @@ function init(level) {
             }
             var cellEl = document.createElement("div");
             cellEl.classList.add("cell");
-            cellEl.classList.add("cell-animation");
+            var chestEl = document.createElement("div");
+            chestEl.classList.add("chest");
+            var contentEl = document.createElement("div");
+            contentEl.classList.add("content");
+            var tileEl = document.createElement("div");
+            tileEl.classList.add("tile");
+            tileEl.classList.add("animated");
+            var flagEl = document.createElement("div");
+            flagEl.classList.add("flag");
+            var backgroundEl = document.createElement("div");
+            backgroundEl.classList.add("background");
+     
             cellEl.setAttribute("data-x", i);
             cellEl.setAttribute("data-y", j);
+            cellEl.appendChild(chestEl);
+            cellEl.appendChild(contentEl);
+            cellEl.appendChild(tileEl);
+            cellEl.appendChild(flagEl);
+            cellEl.appendChild(backgroundEl);
             minefieldEl.appendChild(cellEl);
             minefield[i][j] = cell(i, j);
 
@@ -61,9 +77,8 @@ function init(level) {
     minefieldEl.style.gridTemplateColumns = minefieldColumnStyle;
 }
 function cell(row, column) {
-    var selector = 'div[data-x="' + row + '"][data-y="' + column + '"]';
+    var selector = '.cell[data-x="' + row + '"][data-y="' + column + '"]';
     var cellObj = {};
-    cellObj.content = '<div class="cell" data-x="' + row + '" data-y="' + column + '"></div>';
     cellObj.isMine = 0; // normal - 0; bomb - 1; special bomb - 2
     cellObj.isChest = 0; // normal - 0; gold - 1; radar - 2; health - 3; time - 4...
     cellObj.isRevealed = false;
@@ -111,7 +126,7 @@ window.addEventListener("load", async function () {
     // Listeners
     ///////////////////////
     document.querySelector("body").addEventListener("click", function (ev) {
-        let cellEl = ev.target.closest(".cell")
+        let cellEl = ev.target.closest(".cell");
         if (cellEl && lockGame == false) {
             var x = cellEl.dataset.x, y = cellEl.dataset.y;
             let current = minefield[x][y];
@@ -138,18 +153,13 @@ window.addEventListener("load", async function () {
             if (minefield[x][y].isRevealed != true) {
                 if (minefield[x][y].isFlagged == 0) {
                     minefield[x][y].isFlagged = 1;
-                    minefield[x][y].El.classList.add("flag");
-                    minefield[x][y].El.classList.add("cell-flag-animation");
-                    minefield[x][y].El.classList.remove("cell-animation");
+                    minefield[x][y].El.classList.add("flagged");
                     remainingFlags--;
                     setFlags();
                 }
                 else {
                     minefield[x][y].isFlagged = 0;
-                    minefield[x][y].El.classList.remove("flag");
-                    minefield[x][y].El.classList.add("cell-animation");
-                    minefield[x][y].El.classList.remove("cell-flag-animation");
-
+                    minefield[x][y].El.classList.remove("flagged");
                     remainingFlags++;
                     setFlags();
                 }
@@ -215,7 +225,6 @@ function RevealNearby(xi, yi) {
     if (0 > xi || xi >= x || 0 > yi || yi >= y) return;
     current = minefield[xi][yi];
     if (current.isRevealed == true) return;
-    current.El.classList.remove("cell-animation");
     current.El.classList.add("revealed");
     current.isRevealed = true;
     if (current.nearMines == 0) { // empty cell or chest cell
@@ -232,7 +241,6 @@ function cellTypeCheck(current) {
         console.log("Recursion starts");
         RevealNearby(current.x, current.y);
     }
-    current.El.classList.remove("cell-animation");
     current.El.classList.add("revealed");
     current.isRevealed = true;
     if (current.isMine > 0) {
@@ -250,26 +258,27 @@ function cellTypeCheck(current) {
             gameOver();
         }
         setHealth();
-
-    } else if (current.isChest && current.visited && current.locked == false) {
+    }
+    else if (current.isChest && current.visited && current.locked == false) {
         current.locked = true;
+        var contentEl = current.El.children.item(1);
         if (current.isChest === 1) {
             goldCount += Math.round(getRandomInt(10000, 100000) / 1000) * 1000;
-            current.El.classList.add(`points`);
+            contentEl.classList.add(`points`);
             setGold();
         } else if (current.isChest === 2) {
-            current.El.classList.add(`radar`);
+            contentEl.classList.add(`radar`);
             inventory.radarCount++;
             setRadars();
         } else if (current.isChest === 3) {
-            current.El.classList.add(`health`);
+            contentEl.classList.add(`health`);
             health += 25;
             if (health > 100) {
                 health = 100;
             }
             setHealth();
         } else if (current.isChest === 4) {
-            current.El.classList.add(`time`);
+            contentEl.classList.add(`time`);
             if (timeInSeconds - 20 < 0) {
                 timeInSeconds = 0;
             } else {
