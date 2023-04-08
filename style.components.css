@@ -225,8 +225,8 @@
     background: url('assets/lose-background.png');
     width: 838.14px;
     height: 365.46px;
-    top: 230px;
-    right: 500px;
+    top: 244px;
+    left: 318px;
     text-align: center;
     background-size: 100%;
     background-repeat: no-repeat;
@@ -239,11 +239,11 @@
     z-index: 6;
     width: 915px;
     height: 415px;
+    top: 220px;
+    left: 280px;
+    text-align: center;
     background-size: 100%;
     background-repeat: no-repeat;
-    top: 230px;
-    text-align: center;
-    right: 500px;
 }
 
 #lose #text {
