@@ -227,6 +227,7 @@ function RevealNearby(xi, yi) {
     if (current.isRevealed == true) return;
     current.El.classList.add("revealed");
     current.isRevealed = true;
+    if (current.isChest > 0) current.El.classList.add("unopened");
     if (current.nearMines == 0) { // empty cell or chest cell
 
         RevealNearby(xi - 1, yi);
