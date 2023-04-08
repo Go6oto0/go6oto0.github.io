@@ -89,7 +89,18 @@ function cell(row, column) {
     return cellObj;
 }
 
-window.addEventListener("load", function () {
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+window.addEventListener("load", async function () {
+    
+    //for (var i = 0; i < 100; i++) {
+    //    console.log("------ " + i + " in " + new Date().getTime())
+    //    await sleep(1000);
+    //    console.log("------ 2" + i + " in " + new Date().getTime())
+    //    //setTimeout(function () { console.log("------ timeout" + i + " in " + new Date().getTime()) }, i * 1000)
+    //}
 
     // Init
     ///////////////////////
