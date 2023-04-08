@@ -191,7 +191,12 @@
     content: "";
     display: block;
 }
-    
+.emptyCell {
+    background: url('assets/sprite.png');
+    background-repeat: no-repeat;
+    background-position-x: 0px;
+    background-position-y: -400px;
+} 
     
 
     .cell::after {
