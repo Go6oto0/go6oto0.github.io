@@ -81,8 +81,8 @@
         }
 
         .cell .content.health {
-            background-position-x: -400px;
-            background-position-y: 700px;
+            background-position-x: -700px;
+            background-position-y: -400px;
         }
 
         .cell .content.number1 {
