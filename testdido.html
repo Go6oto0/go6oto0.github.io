@@ -11,54 +11,187 @@
 <body>
     <div id="content">
         <div class="container">
-           
+
             <div id="minefield-wrapper">
                 <div id="minefield" style="grid-template-rows: 60px 60px 60px 60px 60px 60px 60px 60px 60px 60px; grid-template-columns: 60px 60px 60px 60px 60px 60px 60px 60px 60px 60px; ">
-                    <div class="emptyCell"><div class="cell"></div></div>
-                    
-                    <div class="cell transparent"></div>
-
-                    <div class="emptyCell"> <div class="cell transparent chest fade"></div></div>
-                    <div class="emptyCell"><div class="cell revealed chest radar"></div></div>
-                    
-                    <div class="cell revealed chest hearth"></div>
-                    <div class="cell revealed chest time"></div>
-                    <div class="cell revealed chest points"></div>
-                    <div class="cell revealed number1"></div>
-                    <div class="cell revealed number2"></div>
-                    <div class="cell revealed number3"></div>
-                    <div class="cell revealed number4"></div>
-                    <div class="cell revealed number5"></div>
-                    <div class="cell revealed number6"></div>
-                    <div class="cell revealed number7"></div>
-                    <div class="cell revealed number8"></div>
-                    <div class="cell revealed number1sides"></div>
-                    <div class="cell revealed number2sides"></div>
-                    <div class="cell revealed number3sides"></div>
-                    <div class="cell revealed number4sides"></div>
-                    <div class="cell revealed number5sides"></div>
-                    <div class="cell revealed number6sides"></div>
-                    <div class="cell revealed number7sides"></div>
-                    <div class="cell revealed number8sides"></div>
-                    <div class="cell flag"></div>
-                    <div class="cell blackmine"></div>
-                    <div class="cell redmine"></div>
-                    <div class="cell transparent number1"></div>
-                    <div class="cell transparent number2"></div>
-                    <div class="cell transparent number3"></div>
-                    <div class="cell transparent number4"></div>
-                    <div class="cell transparent number5"></div>
-                    <div class="cell transparent number6"></div>
-                    <div class="cell transparent number7"></div>
-                    <div class="cell transparent number8"></div>
-                    <div class="cell transparent number1sides"></div>
-                    <div class="cell transparent number2sides"></div>
-                    <div class="cell transparent number3sides"></div>
-                    <div class="cell transparent number4sides"></div>     
-                    <div class="cell transparent blackmine"></div>
-                    <div class="cell transparent redmine"></div>
+                    <div class="cell">
+                        <div class="chest"></div>
+                        <div class="content"></div>
+                        <div class="tile animated"></div>
+                        <div class="flag"></div>
+                        <div class="background"></div>
+                    </div>
+                    <div class="cell flagged">
+                        <div class="chest"></div>
+                        <div class="content"></div>
+                        <div class="tile animated"></div>
+                        <div class="flag"></div>
+                        <div class="background"></div>
+                    </div>
+                    <div class="cell revealed">
+                        <div class="chest"></div>
+                        <div class="content"></div>
+                        <div class="tile animated"></div>
+                        <div class="flag"></div>
+                        <div class="background"></div>
+                    </div>
+                    <div class="cell revealed">
+                        <div class="chest"></div>
+                        <div class="content radar"></div>
+                        <div class="tile animated"></div>
+                        <div class="flag"></div>
+                        <div class="background"></div>
+                    </div>
+                    <div class="cell unopened">
+                        <div class="chest"></div>
+                        <div class="content radar"></div>
+                        <div class="tile animated"></div>
+                        <div class="flag"></div>
+                        <div class="background"></div>
+                    </div>
+                    <div class="cell revealed unopened">
+                        <div class="chest"></div>
+                        <div class="content radar"></div>
+                        <div class="tile animated"></div>
+                        <div class="flag"></div>
+                        <div class="background"></div>
+                    </div>
+                    <div class="cell fade">
+                        <div class="chest"></div>
+                        <div class="content radar"></div>
+                        <div class="tile animated"></div>
+                        <div class="flag"></div>
+                        <div class="background"></div>
+                    </div>
+                    <div class="cell revealed">
+                        <div class="chest"></div>
+                        <div class="content radar"></div>
+                        <div class="tile animated"></div>
+                        <div class="flag"></div>
+                        <div class="background"></div>
+                    </div>
+                    <div class="cell revealed">
+                        <div class="chest"></div>
+                        <div class="content time"></div>
+                        <div class="tile animated"></div>
+                        <div class="flag"></div>
+                        <div class="background"></div>
+                    </div>
+                    <div class="cell revealed">
+                        <div class="chest"></div>
+                        <div class="content points"></div>
+                        <div class="tile animated"></div>
+                        <div class="flag"></div>
+                        <div class="background"></div>
+                    </div>
+                    <div class="cell revealed">
+                        <div class="chest"></div>
+                        <div class="content number1"></div>
+                        <div class="tile animated"></div>
+                        <div class="flag"></div>
+                        <div class="background"></div>
+                    </div>
+                    <div class="cell revealed">
+                        <div class="chest"></div>
+                        <div class="content number2"></div>
+                        <div class="tile animated"></div>
+                        <div class="flag"></div>
+                        <div class="background"></div>
+                    </div>
+                    <div class="cell revealed">
+                        <div class="chest"></div>
+                        <div class="content number3"></div>
+                        <div class="tile animated"></div>
+                        <div class="flag"></div>
+                        <div class="background"></div>
+                    </div>
+                    <div class="cell revealed">
+                        <div class="chest"></div>
+                        <div class="content number4"></div>
+                        <div class="tile animated"></div>
+                        <div class="flag"></div>
+                        <div class="background"></div>
+                    </div>
+                    <div class="cell revealed">
+                        <div class="chest"></div>
+                        <div class="content number5"></div>
+                        <div class="tile animated"></div>
+                        <div class="flag"></div>
+                        <div class="background"></div>
+                    </div>
+                    <div class="cell revealed">
+                        <div class="chest"></div>
+                        <div class="content number6"></div>
+                        <div class="tile animated"></div>
+                        <div class="flag"></div>
+                        <div class="background"></div>
+                    </div>
+                    <div class="cell revealed">
+                        <div class="chest"></div>
+                        <div class="content number7"></div>
+                        <div class="tile animated"></div>
+                        <div class="flag"></div>
+                        <div class="background"></div>
+                    </div>
+                    <div class="cell revealed">
+                        <div class="chest"></div>
+                        <div class="content number8"></div>
+                        <div class="tile animated"></div>
+                        <div class="flag"></div>
+                        <div class="background"></div>
+                    </div>
+                    <div class="cell revealed">
+                        <div class="chest"></div>
+                        <div class="content number1sides"></div>
+                        <div class="tile animated"></div>
+                        <div class="flag"></div>
+                        <div class="background"></div>
+                    </div>
+                    <div class="cell revealed">
+                        <div class="chest"></div>
+                        <div class="content number2sides"></div>
+                        <div class="tile animated"></div>
+                        <div class="flag"></div>
+                        <div class="background"></div>
+                    </div>
+                    <div class="cell revealed">
+                        <div class="chest"></div>
+                        <div class="content number3sides"></div>
+                        <div class="tile animated"></div>
+                        <div class="flag"></div>
+                        <div class="background"></div>
+                    </div>
+                    <div class="cell revealed">
+                        <div class="chest"></div>
+                        <div class="content number4sides"></div>
+                        <div class="tile animated"></div>
+                        <div class="flag"></div>
+                        <div class="background"></div>
+                    </div>
+                    <div class="cell revealed">
+                        <div class="chest"></div>
+                        <div class="content blackmine"></div>
+                        <div class="tile animated"></div>
+                        <div class="flag"></div>
+                        <div class="background"></div>
+                    </div>
+                    <div class="cell revealed">
+                        <div class="chest"></div>
+                        <div class="content redmine"></div>
+                        <div class="tile animated"></div>
+                        <div class="flag"></div>
+                        <div class="background"></div>
+                    </div>
+                    <div class="cell revealed">
+                        <div class="chest"></div>
+                        <div class="content health"></div>
+                        <div class="tile animated"></div>
+                        <div class="flag"></div>
+                        <div class="background"></div>
+                    </div>
                 </div>
             </div>
+
         </div>
     </div>
 </body>
