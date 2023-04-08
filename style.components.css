@@ -149,8 +149,7 @@
     gap: 5px;
     z-index: 5;
 }
-
-.cell {
+/*.cell {
     width: 64px;
     height: 64px;
     position: relative;
@@ -196,25 +195,26 @@
     background-repeat: no-repeat;
     background-position-x: 0px;
     background-position-y: -400px;
-} 
-    
+} */
 
-    .cell::after {
-        position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        content: "";
-        background:transparent;
-        display:block;
-        border-radius:3px;
-        transition:background ease 0.75s;
-    }
 
-    .cell:hover::after {
-        background: rgba(255,255,255,0.15);
-    }
+
+.cell::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    content: "";
+    background: transparent;
+    display: block;
+    border-radius: 3px;
+    transition: background ease 0.75s;
+}
+
+.cell:hover::after {
+    background: rgba(255,255,255,0.15);
+}
     /*win/lose*/
 
 #lose {
@@ -326,6 +326,7 @@
     background-position: center center;
     position: absolute;
     top: 0px;
+    left: 0px;
 }
 
     #start #name {

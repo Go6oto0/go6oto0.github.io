@@ -49,7 +49,7 @@
     }
 
     .cell .tile.animated {
-        animation: CellAnimation 2s infinite;
+        animation: CellAnimation 10s infinite;
         animation-timing-function: steps(1, end);
     }
 
