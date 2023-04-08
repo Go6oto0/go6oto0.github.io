@@ -41,14 +41,14 @@
 
     /*Flag*/
     .cell2 .flag {
-        z-index:10;
-        visibility:hidden;
+        z-index: 10;
+        visibility: hidden;
     }
 
     .cell2.flagged .flag {
         visibility: visible;
-        background-position-y: 0px;
-        background-position-x: -500px;
+        background-position-y: -400px;
+        background-position-x: -100px;
     }
 
     .cell2.fade.flagged .flag {
@@ -57,8 +57,9 @@
 
     /*Tile*/
     .cell2 .tile {
-        z-index:9;
+        z-index: 9;
     }
+
     .cell2.fade .tile {
         opacity: 0.5;
     }
@@ -75,8 +76,8 @@
     /*Chest*/
     .cell2 .chest {
         z-index: 8;
-        background-position-x: -700px;
-        background-position-y: 0px;
+        background-position-x: -500px;
+        background-position-y: -400px;
         visibility: hidden;
         opacity: 0;
         transition: opacity 2s linear, visibility 2s linear;
@@ -90,88 +91,102 @@
     /*Content*/
     .cell2 .content {
         z-index: 7;
-        background-position-x: 0;
-        background-position-y: -400px;
     }
+
         .cell2 .content.blackmine {
-            background-position-y: -100px;
-            background-position-x: -200px;
-        }
-        .cell2 .content.health {
-            background-position-x: -400px;
-            background-position-y: -400px;
-        }
-        .cell2 .content.number1 {
-            background-position-y: -200px;
-            background-position-x: 0;
-        }
-        .cell2 .content.number1sides {
-            background-position-y: -300px;
-            background-position-x: 0;
-        }
-        .cell2 .content.number2 {
-            background-position-y: -200px;
-            background-position-x: -100px;
-        }
-        .cell2 .content.number2sides {
-            background-position-y: -300px;
-            background-position-x: -100px;
-        }
-        .cell2 .content.number3 {
-            background-position-y: -200px;
-            background-position-x: -200px;
-        }
-        .cell2 .content.number3sides {
-            background-position-y: -300px;
-            background-position-x: -200px;
-        }
-        .cell2 .content.number4 {
-            background-position-y: -200px;
-            background-position-x: -300px;
-        }
-        .cell2 .content.number4sides {
-            background-position-y: -300px;
-            background-position-x: -300px;
-        }
-        .cell2 .content.number5 {
-            background-position-y: -200px;
-            background-position-x: -400px;
-        }
-        .cell2 .content.number6 {
-            background-position-y: -200px;
-            background-position-x: -500px;
-        }
-        .cell2 .content.number7 {
-            background-position-y: -200px;
-            background-position-x: -600px;
-        }
-        .cell2 .content.number8 {
-            background-position-y: -200px;
-            background-position-x: -700px;
-        }
-        .cell2 .content.points {
-            background-position-x: -100px;
-            background-position-y: -400px;
-        }
-        .cell2 .content.radar {
-            background-position-x: -300px;
-            background-position-y: -400px;
-        }
-        .cell2 .content.redmine {
-            background-position-y: -100px;
-            background-position-x: -300px;
-        }
-        .cell2 .content.time {
             background-position-x: -200px;
             background-position-y: -400px;
         }
 
+        .cell2 .content.health {
+            background-position-x: 0px;
+            background-position-y: -200px;
+        }
+
+        .cell2 .content.number1 {
+            background-position-x: 0;
+            background-position-y: -200px;
+        }
+
+        .cell2 .content.number1sides {
+            background-position-x: 0px;
+            background-position-y: -300px;
+        }
+
+        .cell2 .content.number2 {
+            background-position-x: -100px;
+            background-position-y: -200px;
+        }
+
+        .cell2 .content.number2sides {
+            background-position-x: -100px;
+            background-position-y: -300px;
+        }
+
+        .cell2 .content.number3 {
+            background-position-x: -200px;
+            background-position-y: -200px;
+        }
+
+        .cell2 .content.number3sides {
+            background-position-x: -200px;
+            background-position-y: -300px;
+        }
+
+        .cell2 .content.number4 {
+            background-position-x: -300px;
+            background-position-y: -200px;
+        }
+
+        .cell2 .content.number4sides {
+            background-position-x: -300px;
+            background-position-y: -300px;
+        }
+
+        .cell2 .content.number5 {
+            background-position-x: -400px;
+            background-position-y: -200px;
+        }
+
+        .cell2 .content.number6 {
+            background-position-x: -500px;
+            background-position-y: -200px;
+        }
+
+        .cell2 .content.number7 {
+            background-position-x: -600px;
+            background-position-y: -200px;
+        }
+
+        .cell2 .content.number8 {
+            background-position-x: -700px;
+            background-position-y: -200px;
+        }
+
+        .cell2 .content.points {
+            background-position-x: 0px;
+            background-position-y: -400px;
+        }
+
+        .cell2 .content.radar {
+            background-position-x: -600px;
+            background-position-y: -400px;
+        }
+
+        .cell2 .content.redmine {
+            background-position-x: -300px;
+            background-position-y: -400px;
+        }
+
+        .cell2 .content.time {
+            background-position-x: -400px;
+            background-position-y: -400px;
+        }
+      
 
     /*Background*/
     .cell2 .background {
-        z-index: 2;
+        z-index: 6;
         background-position-x: 0;
-        background-position-y: -400px;
+        background-position-y: -100px;
     }
-
-
