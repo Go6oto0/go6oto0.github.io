@@ -267,15 +267,18 @@ function cellTypeCheck(current) {
             goldCount += Math.round(getRandomInt(10000, 100000) / 1000) * 1000;
             current.El.classList.remove("unopened");
             contentEl.classList.add(`points`);
+            contentEl.classList.add('hide');
             setGold();
         } else if (current.isChest === 2) {
             current.El.classList.remove("unopened");
             contentEl.classList.add(`radar`);
+            contentEl.classList.add('hide');
             inventory.radarCount++;
             setRadars();
         } else if (current.isChest === 3) {
             current.El.classList.remove("unopened");
             contentEl.classList.add(`health`);
+            contentEl.classList.add('hide');
             health += 25;
             if (health > 100) {
                 health = 100;
@@ -284,6 +287,7 @@ function cellTypeCheck(current) {
         } else if (current.isChest === 4) {
             current.El.classList.remove("unopened");
             contentEl.classList.add(`time`);
+            contentEl.classList.add('hide');
             if (timeInSeconds - 20 < 0) {
                 timeInSeconds = 0;
             } else {

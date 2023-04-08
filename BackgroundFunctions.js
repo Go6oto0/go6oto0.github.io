@@ -46,7 +46,7 @@ function insertFireflies() {
 }
 
 function animateMinefieldInit() {
-    let delay = 0;
+    let delay = 2;
     minefieldEl.querySelectorAll(".cell").forEach(function (item, index) {
         // stagger transition with transitionDelay
         item.style.transitionDelay = (index * delay) + 'ms';

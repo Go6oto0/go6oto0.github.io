@@ -67,9 +67,10 @@
         visibility: visible;
         opacity: 1;
     }
-    .cell .content.hide {
-        opacity: 1;
-        transition: opacity 2s linear, visibility 2s linear;
+    .hide {
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 6s linear, visibility 6s linear;
     }
 
     /*Content*/
@@ -175,6 +176,7 @@
         z-index: 6;
         background-position-x: 0;
         background-position-y: -100px;
+        opacity:0.75;
     }
 /*.cell.revealed::before {
     background-position-x: 0px;
