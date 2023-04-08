@@ -67,6 +67,10 @@
         visibility: visible;
         opacity: 1;
     }
+    .cell .content.hide {
+        opacity: 1;
+        transition: opacity 2s linear, visibility 2s linear;
+    }
 
     /*Content*/
     .cell .content {
