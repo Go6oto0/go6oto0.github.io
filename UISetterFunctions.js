@@ -49,9 +49,9 @@ function startTimer() {
                 }
             }
         }
+        timeInSeconds = minutes * 60 + seconds;
         let m = minutes < 10 ? `0` + minutes : minutes;
         let s = seconds < 10 ? `0` + seconds : seconds;
-        timeInSeconds = m * 60 + s;
         timerEl.innerHTML = `${m}:${s}`;
     }
     
