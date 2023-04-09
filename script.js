@@ -245,15 +245,7 @@ function winGame() {
 }
 
 function cellsToRevealCalc() {
-    let count = 0;
-    for (let i = 0; i < x; i++) {
-        for (let j = 0; j < y; j++) {
-            if (!minefield[i][j].isMine) {
-                count++;
-            }
-        }
-    }
-    cellsToReveal = count;
+    cellsToReveal = x * y - minesMaxCount;
 }
 
 function winCheck() {
@@ -387,7 +379,7 @@ function minefieldSetup() {
     cellsToRevealCalc();
 
 
-   // winSimulation();
+    winSimulation();
 
 }
 
