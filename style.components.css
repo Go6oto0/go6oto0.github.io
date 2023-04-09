@@ -191,7 +191,7 @@
     gap: 5px;
     z-index: 5;
     cursor: pointer;
-    cursor: url('./assets/custom-cursor-pickaxe-sm.png') 0 0, auto;
+    cursor: url('./assets/custom-cursor-pickaxe-sm.png') 0 40, auto;
 }
 
     #minefield.animated .cell {

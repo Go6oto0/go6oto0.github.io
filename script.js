@@ -379,7 +379,7 @@ function minefieldSetup() {
     cellsToRevealCalc();
 
 
-    winSimulation();
+    //winSimulation();
 
 }
 
