@@ -38,7 +38,7 @@
     height:24px;
     background:url('assets/sprite.png');
     background-repeat:no-repeat;
-    background-position-y:-100px;
+    background-position-y:-900px;
     background-position-x:0;
     margin-right:5px;
 }
@@ -52,13 +52,13 @@
 }
 
 .label__icon--hourglass {
-    background-position-x: -400px;
+    background-position-x: -300px;
 }
 .label__icon--radar{
-    background-position-x:-600px;
+    background-position-x:-400px;
 }
 .label__icon--heart {
-    background-position-x: -700px;
+    background-position-x: -500px;
 }
 
 .label__text {

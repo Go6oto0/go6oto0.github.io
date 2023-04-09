@@ -46,7 +46,7 @@ function insertFireflies() {
 }
 
 function animateMinefieldInit() {
-    let delay = 0;
+    let delay = 2;
     minefieldEl.querySelectorAll(".cell").forEach(function (item, index) {
         // stagger transition with transitionDelay
         item.style.transitionDelay = (index * delay) + 'ms';
@@ -85,13 +85,14 @@ function addBombs() {
         let row = Math.floor(Math.random() * (x));
         let col = Math.floor(Math.random() * (y));
         let currentBomb = minefield[row][col];
+        var contentEl = currentBomb.El.children.item(1);
         if (currentBomb.isMine === 0) {
             let bombType = Math.floor(Math.random() * 2) + 1;
             currentBomb.isMine = bombType;
             if (bombType === 1) {
-                currentBomb.El.classList.add("blackmine");
+                contentEl.classList.add("blackmine");
             } else {
-                currentBomb.El.classList.add("redmine");
+                contentEl.classList.add("redmine");
             }
             bombsToAdd--;
         } else {
@@ -109,11 +110,12 @@ function addChest() {
         let row = Math.floor(Math.random() * (x));
         let col = Math.floor(Math.random() * (y));
         let currentChest = minefield[row][col];
+       /// var contentEl = currentChest.El.children.item(1);
         if (currentChest.isChest == 0) {
             if (currentChest.isMine === 0 && currentChest.nearMines === 0) {
                 let chestType = Math.floor(Math.random() * 4) + 1;
                 currentChest.isChest = chestType;
-                currentChest.El.classList.add("chest");
+                ///currentChest.El.classList.add("chest");
                 chestsToAdd--;
             }
         } else {
@@ -235,35 +237,37 @@ function getRandomWithFrequency(frequncy) {
 
 function setnormalcounter(current) {
     current.cellType = `normal`;
+    var contentEl = current.El.children.item(1);
     if (current.nearMines === 1) {
-        current.El.classList.add("number1");
+        contentEl.classList.add("number1");
     } else if (current.nearMines === 2) {
-        current.El.classList.add("number2");
+        contentEl.classList.add("number2");
     } else if (current.nearMines === 3) {
-        current.El.classList.add("number3");
+        contentEl.classList.add("number3");
     } else if (current.nearMines === 4) {
-        current.El.classList.add("number4");
+        contentEl.classList.add("number4");
     } else if (current.nearMines === 5) {
-        current.El.classList.add("number5");
+        contentEl.classList.add("number5");
     } else if (current.nearMines === 6) {
-        current.El.classList.add("number6");
+        contentEl.classList.add("number6");
     } else if (current.nearMines === 7) {
-        current.El.classList.add("number7");
+        contentEl.classList.add("number7");
     } else if (current.nearMines === 8) {
-        current.El.classList.add("number8");
+        contentEl.classList.add("number8");
     }
 }
 
 function setsidescounter(current) {
     current.cellType = `sidesOnly`;
+    var contentEl = current.El.children.item(1);
     if (current.nearMinesSides === 1) {
-        current.El.classList.add("number1sides");
+        contentEl.classList.add("number1sides");
     } else if (current.nearMinesSides === 2) {
-        current.El.classList.add("number2sides");
+        contentEl.classList.add("number2sides");
     } else if (current.nearMinesSides === 3) {
-        current.El.classList.add("number3sides");
+        contentEl.classList.add("number3sides");
     } else if (current.nearMinesSides === 4) {
-        current.El.classList.add("number4sides");
+        contentEl.classList.add("number4sides");
     }
 }
 
