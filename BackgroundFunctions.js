@@ -191,7 +191,8 @@ function normalOrSidesOnly() {
 }
 
 function revealAll() {
-    //minefield.forEach((x) => x.forEach((y) => { if (y.isMine) { y.isRevealed = true; cellTypeCheck(y); } }));
+    minefield.forEach((x) => x.forEach((y) => { if (y.isMine) { y.isRevealed = true; cellTypeCheck(y); } }));
+    /*
     function sleep(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
     }
@@ -216,6 +217,7 @@ function revealAll() {
     }
 
     demo();
+    */
 
 }
 
