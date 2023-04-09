@@ -297,10 +297,10 @@
     position: absolute;
     z-index: 6;
     background: url('assets/lose-background.png');
-    width: 838.14px;
-    height: 365.46px;
-    top: 244px;
-    left: 350px;
+    width: 1256px;
+    height: 618px;
+    top: 170px;
+    left: 330px;
     text-align: center;
     background-size: 100%;
     background-repeat: no-repeat;
@@ -308,25 +308,30 @@
 
     #lose #text {
         position: absolute;
-        font-size: 96px;
+        font-size: 150px;
         color: white;
         font-weight: 400;
-        height: 110px;
-        width: 838.14px;
+        height: 130px;
+        width: 556px;
         text-align: center;
-        top: 134px;
-        right: 0px;
+        top: 180px;
+        right: 300px;
     }
 
 
 
     #lose #message {
         position: absolute;
-        font-size: 24px;
+        font-size: 50px;
+        height: 50px;
+        width: 250px;
         color: white;
         font-weight: 400;
-        top: 340px;
-        right: 350px;
+        top: 550px;
+        right: 470px;
+        text-decoration: none;
+        cursor: pointer;
+        cursor: url('./assets/custom-cursor-sm.png') 0 0, auto;
     }
 
 
