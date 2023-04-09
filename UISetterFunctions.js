@@ -14,7 +14,7 @@ var Module = (function () {
 
 })();
 
-let timeInSeconds;
+let timeInSeconds = 0;
 let timerIsStopped = false;
 let specialEffect = false;
 
@@ -26,7 +26,7 @@ function startTimer() {
     if (int !== null) {
         clearInterval(int);
     }
-    int = setInterval(displayTimer, 10);
+    int = setInterval(displayTimer, 100);
 
     function displayTimer() {
         if (timerIsStopped) {
@@ -36,7 +36,7 @@ function startTimer() {
             seconds = timeInSeconds % 60;
             minutes = Math.floor(timeInSeconds / 60);
         }
-        milliseconds += 10;
+        milliseconds += 100;
         if (milliseconds == 1000) {
             milliseconds = 0;
             seconds++;
