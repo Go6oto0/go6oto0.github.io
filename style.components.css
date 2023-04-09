@@ -327,7 +327,6 @@
     background-position: center center;
     position: absolute;
     top: 0px;
-    left: 0px;
 }
 
     #start #name {
@@ -335,7 +334,7 @@
         text-align: center;
         font-size: 100px;
         position: absolute;
-        top: 2vh;
+        top: 5vh;
         width:650px;
         font:bold;
     }
@@ -353,4 +352,14 @@
         position: absolute;
         top: 60vh;
     }
+    #start #credits {
+        color: white;
+        text-align: right;
+        font-size: 20px;
+        position: absolute;
+        bottom: 2vh;
+        width: 610px;
+        right: 2vw;
+    }
+
 

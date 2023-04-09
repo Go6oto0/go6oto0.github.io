@@ -17,6 +17,7 @@
 @import url("style.cells.css");
 @import url("style.cellAnimation.css");
 @import url("style.fadeAnimation.css");
+@import url("style.BlinkAnimation.css");
 
 /*.cell2 {
     width: 64px;
