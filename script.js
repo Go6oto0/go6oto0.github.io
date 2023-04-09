@@ -151,13 +151,13 @@ window.addEventListener("load", async function () {
 
             var x = cellEl.dataset.x, y = cellEl.dataset.y;
             if (minefield[x][y].isRevealed != true) {
-                if (minefield[x][y].isFlagged == 0) {
+                if (minefield[x][y].isFlagged == 0 && remainingFlags > 0) {
                     minefield[x][y].isFlagged = 1;
                     minefield[x][y].El.classList.add("flagged");
                     remainingFlags--;
                     setFlags();
                 }
-                else {
+                else if (minefield[x][y].isFlagged == 1){
                     minefield[x][y].isFlagged = 0;
                     minefield[x][y].El.classList.remove("flagged");
                     remainingFlags++;
