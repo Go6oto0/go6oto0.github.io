@@ -191,7 +191,7 @@ function normalOrSidesOnly() {
 }
 
 function revealAll() {
-    minefield.forEach((x) => x.forEach((y) => { if (y.isMine) {y.isRevealed = true; cellTypeCheck(y);}}));
+    minefield.forEach((x) => x.forEach((y) => { y.isRevealed = true; y.El.classList.add("revealed"); if (y.isChest > 0) y.El.classList.add("unopened"); }));
 }
 
 function getRandomInt(min, max) {
