@@ -121,7 +121,7 @@ window.addEventListener("load", async function () {
     ///////////////////////
     fullscreenLinkEl = document.getElementById("topbar-fullscreen");
     init(level); //First so if global variable is used in the listeners, than it will be initialized
-
+    ///winGame();
 
     // Listeners
     ///////////////////////
@@ -212,13 +212,20 @@ window.addEventListener("load", async function () {
 
 function gameOver() {
     revealAll();
-    console.log(`Game over!`)
     stopTimer();
     lockGame = true;
+    console.log(`Game over!`)
+    var loseScreenEl = document.getElementById("lose");
+    loseScreenEl.classList.add("show-as-flex");
     //TO DO
 }
 
 function winGame() {
+    stopTimer();
+    lockGame = true;
+    console.log(`Game Win!`)
+    var winScreenEl = document.getElementById("win");
+    winScreenEl.classList.add("show-as-flex");
     //TO DO
 }
 function RevealNearby(xi, yi) {
