@@ -197,7 +197,7 @@ window.addEventListener("load", async function () {
     enbledBackgroundMovement();
     insertFireflies();
     //place cells on board
-    //setTimeout(() => { animateMinefieldInit(); }, 1);
+    setTimeout(() => { animateMinefieldInit(); }, 100);
 
 
 
