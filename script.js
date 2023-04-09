@@ -25,10 +25,10 @@ var cellsToReveal = 0;
 function init(level) {
     minefieldEl = document.querySelector("#minefield");
     if (level == "rock") {
-        x = 11;
-        y = 20;
+        x = 7;
+        y = 7;
         chestCount = 12;
-        minesCount = 40;
+        minesCount = 10;
         minesMaxCount = minesCount;
         undiscoveredMines = minesCount;
         health = 100;
@@ -245,15 +245,7 @@ function winGame() {
 }
 
 function cellsToRevealCalc() {
-    let count = 0;
-    for (let i = 0; i < x; i++) {
-        for (let j = 0; j < y; j++) {
-            if (!minefield[i][j].isMine) {
-                count++;
-            }
-        }
-    }
-    cellsToReveal = count;
+    cellsToReveal = x * y - minesMaxCount;
 }
 
 function winCheck() {
@@ -386,7 +378,7 @@ function minefieldSetup() {
     cellsToRevealCalc();
 
 
-    winSimulation();
+    //winSimulation();
 
 }
 
