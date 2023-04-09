@@ -207,7 +207,7 @@ function revealAll() {
         }
         for (let i = 0; i < x; i++) {
             for (let j = 0; j < y; j++) {
-                await sleep(bombount * 1000); \
+                await sleep(bombount * 1000); 
                 minefield[i][j].isRevealed = true;
                 cellTypeCheck(minefield[i][j])
             }
