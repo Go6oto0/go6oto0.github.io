@@ -18,6 +18,8 @@ var isFullScreen = false;
 var timerEl, minefieldEl, fullscreenLinkEl;
 var level = "rock"; // level preset, do not change for demo
 var fireflyCount = 15; //max 15
+var revealedCount = 0;
+var cellsToReveal = 0;
 
 function init(level) {
     minefieldEl = document.querySelector("#minefield");
@@ -233,15 +235,37 @@ function winGame() {
     winScreenEl.classList.add("show-as-flex");
     //TO DO
 }
+
+function cellsToRevealCalc() {
+    let count = 0;
+    for (let i = 0; i < x; i++) {
+        for (let j = 0; j < y; j++) {
+            if (!minefield[i][j].isMine) {
+                count++;
+            }
+        }
+    }
+    cellsToReveal = count;
+}
+
+function winCheck() {
+    if (revealedCount == cellsToReveal) {
+        console.log(revealedCount);
+        console.log(cellsToReveal);
+        winGame();
+    }
+}
+
 function RevealNearby(xi, yi) {
     if (0 > xi || xi >= x || 0 > yi || yi >= y) return;
     current = minefield[xi][yi];
     if (current.isRevealed == true) return;
     current.El.classList.add("revealed");
     current.isRevealed = true;
+    revealedCount++;
+    winCheck();
     if (current.isChest > 0) current.El.classList.add("unopened");
     if (current.nearMines == 0) { // empty cell or chest cell
-
         RevealNearby(xi - 1, yi);
         RevealNearby(xi + 1, yi);
         RevealNearby(xi, yi - 1);
@@ -309,6 +333,9 @@ function cellTypeCheck(current) {
         }
 
         //To do
+    } else {
+        revealedCount++;
+        winCheck();
     }
 }
 // Debug functions
@@ -348,6 +375,10 @@ function minefieldSetup() {
         tempArr.forEach((x) => resultArr.push(x.isChest ? 1 : 0))
         console.log(resultArr.join(` `));
     }
+    cellsToRevealCalc();
+
+
+    winSimulation();
 
 }
 
@@ -361,3 +392,8 @@ function revealedCheck() {
     }
 }
 
+
+
+function winSimulation() {
+    minefield.forEach((x) => x.forEach((y) => { if (!y.isMine) { y.isRevealed = true; cellTypeCheck(y); } }));
+}

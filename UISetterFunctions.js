@@ -60,6 +60,10 @@ function startTimer() {
 function stopTimer() {
     console.log(`Timer stopped!`)
     timerIsStopped = true;
+    printTimer();
+}
+
+function printTimer() {
     let minutes = Math.floor(timeInSeconds / 60);
     let seconds = timeInSeconds % 60;
     let m = minutes < 10 ? `0` + minutes : minutes;
