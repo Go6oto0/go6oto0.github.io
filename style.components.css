@@ -2,18 +2,20 @@
     Topbar
 */
 #topbar {
-    z-index:6;
+    z-index: 6;
 }
+
 #topbar-content, #footer-content {
     padding: 0 10px;
 }
 
 #topbar-content {
-    position:relative;
+    position: relative;
     display: flex;
     align-items: center;
     height: 100%;
 }
+
 #topbar-content-left,
 #topbar-content-right {
     flex: 0 0 500px;
@@ -22,9 +24,9 @@
 }
 
 #topbar-content-center {
-    flex:1 1 auto;
-    display:flex;
-    justify-content:center;
+    flex: 1 1 auto;
+    display: flex;
+    justify-content: center;
 }
 
 #topbar-content-left {
@@ -32,7 +34,7 @@
 }
 
 #topbar-content-right {
-    right:10px;
+    right: 10px;
 }
 
 #topbar-score,
@@ -48,9 +50,10 @@
 }
 
 #topbar-time .label__text {
-    flex:0 0 auto;
-    width:120px;
+    flex: 0 0 auto;
+    width: 120px;
 }
+
 #topbar-flags .label__text--x, #topbar-bombs .label__text--x {
     width: 65px;
 }
@@ -58,6 +61,7 @@
 #topbar-score .label__text {
     width: 160px;
 }
+
 #topbar-fullscreen {
     cursor: pointer;
     display: flex;
@@ -66,9 +70,9 @@
 }
 
     #topbar-fullscreen svg {
-        fill:#94A3B8;
-        width:24px;
-        height:24px;
+        fill: #94A3B8;
+        width: 24px;
+        height: 24px;
     }
 
     #topbar-fullscreen:hover svg {
@@ -79,13 +83,13 @@
         display: none;
     }
 
-#topbar-fullscreen.on .icon-full {
-    display: none;
-}
+    #topbar-fullscreen.on .icon-full {
+        display: none;
+    }
 
-#topbar-fullscreen.on .icon-fit {
-    display: inline-block;
-}
+    #topbar-fullscreen.on .icon-fit {
+        display: inline-block;
+    }
 
 /*
     Footer
@@ -93,6 +97,7 @@
 #footer {
     z-index: 6;
 }
+
 #footer-content {
     display: flex;
     align-items: center;
@@ -101,7 +106,7 @@
 }
 
 #footer-aside {
-    flex:0 0 auto;
+    flex: 0 0 auto;
     display: flex;
     align-items: center;
     height: 100%;
@@ -120,12 +125,15 @@
 #footer-health {
     flex: 0 0 50%;
 }
-#footer-inventory .label__text--x{
-    width:45px;
+
+#footer-inventory .label__text--x {
+    width: 45px;
 }
-#footer-effects .label__aux--x{
-    width:25px;
+
+#footer-effects .label__aux--x {
+    width: 25px;
 }
+
 #footer-effects .label__text {
     width: 100px;
 }
@@ -140,21 +148,31 @@
     padding: 10px;
     display: flex;
     justify-content: center;
-    align-items:center;
+    align-items: center;
 }
 
 #minefield {
-    margin-top:-20px;
+    margin-top: -20px;
     display: grid;
     gap: 5px;
     z-index: 5;
 }
+
+    #minefield.animated .cell {
+        transform: translateX(-10000px);
+        transition: transform 0.4s;
+        visibility: hidden;
+    }
+        #minefield.animated .cell.is-moved {
+            transform: translateX(0);
+            visibility: visible;
+        }
 /*.cell {
     width: 64px;
     height: 64px;
     position: relative;
     cursor: pointer;
-    cursor: url('./assets/custom-cursor-sm.png') 0 0, auto;
+    cursor: url('./assets/custom-cursor-sm.png') 0 40, auto;
 }
 
 
@@ -168,10 +186,7 @@
     animation-timing-function: steps(1, end);
 }
 
-#minefield.animated .cell {
-    transform: translateX(-10000px);
-    transition: transform 0.4s;
-    visibility: hidden;
+
 }
 
     #minefield.animated .cell.is-moved {
@@ -210,27 +225,15 @@
     display: block;
     border-radius: 3px;
     transition: background ease 0.75s;
-    z-index:11;
+    z-index: 11;
 }
 
 .cell:hover::after {
     background: rgba(255,255,255,0.15);
 }
-    /*win/lose*/
+/*win/lose*/
 
-#lose {
-    display: none;
-    position: absolute;
-    z-index: 6;
-    background: url('assets/lose-background.png');
-    width: 838.14px;
-    height: 365.46px;
-    top: 244px;
-    left: 318px;
-    text-align: center;
-    background-size: 100%;
-    background-repeat: no-repeat;
-}
+
 
 #win {
     display: none;
@@ -246,70 +249,88 @@
     background-repeat: no-repeat;
 }
 
-#lose #text {
+    #win #text {
+        position: absolute;
+        font-size: 96px;
+        color: white;
+        font-weight: 400;
+        height: 110px;
+        width: 838.14px;
+        text-align: center;
+        top: 134px;
+        right: 0px;
+    }
+
+    #win #message {
+        position: absolute;
+        font-size: 24px;
+        color: white;
+        font-weight: 400;
+        top: 340px;
+        right: 100px;
+    }
+
+    #win #showScore--score {
+        position: absolute;
+        font-size: 24px;
+        color: white;
+        font-weight: 400;
+        top: 340px;
+        right: 350px;
+        width: 880px;
+        height: 115px;
+    }
+
+    #win #showScore {
+        position: absolute;
+        font-size: 24px;
+        color: white;
+        font-weight: 400;
+        top: 340px;
+        right: 220px;
+        width: 880px;
+        height: 115px;
+    }
+
+#lose {
+    display: none;
     position: absolute;
-    font-size: 96px;
-    color: white;
-    font-weight: 400;
-    height: 110px;
+    z-index: 6;
+    background: url('assets/lose-background.png');
     width: 838.14px;
+    height: 365.46px;
+    top: 244px;
+    left: 350px;
     text-align: center;
-    top: 134px;
-    right: 0px;
+    background-size: 100%;
+    background-repeat: no-repeat;
 }
 
-#win #text {
-    position: absolute;
-    font-size: 96px;
-    color: white;
-    font-weight: 400;
-    height: 110px;
-    width: 838.14px;
-    text-align: center;
-    top: 134px;
-    right: 0px;
-}
-
-#lose #message {
-    position: absolute;
-    font-size: 24px;
-    color: white;
-    font-weight: 400;
-    top: 340px;
-    right: 350px;
-}
+    #lose #text {
+        position: absolute;
+        font-size: 96px;
+        color: white;
+        font-weight: 400;
+        height: 110px;
+        width: 838.14px;
+        text-align: center;
+        top: 134px;
+        right: 0px;
+    }
 
 
-#win #message {
-    position: absolute;
-    font-size: 24px;
-    color: white;
-    font-weight: 400;
-    top: 340px;
-    right: 100px;
-}
 
-#win #showScore--score {
-    position: absolute;
-    font-size: 24px;
-    color: white;
-    font-weight: 400;
-    top: 340px;
-    right: 350px;
-    width: 880px;
-    height: 115px;
-}
+    #lose #message {
+        position: absolute;
+        font-size: 24px;
+        color: white;
+        font-weight: 400;
+        top: 340px;
+        right: 350px;
+    }
 
-#win #showScore {
-    position: absolute;
-    font-size: 24px;
-    color: white;
-    font-weight: 400;
-    top: 340px;
-    right: 220px;
-    width: 880px;
-    height: 115px;
-}
+
+
 /* make something display none.*/
 
 .show-as-flex {
@@ -336,9 +357,10 @@
         font-size: 100px;
         position: absolute;
         top: 2vh;
-        width:650px;
-        font:bold;
+        width: 650px;
+        font: bold;
     }
+
     #start #difficulty {
         color: white;
         text-align: center;
@@ -346,6 +368,7 @@
         position: absolute;
         top: 45vh;
     }
+
     #start #difficulties {
         color: white;
         text-align: center;
@@ -353,4 +376,3 @@
         position: absolute;
         top: 60vh;
     }
-
