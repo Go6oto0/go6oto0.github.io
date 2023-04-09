@@ -25,9 +25,9 @@ var cellsToReveal = 0;
 function init(level) {
     minefieldEl = document.querySelector("#minefield");
     if (level == "rock") {
-        x = 11;
-        y = 20;
-        chestCount = 12;
+        x = 10;
+        y = 10;
+        chestCount = 7;
         minesCount = 40;
         minesMaxCount = minesCount;
         undiscoveredMines = minesCount;
@@ -284,6 +284,7 @@ function RevealNearby(xi, yi) {
 function cellTypeCheck(current) {
     if (current.isMine == 0 && current.nearMines == 0) {
         console.log("Recursion starts");
+        revealedCount--;
         RevealNearby(current.x, current.y);
     }
     current.El.classList.add("revealed");
@@ -386,7 +387,7 @@ function minefieldSetup() {
     cellsToRevealCalc();
 
 
-    winSimulation();
+   // winSimulation();
 
 }
 
