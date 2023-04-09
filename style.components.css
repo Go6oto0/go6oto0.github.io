@@ -96,6 +96,7 @@
 */
 #footer {
     z-index: 6;
+    
 }
 
 #footer-content {
@@ -137,6 +138,29 @@
 #footer-effects .label__text {
     width: 100px;
 }
+
+#footer-audio {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    #footer-audio:hover svg {
+        stroke:#fff;
+    }
+
+    #footer-audio .sound-Off {
+        display: none;
+    }
+
+    #footer-audio.on .sound-Off {
+        display: inline-block;
+    }
+
+    #footer-audio.on .sound-On {
+        display: none;
+    }
 /*
     Minefield
 */
@@ -149,6 +173,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: url('./assets/custom-cursor-sm.png') 0 0, auto;
+}
+#blur {
+    height: 754px;
+    width: 1375px;
+    background-color: black;
+    opacity: 0.4;
+    position: absolute;
+    z-index: 5;
+    display:none;
 }
 
 #minefield {
