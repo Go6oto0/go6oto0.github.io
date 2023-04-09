@@ -121,7 +121,8 @@ window.addEventListener("load", async function () {
     ///////////////////////
     fullscreenLinkEl = document.getElementById("topbar-fullscreen");
     init(level); //First so if global variable is used in the listeners, than it will be initialized
-
+    ///winGame();
+    ///loseGame();
 
     // Listeners
     ///////////////////////
@@ -151,13 +152,13 @@ window.addEventListener("load", async function () {
 
             var x = cellEl.dataset.x, y = cellEl.dataset.y;
             if (minefield[x][y].isRevealed != true) {
-                if (minefield[x][y].isFlagged == 0) {
+                if (minefield[x][y].isFlagged == 0 && remainingFlags > 0) {
                     minefield[x][y].isFlagged = 1;
                     minefield[x][y].El.classList.add("flagged");
                     remainingFlags--;
                     setFlags();
                 }
-                else {
+                else if (minefield[x][y].isFlagged == 1){
                     minefield[x][y].isFlagged = 0;
                     minefield[x][y].El.classList.remove("flagged");
                     remainingFlags++;
@@ -197,7 +198,7 @@ window.addEventListener("load", async function () {
     enbledBackgroundMovement();
     insertFireflies();
     //place cells on board
-    setTimeout(() => { animateMinefieldInit(); }, 1);
+    setTimeout(() => { animateMinefieldInit(); }, 100);
 
 
 
@@ -210,15 +211,26 @@ window.addEventListener("load", async function () {
 })
 
 
-function gameOver() {
+function loseGame() {
     revealAll();
-    console.log(`Game over!`)
     stopTimer();
     lockGame = true;
+    console.log(`Game over!`)
+    var loseScreenEl = document.getElementById("lose");
+    loseScreenEl.classList.add("show-as-flex");
+    document.getElementById("message").addEventListener("click", function (ev) {
+        loseScreenEl.classList.remove("show-as-flex");
+        window.location.reload();
+    })
     //TO DO
 }
 
 function winGame() {
+    stopTimer();
+    lockGame = true;
+    console.log(`Game Win!`)
+    var winScreenEl = document.getElementById("win");
+    winScreenEl.classList.add("show-as-flex");
     //TO DO
 }
 function RevealNearby(xi, yi) {
@@ -256,7 +268,7 @@ function cellTypeCheck(current) {
         current.isMine = 0;
         if (health <= 0) {
             health = 0;
-            gameOver();
+            loseGame();
         }
         setHealth();
     }

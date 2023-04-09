@@ -191,7 +191,34 @@ function normalOrSidesOnly() {
 }
 
 function revealAll() {
-    minefield.forEach((x) => x.forEach((y) => { if (y.isMine) {y.isRevealed = true; cellTypeCheck(y);}}));
+    minefield.forEach((x) => x.forEach((y) => { if (y.isMine) { y.isRevealed = true; cellTypeCheck(y); } }));
+    /*
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    async function demo() {
+        let bombount = 0;
+        for (let i = 0; i < x; i++) {
+            for (let j = 0; j < y; j++) {
+                if (minefield[i][j].isMine && !minefield[i][j].isRevealed) {
+                    bombount++;
+                }
+            }
+        }
+        for (let i = 0; i < x; i++) {
+            for (let j = 0; j < y; j++) {
+                await sleep(bombount * 1000); 
+                minefield[i][j].isRevealed = true;
+                cellTypeCheck(minefield[i][j])
+            }
+        }
+        console.log('Done');
+    }
+
+    demo();
+    */
+
 }
 
 function getRandomInt(min, max) {
