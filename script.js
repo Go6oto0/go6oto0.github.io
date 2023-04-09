@@ -5,6 +5,7 @@
 var x;
 var y;
 var minesCount;
+var minesMaxCount;
 var chestCount;
 var undiscoveredMines;
 var goldCount = 0;
@@ -28,6 +29,7 @@ function init(level) {
         y = 20;
         chestCount = 12;
         minesCount = 40;
+        minesMaxCount = minesCount;
         undiscoveredMines = minesCount;
         health = 100;
         remainingFlags = 40;
@@ -123,8 +125,6 @@ window.addEventListener("load", async function () {
     ///////////////////////
     fullscreenLinkEl = document.getElementById("topbar-fullscreen");
     init(level); //First so if global variable is used in the listeners, than it will be initialized
-    ///winGame();
-    ///loseGame();
 
     // Listeners
     ///////////////////////
@@ -224,7 +224,6 @@ function loseGame() {
         loseScreenEl.classList.remove("show-as-flex");
         window.location.reload();
     })
-    //TO DO
 }
 
 function winGame() {
@@ -233,7 +232,16 @@ function winGame() {
     console.log(`Game Win!`)
     var winScreenEl = document.getElementById("win");
     winScreenEl.classList.add("show-as-flex");
-    //TO DO
+    var explodedmines = minesMaxCount; - minesCount + 1;
+    if (goldCount == 0) goldCount = 1;
+    if (timeInSeconds == 0) timeInSeconds = 1;
+
+    var score = (minesCount / explodedmines * 0.1) * goldCount / timeInSeconds;
+    setWinScore(score);
+    document.querySelector("#win #message").addEventListener("click", function (ev) {
+        winScreenEl.classList.remove("show-as-flex");
+        window.location.reload();
+    })
 }
 
 function cellsToRevealCalc() {

@@ -109,3 +109,7 @@ function setUICounters() {
     setFlags(remainingFlags);
     setRadars(inventory);
 }
+function setWinScore(score) {
+    var winScoreEl = document.getElementById("showScore");
+    winScoreEl.innerHTML = score.toString().padStart(9, '0');
+}

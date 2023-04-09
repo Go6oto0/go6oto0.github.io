@@ -240,56 +240,60 @@
     background: url('assets/win-background.png');
     position: absolute;
     z-index: 6;
-    width: 915px;
-    height: 415px;
-    top: 220px;
-    left: 280px;
+    width: 1256px;
+    height: 618px;
+    top: 170px;
+    left: 330px;
     text-align: center;
+    background-size: 100%;
     background-size: 100%;
     background-repeat: no-repeat;
 }
 
     #win #text {
         position: absolute;
-        font-size: 96px;
+        font-size: 150px;
         color: white;
         font-weight: 400;
-        height: 110px;
-        width: 838.14px;
+        height: 130px;
+        width: 556px;
         text-align: center;
-        top: 134px;
-        right: 0px;
+        top: 100px;
+        right: 350px;
     }
 
     #win #message {
         position: absolute;
-        font-size: 24px;
+        font-size: 50px;
+        height: 50px;
+        width: 250px;
         color: white;
         font-weight: 400;
-        top: 340px;
+        top: 450px;
         right: 100px;
+        animation: blinker 3s linear infinite;
     }
 
     #win #showScore--score {
         position: absolute;
-        font-size: 24px;
+        font-size: 50px;
+        height: 50px;
+        width: 250px;
         color: white;
         font-weight: 400;
-        top: 340px;
-        right: 350px;
-        width: 880px;
-        height: 115px;
+        top: 450px;
+        right: 1000px;
     }
 
     #win #showScore {
         position: absolute;
-        font-size: 24px;
+        font-size: 50px;
+        height: 50px;
+        width: 250px;
         color: white;
         font-weight: 400;
-        top: 340px;
-        right: 220px;
-        width: 880px;
-        height: 115px;
+        top: 450px;
+        right: 850px;
     }
 
 #lose {
@@ -297,10 +301,10 @@
     position: absolute;
     z-index: 6;
     background: url('assets/lose-background.png');
-    width: 838.14px;
-    height: 365.46px;
-    top: 244px;
-    left: 350px;
+    width: 1256px;
+    height: 618px;
+    top: 170px;
+    left: 330px;
     text-align: center;
     background-size: 100%;
     background-repeat: no-repeat;
@@ -308,25 +312,28 @@
 
     #lose #text {
         position: absolute;
-        font-size: 96px;
+        font-size: 150px;
         color: white;
         font-weight: 400;
-        height: 110px;
-        width: 838.14px;
+        height: 130px;
+        width: 556px;
         text-align: center;
-        top: 134px;
-        right: 0px;
+        top: 180px;
+        right: 300px;
     }
 
 
 
     #lose #message {
         position: absolute;
-        font-size: 24px;
+        font-size: 50px;
+        height: 50px;
+        width: 250px;
         color: white;
         font-weight: 400;
-        top: 340px;
-        right: 350px;
+        top: 550px;
+        right: 470px;
+        animation: blinker 3s linear infinite;
     }
 
 
@@ -348,7 +355,6 @@
     background-position: center center;
     position: absolute;
     top: 0px;
-    left: 0px;
 }
 
     #start #name {
@@ -356,9 +362,9 @@
         text-align: center;
         font-size: 100px;
         position: absolute;
-        top: 2vh;
-        width: 650px;
-        font: bold;
+        top: 5vh;
+        width:650px;
+        font:bold;
     }
 
     #start #difficulty {
@@ -376,3 +382,14 @@
         position: absolute;
         top: 60vh;
     }
+    #start #credits {
+        color: white;
+        text-align: right;
+        font-size: 20px;
+        position: absolute;
+        bottom: 2vh;
+        width: 610px;
+        right: 2vw;
+    }
+
+
