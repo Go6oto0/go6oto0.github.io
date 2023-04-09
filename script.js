@@ -5,6 +5,7 @@
 var x;
 var y;
 var minesCount;
+var minesMaxCount;
 var chestCount;
 var undiscoveredMines;
 var goldCount = 0;
@@ -18,6 +19,8 @@ var isFullScreen = false;
 var timerEl, minefieldEl, fullscreenLinkEl;
 var level = "rock"; // level preset, do not change for demo
 var fireflyCount = 15; //max 15
+var revealedCount = 0;
+var cellsToReveal = 0;
 
 function init(level) {
     minefieldEl = document.querySelector("#minefield");
@@ -26,6 +29,7 @@ function init(level) {
         y = 20;
         chestCount = 12;
         minesCount = 40;
+        minesMaxCount = minesCount;
         undiscoveredMines = minesCount;
         health = 100;
         remainingFlags = 40;
@@ -121,8 +125,6 @@ window.addEventListener("load", async function () {
     ///////////////////////
     fullscreenLinkEl = document.getElementById("topbar-fullscreen");
     init(level); //First so if global variable is used in the listeners, than it will be initialized
-    ///winGame();
-    ///loseGame();
 
     // Listeners
     ///////////////////////
@@ -222,7 +224,6 @@ function loseGame() {
         loseScreenEl.classList.remove("show-as-flex");
         window.location.reload();
     })
-    //TO DO
 }
 
 function winGame() {
@@ -231,17 +232,48 @@ function winGame() {
     console.log(`Game Win!`)
     var winScreenEl = document.getElementById("win");
     winScreenEl.classList.add("show-as-flex");
-    //TO DO
+    var explodedmines = minesMaxCount; - minesCount + 1;
+    if (goldCount == 0) goldCount = 1;
+    if (timeInSeconds == 0) timeInSeconds = 1;
+
+    var score = (minesCount / explodedmines * 0.1) * goldCount / timeInSeconds;
+    setWinScore(score);
+    document.querySelector("#win #message").addEventListener("click", function (ev) {
+        winScreenEl.classList.remove("show-as-flex");
+        window.location.reload();
+    })
 }
+
+function cellsToRevealCalc() {
+    let count = 0;
+    for (let i = 0; i < x; i++) {
+        for (let j = 0; j < y; j++) {
+            if (!minefield[i][j].isMine) {
+                count++;
+            }
+        }
+    }
+    cellsToReveal = count;
+}
+
+function winCheck() {
+    if (revealedCount == cellsToReveal) {
+        console.log(revealedCount);
+        console.log(cellsToReveal);
+        winGame();
+    }
+}
+
 function RevealNearby(xi, yi) {
     if (0 > xi || xi >= x || 0 > yi || yi >= y) return;
     current = minefield[xi][yi];
     if (current.isRevealed == true) return;
     current.El.classList.add("revealed");
     current.isRevealed = true;
+    revealedCount++;
+    winCheck();
     if (current.isChest > 0) current.El.classList.add("unopened");
     if (current.nearMines == 0) { // empty cell or chest cell
-
         RevealNearby(xi - 1, yi);
         RevealNearby(xi + 1, yi);
         RevealNearby(xi, yi - 1);
@@ -309,6 +341,9 @@ function cellTypeCheck(current) {
         }
 
         //To do
+    } else {
+        revealedCount++;
+        winCheck();
     }
 }
 // Debug functions
@@ -348,6 +383,10 @@ function minefieldSetup() {
         tempArr.forEach((x) => resultArr.push(x.isChest ? 1 : 0))
         console.log(resultArr.join(` `));
     }
+    cellsToRevealCalc();
+
+
+    winSimulation();
 
 }
 
@@ -361,3 +400,8 @@ function revealedCheck() {
     }
 }
 
+
+
+function winSimulation() {
+    minefield.forEach((x) => x.forEach((y) => { if (!y.isMine) { y.isRevealed = true; cellTypeCheck(y); } }));
+}
