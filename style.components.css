@@ -176,8 +176,8 @@
     cursor: url('./assets/custom-cursor-sm.png') 0 0, auto;
 }
 #blur {
-    height: 754px;
-    width: 1375px;
+    height: 685px;
+    width: 685px;
     background-color: black;
     opacity: 0.4;
     position: absolute;
