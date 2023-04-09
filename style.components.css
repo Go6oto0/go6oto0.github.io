@@ -138,6 +138,29 @@
 #footer-effects .label__text {
     width: 100px;
 }
+
+#footer-audio {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    #footer-audio:hover svg {
+        stroke:#fff;
+    }
+
+    #footer-audio .sound-Off {
+        display: none;
+    }
+
+    #footer-audio.on .sound-Off {
+        display: inline-block;
+    }
+
+    #footer-audio.on .sound-On {
+        display: none;
+    }
 /*
     Minefield
 */
