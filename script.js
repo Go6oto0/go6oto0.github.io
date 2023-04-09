@@ -122,6 +122,7 @@ window.addEventListener("load", async function () {
     fullscreenLinkEl = document.getElementById("topbar-fullscreen");
     init(level); //First so if global variable is used in the listeners, than it will be initialized
     ///winGame();
+    ///loseGame();
 
     // Listeners
     ///////////////////////
@@ -210,13 +211,17 @@ window.addEventListener("load", async function () {
 })
 
 
-function gameOver() {
+function loseGame() {
     revealAll();
     stopTimer();
     lockGame = true;
     console.log(`Game over!`)
     var loseScreenEl = document.getElementById("lose");
     loseScreenEl.classList.add("show-as-flex");
+    document.getElementById("message").addEventListener("click", function (ev) {
+        loseScreenEl.classList.remove("show-as-flex");
+        window.location.reload();
+    })
     //TO DO
 }
 
@@ -263,7 +268,7 @@ function cellTypeCheck(current) {
         current.isMine = 0;
         if (health <= 0) {
             health = 0;
-            gameOver();
+            loseGame();
         }
         setHealth();
     }
