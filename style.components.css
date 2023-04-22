@@ -90,6 +90,30 @@
     #topbar-fullscreen.on .icon-fit {
         display: inline-block;
     }
+#topbar-audio {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 50px;
+}
+
+    #topbar-audio:hover svg {
+        stroke: #fff;
+    }
+
+    #topbar-audio .sound-On {
+        display: none;
+    }
+
+    #topbar-audio.on .sound-On {
+        display: inline-block;
+    }
+
+    #topbar-audio.on .sound-Off {
+        display: none;
+    }
 
 /*
     Footer
@@ -138,30 +162,7 @@
     width: 100px;
 }
 
-#topbar-audio {
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    width: 50px;
-}
 
-    #topbar-audio:hover svg {
-        stroke: #fff;
-    }
-
-    #topbar-audio .sound-On {
-        display: none;
-    }
-
-    #topbar-audio.on .sound-On {
-        display: inline-block;
-    }
-
-    #topbar-audio.on .sound-Off {
-        display: none;
-    }
 /*
     Minefield
 */
