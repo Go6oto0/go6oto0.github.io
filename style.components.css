@@ -407,7 +407,7 @@
         font-size: 40px;
         position: absolute;
         top: 60vh;
-        cursor: default;
+        cursor: pointer;
     }
 
     #start #credits {
