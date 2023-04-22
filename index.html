@@ -26,6 +26,12 @@
     <audio id="sonarPing">
         <source src="assets\sound\sonar-ping-95840.mp3" type="audio/mpeg" />
     </audio>
+    <audio id="winSound">
+        <source src="assets\sound\crowd-cheer-ii-6263.mp3" type="audio/mpeg" />
+    </audio>
+    <audio  id="loseSound">
+        <source src="assets\sound\loseSound.mp3" type="audio/mpeg" />
+    </audio>
     <div id="topbar">
         <div class="container">
             <div id="topbar-content">
@@ -98,7 +104,7 @@
         <div class="container">
 
             <div id="minefield-wrapper">
-                <div id="minefield" class="animated">
+                <div id="minefield" class="animated customCursor" >
                     <div id="blur"></div>
                 </div>
                 <div id="lose">
@@ -152,7 +158,7 @@
         </div>
     </div>
 
-    <div id="start">
+    <div id="start"class="show-as-flex">
         <div id="name">Epic Minesweeper</div>
         <div id="difficulty">Choose Difficulty</div>
         <div id="difficulties" class="blink">Normal</div>

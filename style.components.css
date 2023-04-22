@@ -151,15 +151,15 @@
         stroke: #fff;
     }
 
-    #topbar-audio .sound-Off {
+    #topbar-audio .sound-On {
         display: none;
     }
 
-    #topbar-audio.on .sound-Off {
+    #topbar-audio.on .sound-On {
         display: inline-block;
     }
 
-    #topbar-audio.on .sound-On {
+    #topbar-audio.on .sound-Off {
         display: none;
     }
 /*
@@ -191,8 +191,7 @@
     display: grid;
     gap: 5px;
     z-index: 5;
-    cursor: pointer;
-    cursor: url('./assets/custom-cursor-pickaxe-sm.png') 0 40, auto;
+   
 }
 
     #minefield.animated .cell {
@@ -370,14 +369,16 @@
 #start {
     z-index: 7;
     justify-content: center;
-    background-image: url('assets/startMenuBackground.jpg');
+    background: url('assets/startMenuBackground.jpg');
     background-repeat: no-repeat;
     display: none;
-    width: 1980px;
-    height: 1080px;
+    min-width: 100vh;
+    min-height: 100vh;
     background-position: center center;
-    position: absolute;
+    position:
     top: 0px;
+    padding: 60px 0;
+   
 }
 
     #start #name {
@@ -388,6 +389,7 @@
         top: 5vh;
         width: 650px;
         font: bold;
+        cursor: default;
     }
 
     #start #difficulty {
@@ -396,6 +398,7 @@
         font-size: 80px;
         position: absolute;
         top: 45vh;
+        cursor: default;
     }
 
     #start #difficulties {
@@ -404,6 +407,7 @@
         font-size: 40px;
         position: absolute;
         top: 60vh;
+        cursor: pointer;
     }
 
     #start #credits {
@@ -414,7 +418,13 @@
         bottom: 2vh;
         width: 610px;
         right: 2vw;
+        cursor: default;
     }
 .radar_cursor {
     cursor: url('./assets/custom-cursor-radar.png') 2 2, auto;
+}
+/*cursor*/
+.customCursor {
+    cursor: pointer;
+    cursor: url('./assets/custom-cursor-pickaxe-sm.png') 0 40, auto;
 }

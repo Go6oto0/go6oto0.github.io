@@ -23,6 +23,13 @@ var revealedCount = 0;
 var cellsToReveal = 0;
 var audio = 0;
 var radarIsActive = false;
+var music = new Audio('./assets/sound/8-bit-dream-land-142093.mp3');
+var cellRevealed = new Audio('./assets/sound/click.wav');
+var explosion = new Audio('./assets/sound/explosion.wav');
+var powerupPickup = new Audio('./assets/sound/pickupCoin.wav');
+var winSound = new Audio('./assets/sound/crowd-cheer-ii-6263.mp3');
+var loseSound = new Audio('./assets/sound/loseSound.mp3');
+var radarSound = new Audio('./assets/sound/sonar-ping-95840.mp3.mp3')
 
 function init(level) {
     minefieldEl = document.querySelector("#minefield");
@@ -207,11 +214,14 @@ window.addEventListener("load", async function () {
     document.getElementById("topbar-audio").addEventListener("click", function (ev) {
         var footerAudioEl = document.getElementById("topbar-audio");
         if (audio == 0) {
-            footerAudioEl.classList.remove("on");
+            footerAudioEl.classList.add("on");
+            console.log("Music is playing!")
+            music.play();
             audio = 1;
         }
         else {
-            footerAudioEl.classList.add("on");
+            footerAudioEl.classList.remove("on");
+            music.pause();
             audio = 0;
         }
     })
@@ -235,6 +245,9 @@ window.addEventListener("load", async function () {
 
 
 function loseGame() {
+    if (audio == 1) {
+        music.pause(); loseSound.play();
+    }
     revealAll();
     stopTimer();
     lockGame = true;
@@ -248,6 +261,10 @@ function loseGame() {
 }
 
 function winGame() {
+    if (audio == 1) {
+        music.pause();
+        winSound.play();
+    }
     stopTimer();
     lockGame = true;
     console.log(`Game Win!`)
@@ -302,7 +319,9 @@ function cellTypeCheck(current) {
     }
     current.El.classList.add("revealed");
     current.isRevealed = true;
+    if (audio == 1) cellRevealed.play();
     if (current.isMine > 0) {
+        if (audio == 1) explosion.play();
         minesCount--;
         setBombs();
         let bombType = current.isMine;
@@ -321,6 +340,7 @@ function cellTypeCheck(current) {
     else if (current.isChest && current.visited && current.locked == false) {
         current.locked = true;
         var contentEl = current.El.children.item(1);
+        if (audio == 1) powerupPickup.play();
         if (current.isChest === 1) {
             goldCount += Math.round(getRandomInt(10000, 100000) / 1000) * 1000;
             current.El.classList.remove("unopened");
