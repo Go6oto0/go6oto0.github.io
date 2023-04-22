@@ -138,26 +138,28 @@
     width: 100px;
 }
 
-#footer-audio {
+#topbar-audio {
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    width: 50px;
 }
 
-    #footer-audio:hover svg {
+    #topbar-audio:hover svg {
         stroke: #fff;
     }
 
-    #footer-audio .sound-Off {
+    #topbar-audio .sound-Off {
         display: none;
     }
 
-    #footer-audio.on .sound-Off {
+    #topbar-audio.on .sound-Off {
         display: inline-block;
     }
 
-    #footer-audio.on .sound-On {
+    #topbar-audio.on .sound-On {
         display: none;
     }
 /*
@@ -413,3 +415,6 @@
         width: 610px;
         right: 2vw;
     }
+.radar_cursor {
+    cursor: url('./assets/custom-cursor-radar.png') 2 2, auto;
+}

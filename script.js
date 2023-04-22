@@ -21,6 +21,7 @@ var level = "rock"; // level preset, do not change for demo
 var fireflyCount = 15; //max 15
 var revealedCount = 0;
 var cellsToReveal = 0;
+var audio = 0;
 var radarIsActive = false;
 
 function init(level) {
@@ -202,6 +203,17 @@ window.addEventListener("load", async function () {
         }
     })
     document.getElementById("footer-inventory").addEventListener("click", changingCursorForRadar());
+    document.getElementById("topbar-audio").addEventListener("click", function (ev) {
+        var footerAudioEl = document.getElementById("topbar-audio");
+        if (audio == 0) {
+            footerAudioEl.classList.remove("on");
+            audio = 1;
+        }
+        else {
+            footerAudioEl.classList.add("on");
+            audio = 0;
+        }
+    })
 
     // Effects
     ///////////////////////////
@@ -272,6 +284,7 @@ function RevealNearby(xi, yi) {
     current.isRevealed = true;
     revealedCount++;
     winCheck();
+    if (current.isChest > 0) current.El.classList.add("unopened");
     if (current.nearMines == 0) { // empty cell or chest cell
         RevealNearby(xi - 1, yi);
         RevealNearby(xi + 1, yi);
