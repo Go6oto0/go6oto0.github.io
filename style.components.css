@@ -191,8 +191,7 @@
     display: grid;
     gap: 5px;
     z-index: 5;
-    cursor: pointer;
-    cursor: url('./assets/custom-cursor-pickaxe-sm.png') 0 40, auto;
+   
 }
 
     #minefield.animated .cell {
@@ -370,13 +369,13 @@
 #start {
     z-index: 7;
     justify-content: center;
-    background-image: url('assets/startMenuBackground.jpg');
+    background: url('assets/startMenuBackground.jpg');
     background-repeat: no-repeat;
     display: none;
-    min-width: 1440px;
+    min-width: 100vh;
     min-height: 100vh;
     background-position: center center;
-    position: absolute;
+    position:
     top: 0px;
    
 }
@@ -422,4 +421,9 @@
     }
 .radar_cursor {
     cursor: url('./assets/custom-cursor-radar.png') 2 2, auto;
+}
+/*cursor*/
+.customCursor {
+    cursor: pointer;
+    cursor: url('./assets/custom-cursor-pickaxe-sm.png') 0 40, auto;
 }
