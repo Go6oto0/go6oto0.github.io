@@ -96,7 +96,6 @@
 */
 #footer {
     z-index: 6;
-    
 }
 
 #footer-content {
@@ -147,7 +146,7 @@
 }
 
     #footer-audio:hover svg {
-        stroke:#fff;
+        stroke: #fff;
     }
 
     #footer-audio .sound-Off {
@@ -173,16 +172,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: url('./assets/custom-cursor-sm.png') 0 0, auto;
 }
+
 #blur {
-    height: 754px;
-    width: 1375px;
+    height: 685px;
+    width: 685px;
     background-color: black;
     opacity: 0.4;
     position: absolute;
     z-index: 5;
-    display:none;
+    display: none;
 }
 
 #minefield {
@@ -199,6 +198,7 @@
         transition: transform 0.4s;
         visibility: hidden;
     }
+
         #minefield.animated .cell.is-moved {
             transform: translateX(0);
             visibility: visible;
@@ -278,8 +278,8 @@
     z-index: 6;
     width: 1256px;
     height: 618px;
-    top: 170px;
-    left: 330px;
+    align-items: center;
+    justify-content: center;
     text-align: center;
     background-size: 100%;
     background-size: 100%;
@@ -291,45 +291,33 @@
         font-size: 150px;
         color: white;
         font-weight: 400;
-        height: 130px;
-        width: 556px;
         text-align: center;
         top: 100px;
-        right: 350px;
+        display: flex;
+        text-align: center;
     }
 
     #win #message {
         position: absolute;
         font-size: 50px;
-        height: 50px;
-        width: 250px;
+        display: flex;
         color: white;
         font-weight: 400;
         top: 450px;
         right: 100px;
         animation: blinker 3s linear infinite;
+        cursor: pointer;
     }
 
-    #win #showScore--score {
+    #win #score-wrapper {
+        display: flex;
         position: absolute;
         font-size: 50px;
-        height: 50px;
-        width: 250px;
+        color: white;
         color: white;
         font-weight: 400;
         top: 450px;
-        right: 1000px;
-    }
-
-    #win #showScore {
-        position: absolute;
-        font-size: 50px;
-        height: 50px;
-        width: 250px;
-        color: white;
-        font-weight: 400;
-        top: 450px;
-        right: 850px;
+        left: 100px;
     }
 
 #lose {
@@ -339,8 +327,8 @@
     background: url('assets/lose-background.png');
     width: 1256px;
     height: 618px;
-    top: 170px;
-    left: 330px;
+    align-items: center;
+    justify-content: center;
     text-align: center;
     background-size: 100%;
     background-repeat: no-repeat;
@@ -351,25 +339,22 @@
         font-size: 150px;
         color: white;
         font-weight: 400;
-        height: 130px;
-        width: 556px;
         text-align: center;
-        top: 180px;
-        right: 300px;
+        top: 100px;
+        display: flex;
+        text-align: center;
     }
-
-
-
     #lose #message {
         position: absolute;
+        display: flex;
+        text-align: center;
         font-size: 50px;
-        height: 50px;
-        width: 250px;
         color: white;
         font-weight: 400;
-        top: 550px;
-        right: 470px;
+        top: 250px;
         animation: blinker 3s linear infinite;
+        cursor: pointer;
+        box-shadow: #fff;
     }
 
 
@@ -399,8 +384,8 @@
         font-size: 100px;
         position: absolute;
         top: 5vh;
-        width:650px;
-        font:bold;
+        width: 650px;
+        font: bold;
     }
 
     #start #difficulty {
@@ -418,6 +403,7 @@
         position: absolute;
         top: 60vh;
     }
+
     #start #credits {
         color: white;
         text-align: right;
@@ -427,5 +413,3 @@
         width: 610px;
         right: 2vw;
     }
-
-
