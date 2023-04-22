@@ -200,6 +200,10 @@ window.addEventListener("load", async function () {
         }
     })
 
+    document.getElementById("difficulties").addEventListener("click", function (ev) {
+        document.getElementById("start").classList.remove("show-as-flex");
+    })
+
     document.getElementById("topbar").addEventListener("dblclick", function (ev) {
         ev.preventDefault();
         ev.stopPropagation();
