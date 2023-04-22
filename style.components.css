@@ -378,6 +378,7 @@
     background-position: center center;
     position: absolute;
     top: 0px;
+   
 }
 
     #start #name {
@@ -388,6 +389,7 @@
         top: 5vh;
         width: 650px;
         font: bold;
+        cursor: default;
     }
 
     #start #difficulty {
@@ -396,6 +398,7 @@
         font-size: 80px;
         position: absolute;
         top: 45vh;
+        cursor: default;
     }
 
     #start #difficulties {
@@ -404,6 +407,7 @@
         font-size: 40px;
         position: absolute;
         top: 60vh;
+        cursor: default;
     }
 
     #start #credits {
@@ -414,6 +418,7 @@
         bottom: 2vh;
         width: 610px;
         right: 2vw;
+        cursor: default;
     }
 .radar_cursor {
     cursor: url('./assets/custom-cursor-radar.png') 2 2, auto;
