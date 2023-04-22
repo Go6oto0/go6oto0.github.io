@@ -415,3 +415,6 @@
         width: 610px;
         right: 2vw;
     }
+.radar_cursor {
+    cursor: url('./assets/custom-cursor-radar.png') 2 2, auto;
+}
