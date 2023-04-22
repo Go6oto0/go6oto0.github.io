@@ -372,12 +372,12 @@
     background: url('assets/startMenuBackground.jpg');
     background-repeat: no-repeat;
     display: none;
-    min-width: 100vh;
-    min-height: 100vh;
+    min-width: 100%;
+    min-height: 100%;
     background-position: center center;
-    position:
+    position:absolute;
     top: 0px;
-    padding: 60px 0;
+    
    
 }
 
