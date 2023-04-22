@@ -21,6 +21,7 @@ var level = "rock"; // level preset, do not change for demo
 var fireflyCount = 15; //max 15
 var revealedCount = 0;
 var cellsToReveal = 0;
+var audio = 0;
 
 function init(level) {
     minefieldEl = document.querySelector("#minefield");
@@ -192,6 +193,17 @@ window.addEventListener("load", async function () {
         }
         else {
             closeFullscreen();
+        }
+    })
+    document.getElementById("footer-audio").addEventListener("click", function (ev) {
+        var footerAudioEl = document.getElementById("footer-audio");
+        if (audio == 0) {
+            footerAudioEl.classList.remove("on");
+            audio = 1;
+        }
+        else {
+            footerAudioEl.classList.add("on");
+            audio = 0;
         }
     })
 
