@@ -24,6 +24,9 @@ var cellsToReveal = 0;
 var audio = 0;
 var radarIsActive = false;
 var music = new Audio('./assets/8-bit-dream-land-142093.mp3');
+var cellRevealed = new Audio('./assets/click.wav');
+var explosion = new Audio('./assets/explosion.wav');
+var powerupPickup = new Audio('./assets/pickupCoin.wav');
 
 function init(level) {
     minefieldEl = document.querySelector("#minefield");
