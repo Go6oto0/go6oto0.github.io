@@ -84,6 +84,10 @@
             background-position-x: -200px;
             background-position-y: -400px;
         }
+         .cell .content.blackmine #soundtrack {
+            background-position-x: -200px;
+            background-position-y: -400px;
+        }
 
         .cell .content.health {
             background-position-x: -700px;
