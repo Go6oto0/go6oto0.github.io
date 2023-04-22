@@ -22,6 +22,7 @@ var fireflyCount = 15; //max 15
 var revealedCount = 0;
 var cellsToReveal = 0;
 var audio = 0;
+var radarIsActive = false;
 
 function init(level) {
     minefieldEl = document.querySelector("#minefield");
@@ -131,14 +132,20 @@ window.addEventListener("load", async function () {
     ///////////////////////
     document.querySelector("body").addEventListener("click", function (ev) {
         let cellEl = ev.target.closest(".cell");
-        if (cellEl && lockGame == false) {
+        if (cellEl && lockGame == false && !cellEl.classList.contains('faded')) {
             var x = cellEl.dataset.x, y = cellEl.dataset.y;
             let current = minefield[x][y];
-            if (current.isRevealed == false && current.isFlagged == false) {
-                cellTypeCheck(current);
-            } else if (current.isRevealed && current.isChest) {
-                current.visited = true;
-                cellTypeCheck(current);
+            if (radarIsActive) {
+                current.El.classList.add("faded");
+                radarIsActive = false;
+                fadeRadarCells(current);
+            } else {
+                if (current.isRevealed == false && current.isFlagged == false) {
+                    cellTypeCheck(current);
+                } else if (current.isRevealed && current.isChest) {
+                    current.visited = true;
+                    cellTypeCheck(current);
+                }
             }
             revealedCheck();
             console.log("left click x is: " + cellEl.dataset.x);
@@ -151,7 +158,7 @@ window.addEventListener("load", async function () {
             return;
         ev.preventDefault();
         let cellEl = ev.target.closest(".cell");
-        if (cellEl && lockGame == false) {
+        if (cellEl && lockGame == false && !cellEl.classList.contains('faded')) {
 
             var x = cellEl.dataset.x, y = cellEl.dataset.y;
             if (minefield[x][y].isRevealed != true) {
@@ -195,6 +202,7 @@ window.addEventListener("load", async function () {
             closeFullscreen();
         }
     })
+    document.getElementById("footer-inventory").addEventListener("click", changingCursorForRadar());
     document.getElementById("topbar-audio").addEventListener("click", function (ev) {
         var footerAudioEl = document.getElementById("topbar-audio");
         if (audio == 0) {
@@ -409,4 +417,27 @@ function revealedCheck() {
 
 function winSimulation() {
     minefield.forEach((x) => x.forEach((y) => { if (!y.isMine) { y.isRevealed = true; cellTypeCheck(y); } }));
+}
+
+function changingCursorForRadar() {
+    console.log("DIDO E GEI")
+    if (inventory.radarCount > 0) {
+        inventory.radarCount--;
+        setRadars();
+        radarIsActive = true;
+    }
+}
+
+function fadeRadarCells(current) {
+    console.log("DIDO E GOLQM GEI")
+    let i = current.x;
+    let j = current.y;
+    for (let row = i - 1; row <= i + 1; row++) {
+        for (let col = j - 1; col <= j + 1; col++) {
+            if (row >= 0 && row < x && col >= 0 && col < y) {
+                minefield[row][col].El.classList.add("faded");
+                cellTypeCheck(minefield[row][col]);
+            }
+        }
+    }
 }
