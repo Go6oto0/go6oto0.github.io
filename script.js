@@ -27,6 +27,9 @@ var music = new Audio('./assets/sound/8-bit-dream-land-142093.mp3');
 var cellRevealed = new Audio('./assets/sound/click.wav');
 var explosion = new Audio('./assets/sound/explosion.wav');
 var powerupPickup = new Audio('./assets/sound/pickupCoin.wav');
+var winSound = new Audio('./assets/sound/crowd-cheer-ii-6263.mp3');
+var loseSound = new Audio('./assets/sound/loseSound.mp3');
+var radarSound = new Audio('./assets/sound/sonar-ping-95840.mp3.mp3')
 
 function init(level) {
     minefieldEl = document.querySelector("#minefield");
@@ -241,6 +244,9 @@ window.addEventListener("load", async function () {
 
 
 function loseGame() {
+    if (audio == 1) {
+        music.pause(); loseSound.play();
+    }
     revealAll();
     stopTimer();
     lockGame = true;
@@ -254,6 +260,10 @@ function loseGame() {
 }
 
 function winGame() {
+    if (audio == 1) {
+        music.pause();
+        winSound.play();
+    }
     stopTimer();
     lockGame = true;
     console.log(`Game Win!`)
