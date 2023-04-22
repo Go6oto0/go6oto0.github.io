@@ -12,7 +12,7 @@ var goldCount = 0;
 var remainingFlags;
 var health;
 var maxHealth = 100;
-var inventory = { radarCount: 0 };
+var inventory = { radarCount: 3 };
 var minefield = [[], []];
 var lockGame = false;
 var isFullScreen = false;
@@ -132,11 +132,12 @@ window.addEventListener("load", async function () {
     ///////////////////////
     document.querySelector("body").addEventListener("click", function (ev) {
         let cellEl = ev.target.closest(".cell");
-        if (cellEl && lockGame == false && !cellEl.classList.contains('faded')) {
+        if (cellEl && lockGame == false && !cellEl.classList.contains('fade')) {
             var x = cellEl.dataset.x, y = cellEl.dataset.y;
             let current = minefield[x][y];
             if (radarIsActive) {
-                current.El.classList.add("faded");
+                console.log("DIDO E PEDAL")
+                current.El.classList.add("fade");
                 radarIsActive = false;
                 fadeRadarCells(current);
             } else {
@@ -158,7 +159,7 @@ window.addEventListener("load", async function () {
             return;
         ev.preventDefault();
         let cellEl = ev.target.closest(".cell");
-        if (cellEl && lockGame == false && !cellEl.classList.contains('faded')) {
+        if (cellEl && lockGame == false && !cellEl.classList.contains('fade')) {
 
             var x = cellEl.dataset.x, y = cellEl.dataset.y;
             if (minefield[x][y].isRevealed != true) {
@@ -202,7 +203,7 @@ window.addEventListener("load", async function () {
             closeFullscreen();
         }
     })
-    document.getElementById("footer-inventory").addEventListener("click", changingCursorForRadar());
+    document.getElementById("footer-inventory").addEventListener("click", changingCursorForRadar);
     document.getElementById("topbar-audio").addEventListener("click", function (ev) {
         var footerAudioEl = document.getElementById("topbar-audio");
         if (audio == 0) {
@@ -422,22 +423,43 @@ function winSimulation() {
 function changingCursorForRadar() {
     console.log("DIDO E GEI")
     if (inventory.radarCount > 0) {
-        inventory.radarCount--;
-        setRadars();
         radarIsActive = true;
+        let body = document.querySelector("body");
+        body.classList.add("radar_cursor");
     }
 }
 
 function fadeRadarCells(current) {
     console.log("DIDO E GOLQM GEI")
+    let body = document.querySelector("body");
+    body.classList.remove("radar_cursor");
+    inventory.radarCount--;
+    setRadars();
     let i = current.x;
     let j = current.y;
     for (let row = i - 1; row <= i + 1; row++) {
         for (let col = j - 1; col <= j + 1; col++) {
             if (row >= 0 && row < x && col >= 0 && col < y) {
-                minefield[row][col].El.classList.add("faded");
-                cellTypeCheck(minefield[row][col]);
+                minefield[row][col].El.classList.add("fade");
             }
         }
     }
+    setTimeout(() => {
+        for (let row = i - 1; row <= i + 1; row++) {
+            for (let col = j - 1; col <= j + 1; col++) {
+                if (row >= 0 && row < x && col >= 0 && col < y) {
+                    minefield[row][col].El.classList.remove("fade");
+                }
+            }
+        }
+    }, 3000);
+
+    
+}
+
+function pausecomp(millis) {
+    var date = new Date();
+    var curDate = null;
+    do { curDate = new Date(); }
+    while (curDate - date < millis);
 }
