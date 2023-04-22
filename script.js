@@ -448,15 +448,19 @@ function changingCursorForRadar() {
     console.log("DIDO E GEI")
     if (inventory.radarCount > 0) {
         radarIsActive = true;
-        let body = document.querySelector("body");
-        body.classList.add("radar_cursor");
+        let bodyEl = document.querySelector("body");
+        let minefieldEl = document.getElementById("minefield");
+        minefieldEl.classList.remove("customCursor");
+        bodyEl.classList.add("radar_cursor");
     }
 }
 
 function fadeRadarCells(current) {
     console.log("DIDO E GOLQM GEI")
-    let body = document.querySelector("body");
-    body.classList.remove("radar_cursor");
+    let bodyEl = document.querySelector("body");
+    let minefieldEl = document.getElementById("minefield");
+    bodyEl.classList.remove("radar_cursor");
+    minefieldEl.classList.add("customCursor");
     inventory.radarCount--;
     setRadars();
     let i = current.x;
