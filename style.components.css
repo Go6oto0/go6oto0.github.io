@@ -421,7 +421,7 @@
         cursor: default;
     }
 .radar_cursor {
-    cursor: url('./assets/custom-cursor-radar.png') 2 2, auto;
+    cursor: url('./assets/custom-cursor-radar.png') 32 32, auto;
 }
 /*cursor*/
 .customCursor {

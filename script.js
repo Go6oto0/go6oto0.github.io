@@ -29,7 +29,7 @@ var explosion = new Audio('./assets/sound/explosion.wav');
 var powerupPickup = new Audio('./assets/sound/pickupCoin.wav');
 var winSound = new Audio('./assets/sound/crowd-cheer-ii-6263.mp3');
 var loseSound = new Audio('./assets/sound/loseSound.mp3');
-var radarSound = new Audio('./assets/sound/sonar-ping-95840.mp3.mp3')
+var radarSound = new Audio('./assets/sound/sonar-ping-95840.mp3')
 
 function init(level) {
     minefieldEl = document.querySelector("#minefield");
@@ -146,6 +146,7 @@ window.addEventListener("load", async function () {
                 console.log("DIDO E PEDAL")
                 current.El.classList.add("fade");
                 radarIsActive = false;
+                if (audio == 1) radarSound.play();
                 fadeRadarCells(current);
             } else {
                 if (current.isRevealed == false && current.isFlagged == false) {
@@ -448,15 +449,19 @@ function changingCursorForRadar() {
     console.log("DIDO E GEI")
     if (inventory.radarCount > 0) {
         radarIsActive = true;
-        let body = document.querySelector("body");
-        body.classList.add("radar_cursor");
+        let bodyEl = document.querySelector("body");
+        let minefieldEl = document.getElementById("minefield");
+        minefieldEl.classList.remove("customCursor");
+        bodyEl.classList.add("radar_cursor");
     }
 }
 
 function fadeRadarCells(current) {
     console.log("DIDO E GOLQM GEI")
-    let body = document.querySelector("body");
-    body.classList.remove("radar_cursor");
+    let bodyEl = document.querySelector("body");
+    let minefieldEl = document.getElementById("minefield");
+    bodyEl.classList.remove("radar_cursor");
+    minefieldEl.classList.add("customCursor");
     inventory.radarCount--;
     setRadars();
     let i = current.x;
