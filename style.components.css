@@ -151,15 +151,15 @@
         stroke: #fff;
     }
 
-    #topbar-audio .sound-Off {
+    #topbar-audio .sound-On {
         display: none;
     }
 
-    #topbar-audio.on .sound-Off {
+    #topbar-audio.on .sound-On {
         display: inline-block;
     }
 
-    #topbar-audio.on .sound-On {
+    #topbar-audio.on .sound-Off {
         display: none;
     }
 /*
