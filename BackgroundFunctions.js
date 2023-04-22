@@ -115,6 +115,7 @@ function addChest() {
             if (currentChest.isMine === 0 && currentChest.nearMines === 0) {
                 let chestType = Math.floor(Math.random() * 4) + 1;
                 currentChest.isChest = chestType;
+                currentChest.El.classList.add("unopened");
                 ///currentChest.El.classList.add("chest");
                 chestsToAdd--;
             }
