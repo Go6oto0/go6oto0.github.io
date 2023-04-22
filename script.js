@@ -23,10 +23,10 @@ var revealedCount = 0;
 var cellsToReveal = 0;
 var audio = 0;
 var radarIsActive = false;
-var music = new Audio('./assets/8-bit-dream-land-142093.mp3');
-var cellRevealed = new Audio('./assets/click.wav');
-var explosion = new Audio('./assets/explosion.wav');
-var powerupPickup = new Audio('./assets/pickupCoin.wav');
+var music = new Audio('./assets/sound/8-bit-dream-land-142093.mp3');
+var cellRevealed = new Audio('./assets/sound/click.wav');
+var explosion = new Audio('./assets/sound/explosion.wav');
+var powerupPickup = new Audio('./assets/sound/pickupCoin.wav');
 
 function init(level) {
     minefieldEl = document.querySelector("#minefield");
@@ -308,7 +308,9 @@ function cellTypeCheck(current) {
     }
     current.El.classList.add("revealed");
     current.isRevealed = true;
+    if (audio == 1) cellRevealed.play();
     if (current.isMine > 0) {
+        if (audio == 1) explosion.play();
         minesCount--;
         setBombs();
         let bombType = current.isMine;
@@ -327,6 +329,7 @@ function cellTypeCheck(current) {
     else if (current.isChest && current.visited && current.locked == false) {
         current.locked = true;
         var contentEl = current.El.children.item(1);
+        if (audio == 1) powerupPickup.play();
         if (current.isChest === 1) {
             goldCount += Math.round(getRandomInt(10000, 100000) / 1000) * 1000;
             current.El.classList.remove("unopened");
