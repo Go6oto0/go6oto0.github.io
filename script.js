@@ -195,8 +195,8 @@ window.addEventListener("load", async function () {
             closeFullscreen();
         }
     })
-    document.getElementById("footer-audio").addEventListener("click", function (ev) {
-        var footerAudioEl = document.getElementById("footer-audio");
+    document.getElementById("topbar-audio").addEventListener("click", function (ev) {
+        var footerAudioEl = document.getElementById("topbar-audio");
         if (audio == 0) {
             footerAudioEl.classList.remove("on");
             audio = 1;
