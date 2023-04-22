@@ -373,8 +373,8 @@
     background-image: url('assets/startMenuBackground.jpg');
     background-repeat: no-repeat;
     display: none;
-    width: 1980px;
-    height: 1080px;
+    min-width: 1440px;
+    min-height: 100vh;
     background-position: center center;
     position: absolute;
     top: 0px;
