@@ -279,7 +279,7 @@ function winGame() {
     if (goldCount == 0) goldCount = 1;
     if (timeInSeconds == 0) timeInSeconds = 1;
 
-    var score = (minesCount / explodedmines * 0.1) * goldCount / timeInSeconds;
+    var score = (goldCount + health * 10000 - timeInSeconds * 5000) * (undiscoveredMines / minesMaxCount / 10);
     setWinScore(score);
     document.querySelector("#win #message").addEventListener("click", function (ev) {
         winScreenEl.classList.remove("show-as-flex");
