@@ -37,11 +37,11 @@ function init(level) {
         x = 10;
         y = 10;
         chestCount = 7;
-        minesCount = 40;
+        minesCount = 20;
         minesMaxCount = minesCount;
         undiscoveredMines = minesCount;
         health = 100;
-        remainingFlags = 40;
+        remainingFlags = 20;
     }
     setUICounters();
     /*disableInspect();*/ //Disabling inspect
