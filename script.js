@@ -12,7 +12,7 @@ var goldCount = 0;
 var remainingFlags;
 var health;
 var maxHealth = 100;
-var inventory = { radarCount: 3 };
+var inventory = { radarCount: 1 };
 var minefield = [[], []];
 var lockGame = false;
 var isFullScreen = false;
