@@ -34,14 +34,14 @@ var radarSound = new Audio('./assets/sound/sonar-ping-95840.mp3')
 function init(level) {
     minefieldEl = document.querySelector("#minefield");
     if (level == "rock") {
-        x = 10;
-        y = 10;
+        x = 7;
+        y = 7;
         chestCount = 7;
-        minesCount = 12;
+        minesCount = 10;
         minesMaxCount = minesCount;
         undiscoveredMines = minesCount;
         health = 100;
-        remainingFlags = 12;
+        remainingFlags = 10;
     }
     setUICounters();
     /*disableInspect();*/ //Disabling inspect
