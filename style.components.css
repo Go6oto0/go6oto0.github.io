@@ -359,6 +359,11 @@
         cursor: pointer;
         box-shadow: #fff;
     }
+#tnt {
+    padding-top: 220px;
+    width: 300px;
+    height: 300px;
+}
 
 
 
