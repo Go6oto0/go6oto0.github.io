@@ -24,6 +24,7 @@ var cellsToReveal = 0;
 var audio = 0;
 var radarIsActive = false;
 var music = new Audio('./assets/sound/8-bit-dream-land-142093.mp3');
+music.loop = true;
 var cellRevealed = new Audio('./assets/sound/click.wav');
 var explosion = new Audio('./assets/sound/explosion.wav');
 var powerupPickup = new Audio('./assets/sound/pickupCoin.wav');
@@ -325,7 +326,6 @@ function cellTypeCheck(current) {
     current.El.classList.add("revealed");
     current.isRevealed = true;
     if (audio == 1) cellRevealed.play();
-    winCheck();
     if (current.isMine > 0) {
         if (audio == 1) explosion.play();
         minesCount--;
