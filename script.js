@@ -37,11 +37,11 @@ function init(level) {
         x = 10;
         y = 10;
         chestCount = 7;
-        minesCount = 20;
+        minesCount = 12;
         minesMaxCount = minesCount;
         undiscoveredMines = minesCount;
         health = 100;
-        remainingFlags = 20;
+        remainingFlags = 12;
     }
     setUICounters();
     /*disableInspect();*/ //Disabling inspect
@@ -325,6 +325,7 @@ function cellTypeCheck(current) {
     current.El.classList.add("revealed");
     current.isRevealed = true;
     if (audio == 1) cellRevealed.play();
+    winCheck();
     if (current.isMine > 0) {
         if (audio == 1) explosion.play();
         minesCount--;
