@@ -35,14 +35,14 @@ var radarSound = new Audio('./assets/sound/sonar-ping-95840.mp3')
 function init(level) {
     minefieldEl = document.querySelector("#minefield");
     if (level == "rock") {
-        x = 7;
-        y = 7;
+        x = 11;
+        y = 11;
         chestCount = 7;
-        minesCount = 10;
+        minesCount = 15;
         minesMaxCount = minesCount;
         undiscoveredMines = minesCount;
         health = 100;
-        remainingFlags = 10;
+        remainingFlags = minesCount;
     }
     setUICounters();
     /*disableInspect();*/ //Disabling inspect
@@ -345,6 +345,7 @@ function cellTypeCheck(current) {
         setHealth();
     }
     else if (current.isChest && current.visited && current.locked == false) {
+        revealedCount++;
         current.locked = true;
         var contentEl = current.El.children.item(1);
         if (audio == 1) powerupPickup.play();
@@ -379,6 +380,7 @@ function cellTypeCheck(current) {
                 timeInSeconds -= 20;
             }
             specialEffect = true;
+
         }
 
         //To do
